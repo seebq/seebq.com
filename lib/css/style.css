@@ -62,6 +62,7 @@ header .main p.title {
 	line-height: 1;
 	font-weight: 700;
 	font-family: "museo-slab-1","museo-slab-2",serif;
+	letter-spacing: -.1em;
 	text-transform: lowercase;
 }
 
@@ -83,9 +84,11 @@ header .main p.title span.tagline {
 	font-size: 18px;
 	font-weight: 700;
 	font-family: "museo-slab-1","museo-slab-2",serif;
+	letter-spacing: -.1em;
 	line-height: 48px;
 	text-transform: uppercase;
 	background: url(../images/bg.tagline.png) no-repeat center top;
+	text-shadow: 2px 2px 2px rgba(21,68,108,.25);
 	
 	position: relative;
 	top: -10px;

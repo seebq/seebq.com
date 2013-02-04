@@ -1,0 +1,780 @@
+<html xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office" xmlns="http://www.w3.org/TR/REC-html40">
+
+<head>
+<meta http-equiv="Content-Language" content="en-us">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta name="GENERATOR" content="Microsoft FrontPage 5.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<link rel="File-List" href="index_files/filelist.xml">
+
+<title>Charles Brian Quinn - CS4451 B - Project 3</title>
+<style>
+<!--
+ li.MsoNormal
+	{mso-style-parent:"";
+	margin-bottom:.0001pt;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	margin-left:0in; margin-right:0in; margin-top:0in}
+-->
+</style>
+<!--[if !mso]>
+<style>
+v\:*         { behavior: url(#default#VML) }
+o\:*         { behavior: url(#default#VML) }
+.shape       { behavior: url(#default#VML) }
+</style>
+<![endif]--><!--[if gte mso 9]>
+<xml><o:shapedefaults v:ext="edit" spidmax="1027"/>
+</xml><![endif]-->
+</head>
+
+<body>
+
+<table border="1" cellpadding="0" cellspacing="0" style="border-collapse: collapse" width="100%" id="AutoNumber1" bgcolor="#0000FF">
+  <tr>
+    <td width="27%"><font size="5" color="#FFFFFF">Charles Brian Quinn - CS4451 
+    B</font></td>
+  </tr>
+</table>
+<p><font size="5">Individual Project 3: Cylinders, Trees, and Shadows</font></p>
+<table border="1" cellpadding="0" cellspacing="0" style="border-collapse: collapse" width="100%" id="AutoNumber1" bgcolor="#C0C0C0">
+  <tr>
+    <td width="27%"><b>Shade a unit cone of radius 1 and height 1</b></td>
+  </tr>
+</table>
+<p>- Become familiar with gluCylinder()<br>
+- Use it to shade a cone with radius 1 and height 1</p>
+<a href="cone.gif">
+<img src="cone_sm.gif" border="0" width="200" height="200"></a> <br>
+&nbsp; <b><font size="2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; (click for larger 
+image)</font></b><p>In order to display a cone, we must use gluCylinder().&nbsp; 
+The gluCylinder() C specification is as follows:</p>
+<pre>	void <b>gluCylinder</b>(GLUquadricObj *<i>qobj</i>,
+                 GLdouble <i>baseRadius</i>,
+                 GLdouble <i>topRadius</i>,
+                 GLdouble <i>height</i>,
+                 GLint <i>slices</i>,
+                 GLint <i>stacks</i>)</pre>
+<p>We create a static quadric object pointer:</p>
+<pre>	GLUquadricObj *quadratic;</pre>
+<p>And in the init() procedure initialize the quadric object for use in our 
+gluCylinder() calls:</p>
+<pre>	quadratic = gluNewQuadric(); 
+	gluQuadricNormals(quadratic, GLU_SMOOTH);
+	gluQuadricTexture(quadratic, GL_TRUE); </pre>
+<p>To display the cone, we simply call gluCylinder with a base radius of 1, a 
+top radius of 0, and a height of 1 to make the cone:</p>
+<pre>	glMaterialfv(GL_FRONT_AND_BACK, GL_AMBIENT_AND_DIFFUSE, mat_blue);
+	gluCylinder(quadratic,<font color="#00FF00">1.0f</font>,<font color="#FF0000">0.0f</font>,1.0f,32,32);
+</pre>
+<table border="1" cellpadding="0" cellspacing="0" style="border-collapse: collapse" width="100%" id="AutoNumber1" bgcolor="#C0C0C0">
+  <tr>
+    <td width="27%"><b>Shade two different chairs</b></td>
+  </tr>
+</table>
+<p>- Use glTranslatef(), glScalef(), and glRotatef() to transform coordinate 
+systems and to make two chairs in different styles by drawing instances of the 
+cone. <br>
+- Show an image of a model containing both chairs side by side.</p>
+<p><a href="chairs.gif">
+<img src="chairs_sm.gif" border="0" width="200" height="200"></a> <br>
+&nbsp; <b><font size="2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; (click for larger 
+image)</font></b></p>
+<p>To make the chairs using cones, we use a series of translations, scaling, and 
+rotations.&nbsp; The following code constructs one of the legs of the chairs:</p>
+<pre>	/* seat legs */
+	glMaterialfv(GL_FRONT_AND_BACK, GL_AMBIENT_AND_DIFFUSE, mat_green);
+	glPushMatrix(); /* push curr matrix down stack and copy to top of stack */
+	glTranslatef(2.5, -2.5, 0); /* translate cylinder front and left. */
+	glScalef(0.15, 0.15, 1); /* scale to be narrow and tall */
+	gluCylinder(quadratic,1.0f,0.0f,1.0f,32,32);
+	glPopMatrix(); /* replace curr matrix with previously pushed matrix */</pre>
+<p>The use of the matrix stack makes it easier to translate and scale from the 
+original matrix (center).&nbsp; To create the chair backs the following code is 
+used to generate two cylinders facing each other (to simulate a disc):</p>
+<pre>	/* seat */
+	glPushMatrix();
+	glTranslatef(2.675, -2.675, 0.95); 
+	glScalef(0.35, 0.35, 0.10);
+	gluCylinder(quadratic,0.0f,1.0f,1.0f,32,32);
+	glPopMatrix();
+
+	glPushMatrix();
+	glTranslatef(2.675, -2.675, 1.10); 
+	glScalef(0.35, 0.35, 0.15);
+	gluCylinder(quadratic,1.0f,0.0f,1.0f,32,32);
+	glPopMatrix();</pre>
+<table border="1" cellpadding="0" cellspacing="0" style="border-collapse: collapse" width="100%" id="AutoNumber1" bgcolor="#C0C0C0">
+  <tr>
+    <td width="27%"><b>Shade two different trees</b></td>
+  </tr>
+</table>
+<p>- Create and render a tree using glPushMatrix() and glPopMatrix() and your own 
+variation of the recursive routine provided in 
+<a href="http://www.gvu.gatech.edu/~jarek/courses/4451&6491/08_Transforms.ppt">http://www.gvu.gatech.edu/~jarek/courses/4451&amp;6491/08_Transforms.ppt</a> <br>
+- Experiment with different parameters to create trees of different kind<br>
+- Show an image with two significantly different trees side by side.</p>
+<table border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111" width="100%" id="AutoNumber2" height="245">
+  <tr>
+    <td width="34%" height="245"><a href="tree.gif">
+<img src="tree_sm.gif" border="0" width="200" height="200"></a> <br>
+&nbsp; <b><font size="2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; (click for larger 
+    image)</font></b></td>
+    <td width="66%" height="245"><a href="tree2.gif">
+<img src="tree2_sm.gif" border="0" width="200" height="200"></a> <br>
+&nbsp; <b><font size="2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; (click for larger 
+    image)</font></b></td>
+  </tr>
+</table>
+<p>To generate the first (green) tree, a recursive procedure was implemented, 
+directly from the method used in class.</p>
+<pre>	/* draw a tree with an integer @rec # of recursions (branching) and using the unit
+	 * float @length specified  
+	 * adapted from lecture slides found at: 
+	 * http://www.gvu.gatech.edu/~jarek/courses/4451&amp;6491/08_Transforms.ppt */
+	void tree(int rec, float length)
+	{  
+  	   if (rec != 0) {
+    		/* draw cone of length of L along z-axis */
+    		gluCylinder(quadratic,0.1f,0.0f,length*1.0f,32,32);
+	    	glPushMatrix();
+    		glTranslatef(0.0, 0.0, 3*length/5);
+    		glRotatef(42, 1.0, 0.0, 0.0);
+    		glRotatef(63, 0.0, 0.0, 1.0);
+    		glScalef(0.72, 0.72, 0.72);
+    		tree(rec-1, length);
+    		glPopMatrix();
+
+		glPushMatrix();
+		glTranslatef(0.0, 0.0, 4*length/6);
+    		glRotatef(67, 0.0, 0.0, 1.0);
+    		glRotatef(32, 1.0, 0.0, 0.0);
+    		glRotatef(131, 0.0, 0.0, 1.0);
+    		glScalef(0.91, 0.91, 0.91);
+    		tree(rec-1, length);
+    		glPopMatrix();
+
+    		glPushMatrix();
+    		glTranslatef(0.0, 0.0, 5*length/7);
+    		glRotatef(-17, 0.0, 0.0, 1.0);
+    		glRotatef(26, 1.0, 0.0, 0.0);
+   		glRotatef(-33, 0.0, 0.0, 1.0);
+    		glScalef(0.79, 0.79, 0.79);
+    		tree(rec-1, length);
+    		glPopMatrix();
+  }  
+}</pre>
+<p>The tree took in the number of recursions (indicating a branching complexity level), and a unit length to be used to create 
+the branches at each level.&nbsp; To generate the green tree, a recursion level 
+of 5 and length of 1.5 was used.</p>
+<p>The red tree used several different values to produce a highly complex 
+branching tree.&nbsp; An extra &quot;branching&quot; was added to the tree code (4 sets of 
+translation, rotation, and scaling instead of 3) to generate an extra level of 
+complexity.&nbsp; Also, the branch values were altered to provide a more full 
+tree (angles increased in some areas and decreased in others).&nbsp; The level 
+of recursion was upped to a level of 7, and a unit length 1.8 was used to 
+produce the more complex tree.&nbsp; For full code, see the link at the bottom.</p>
+<p>Here are both trees together, using translation to place them on the scene.</p>
+<p><a href="trees.gif">
+<img src="trees_sm.gif" border="0" width="200" height="200"></a> <br>
+&nbsp; <b><font size="2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; (click for larger 
+image)</font></b></p>
+<pre>	/* display trees */
+	glMaterialfv(GL_FRONT_AND_BACK, GL_AMBIENT_AND_DIFFUSE, mat_green);
+	rec = 5;
+	glPushMatrix();
+	glTranslatef(0, -2.5, 0);
+	tree(rec, 1.5);
+	glPopMatrix();
+	
+	rec = 7;
+	glMaterialfv(GL_FRONT_AND_BACK, GL_AMBIENT_AND_DIFFUSE, mat_red);
+	glPushMatrix();
+	glTranslatef(0, 2.5, 0);
+	tree2(rec, 1.8);
+	glPopMatrix();</pre>
+<pre>&nbsp;</pre>
+<table border="1" cellpadding="0" cellspacing="0" style="border-collapse: collapse" width="100%" id="AutoNumber1" bgcolor="#C0C0C0">
+  <tr>
+    <td width="27%"><b>Part II:&nbsp; Make a picture of a cone with a floor 
+    shadow</b></td>
+  </tr>
+</table>
+<p>- Make a picture of a cone with a floor <b>shadow<br>
+&nbsp;&nbsp;&nbsp; </b>For a scene with the floor plane at z=0 and light in the 
+direction L, the shadow, <i>S</i>, of a vertex, <i>P</i>, is given by: <br>
+<span style="position: relative; top: 12.0pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <!--[if gte vml 1]><v:shapetype id="_x0000_t75"
+ coordsize="21600,21600" o:spt="75" o:preferrelative="t" path="m@4@5l@4@11@9@11@9@5xe"
+ filled="f" stroked="f">
+ <v:stroke joinstyle="miter"/>
+ <v:formulas>
+  <v:f eqn="if lineDrawn pixelLineWidth 0"/>
+  <v:f eqn="sum @0 1 0"/>
+  <v:f eqn="sum 0 0 @1"/>
+  <v:f eqn="prod @2 1 2"/>
+  <v:f eqn="prod @3 21600 pixelWidth"/>
+  <v:f eqn="prod @3 21600 pixelHeight"/>
+  <v:f eqn="sum @0 0 1"/>
+  <v:f eqn="prod @6 1 2"/>
+  <v:f eqn="prod @7 21600 pixelWidth"/>
+  <v:f eqn="sum @8 21600 0"/>
+  <v:f eqn="prod @7 21600 pixelHeight"/>
+  <v:f eqn="sum @10 21600 0"/>
+ </v:formulas>
+ <v:path o:extrusionok="f" gradientshapeok="t" o:connecttype="rect"/>
+ <o:lock v:ext="edit" aspectratio="t"/>
+</v:shapetype><v:shape id="_x0000_s1025" type="#_x0000_t75" style='width:77.25pt;
+ height:30pt'>
+ <v:imagedata src="index_files/image001.wmz" o:title=""/>
+</v:shape><![endif]--><![if !vml]><img border=0 width=103 height=40
+src="index_files/image002.gif" v:shapes="_x0000_s1025"><![endif]></span><!--[if gte mso 9]><xml>
+ <o:OLEObject Type="Embed" ProgID="Equation.3" ShapeID="_x0000_i1025" DrawAspect="Content" ObjectID="_1097400034">
+ </o:OLEObject>
+</xml><![endif]-->.&nbsp; <br>
+&nbsp;&nbsp;&nbsp;&nbsp; In matrix form this is </p>
+<p class="MsoNormal" style="margin-left:1.5in">
+<span style="position: relative; top: 33.0pt"><!--[if gte vml 1]><v:shape
+ id="_x0000_s1026" type="#_x0000_t75" style='width:132pt;height:1in'>
+ <v:imagedata src="index_files/image003.wmz" o:title=""/>
+</v:shape><![endif]--><![if !vml]><img border=0 width=176 height=96
+src="index_files/image004.gif" v:shapes="_x0000_s1026"><![endif]></span><!--[if gte mso 9]><xml>
+ <o:OLEObject Type="Embed" ProgID="Equation.3" ShapeID="_x0000_i1026" DrawAspect="Content" ObjectID="_1097400038">
+ </o:OLEObject>
+</xml><br>
+<![endif]-->with <br>
+<span style="position: relative; top: 3.0pt"><!--[if gte vml 1]><v:shape
+ id="_x0000_s1027" type="#_x0000_t75" style='width:42pt;height:14.25pt'>
+ <v:imagedata src="index_files/image005.wmz" o:title=""/>
+</v:shape><![endif]--><![if !vml]><img border=0 width=56 height=19
+src="index_files/image006.gif" v:shapes="_x0000_s1027"><![endif]></span><!--[if gte mso 9]><xml>
+ <o:OLEObject Type="Embed" ProgID="Equation.3" ShapeID="_x0000_i1027" DrawAspect="Content" ObjectID="_1097400042">
+ </o:OLEObject>
+</xml><br>
+<![endif]--><!--[if gte vml 1]><v:group
+ id="_x0000_s1028" style='position:absolute;margin-left:84pt;margin-top:2.25pt;
+ width:245.25pt;height:161.25pt;z-index:1' coordorigin="2493,3477" coordsize="4907,3198">
+ <v:shapetype id="_x0000_t202" coordsize="21600,21600" o:spt="202" path="m,l,21600r21600,l21600,xe">
+  <v:stroke joinstyle="miter"/>
+  <v:path gradientshapeok="t" o:connecttype="rect"/>
+ </v:shapetype><v:shape id="_x0000_s1029" type="#_x0000_t202" style='position:absolute;
+  left:2840;top:5997;width:600;height:678' filled="f" fillcolor="#bbe0e3"
+  stroked="f">
+  <v:textbox style='mso-fit-shape-to-text:t'>
+<![if !mso]>
+<table cellpadding="0" cellspacing="0" width="100%">
+  <tr>
+    <td><![endif]>
+    <div>
+      <p class="MsoNormal" style="mso-layout-grid-align:none;text-autospace:none">
+      <span style="font-size:24.0pt;mso-bidi-font-size:10.0pt;color:black">S<o:p></o:p></span></div>
+    <![if !mso]></td>
+  </tr>
+</table>
+<![endif]></v:textbox>
+ </v:shape><v:oval id="_x0000_s1030" style='position:absolute;left:4160;top:4557;
+  width:770;height:480;mso-wrap-style:none;v-text-anchor:middle' fillcolor="#bbe0e3"/>
+ <v:line id="_x0000_s1031" style='position:absolute;mso-wrap-style:none;
+  v-text-anchor:middle' from="2840,5997" to="7400,5997"/>
+ <v:line id="_x0000_s1032" style='position:absolute;flip:x;mso-wrap-style:none;
+  v-text-anchor:middle' from="3145,4732" to="4225,6009">
+  <v:stroke endarrow="block"/>
+ </v:line><v:shapetype id="_x0000_t10" coordsize="21600,21600" o:spt="10"
+  adj="6326" path="m@0,l0@0,0@2@0,21600@1,21600,21600@2,21600@0@1,xe">
+  <v:stroke joinstyle="miter"/>
+  <v:formulas>
+   <v:f eqn="val #0"/>
+   <v:f eqn="sum width 0 #0"/>
+   <v:f eqn="sum height 0 #0"/>
+   <v:f eqn="prod @0 2929 10000"/>
+   <v:f eqn="sum width 0 @3"/>
+   <v:f eqn="sum height 0 @3"/>
+   <v:f eqn="val width"/>
+   <v:f eqn="val height"/>
+   <v:f eqn="prod width 1 2"/>
+   <v:f eqn="prod height 1 2"/>
+  </v:formulas>
+  <v:path gradientshapeok="t" limo="10800,10800" o:connecttype="custom"
+   o:connectlocs="@8,0;0,@9;@8,@7;@6,@9" textboxrect="0,0,21600,21600;2700,2700,18900,18900;5400,5400,16200,16200"/>
+  <v:handles>
+   <v:h position="#0,topLeft" switch="" xrange="0,10800"/>
+  </v:handles>
+ </v:shapetype><v:shape id="_x0000_s1033" type="#_x0000_t10" style='position:absolute;
+  left:4160;top:4677;width:120;height:120;mso-wrap-style:none;v-text-anchor:middle'
+  fillcolor="#ef1f1d"/>
+ <v:shape id="_x0000_s1034" type="#_x0000_t10" style='position:absolute;left:3080;
+  top:5927;width:120;height:120;mso-wrap-style:none;v-text-anchor:middle'
+  fillcolor="#187534"/>
+ <v:line id="_x0000_s1035" style='position:absolute;flip:y;mso-wrap-style:none;
+  v-text-anchor:middle' from="5742,4103" to="6415,5038" strokeweight="1.5pt">
+  <v:stroke endarrow="block"/>
+ </v:line><v:shapetype id="_x0000_t183" coordsize="21600,21600" o:spt="183"
+  adj="5400" path="m21600,10800l@15@14@15@18xem18436,3163l@17@12@16@13xem10800,l@14@10@18@10xem3163,3163l@12@13@13@12xem,10800l@10@18@10@14xem3163,18436l@13@16@12@17xem10800,21600l@18@15@14@15xem18436,18436l@16@17@17@16xem10800@19qx@19,10800,10800@20@20,10800,10800@19xe">
+  <v:stroke joinstyle="miter"/>
+  <v:formulas>
+   <v:f eqn="sum 10800 0 #0"/>
+   <v:f eqn="prod @0 30274 32768"/>
+   <v:f eqn="prod @0 12540 32768"/>
+   <v:f eqn="sum @1 10800 0"/>
+   <v:f eqn="sum @2 10800 0"/>
+   <v:f eqn="sum 10800 0 @1"/>
+   <v:f eqn="sum 10800 0 @2"/>
+   <v:f eqn="prod @0 23170 32768"/>
+   <v:f eqn="sum @7 10800 0"/>
+   <v:f eqn="sum 10800 0 @7"/>
+   <v:f eqn="prod @5 3 4"/>
+   <v:f eqn="prod @6 3 4"/>
+   <v:f eqn="sum @10 791 0"/>
+   <v:f eqn="sum @11 791 0"/>
+   <v:f eqn="sum @11 2700 0"/>
+   <v:f eqn="sum 21600 0 @10"/>
+   <v:f eqn="sum 21600 0 @12"/>
+   <v:f eqn="sum 21600 0 @13"/>
+   <v:f eqn="sum 21600 0 @14"/>
+   <v:f eqn="val #0"/>
+   <v:f eqn="sum 21600 0 #0"/>
+  </v:formulas>
+  <v:path o:connecttype="rect" textboxrect="@9,@9,@8,@8"/>
+  <v:handles>
+   <v:h position="#0,center" xrange="2700,10125"/>
+  </v:handles>
+ </v:shapetype><v:shape id="_x0000_s1036" type="#_x0000_t183" style='position:absolute;
+  left:6560;top:3477;width:480;height:480;mso-wrap-style:none;v-text-anchor:middle'
+  fillcolor="#ffcc18"/>
+ <v:shape id="_x0000_s1037" type="#_x0000_t202" style='position:absolute;
+  left:3680;top:3957;width:600;height:678' filled="f" fillcolor="#bbe0e3"
+  stroked="f">
+  <v:textbox style='mso-next-textbox:#_x0000_s1037;mso-fit-shape-to-text:t'>
+<![if !mso]>
+<table cellpadding="0" cellspacing="0" width="100%">
+  <tr>
+    <td><![endif]>
+    <div>
+      <p class="MsoNormal" style="mso-layout-grid-align:none;text-autospace:none">
+      <span style="font-size:24.0pt;mso-bidi-font-size:10.0pt;color:black">P<o:p></o:p></span></div>
+    <![if !mso]></td>
+  </tr>
+</table>
+<![endif]></v:textbox>
+ </v:shape><v:shape id="_x0000_s1038" type="#_x0000_t202" style='position:absolute;
+  left:6320;top:4197;width:600;height:678' filled="f" fillcolor="#bbe0e3"
+  stroked="f">
+  <v:textbox style='mso-next-textbox:#_x0000_s1038;mso-fit-shape-to-text:t'>
+<![if !mso]>
+<table cellpadding="0" cellspacing="0" width="100%">
+  <tr>
+    <td><![endif]>
+    <div>
+      <p class="MsoNormal" style="mso-layout-grid-align:none;text-autospace:none">
+      <span style="font-size:24.0pt;mso-bidi-font-size:10.0pt;color:black">L<o:p></o:p></span></div>
+    <![if !mso]></td>
+  </tr>
+</table>
+<![endif]></v:textbox>
+ </v:shape><v:line id="_x0000_s1039" style='position:absolute;mso-wrap-style:none;
+  v-text-anchor:middle' from="3200,5997" to="3920,5997" strokeweight="2.25pt"/>
+ <v:line id="_x0000_s1040" style='position:absolute;flip:x;mso-wrap-style:none;
+  v-text-anchor:middle' from="3920,4870" to="4918,6009">
+  <v:stroke endarrow="block"/>
+ </v:line><v:line id="_x0000_s1041" style='position:absolute;flip:y' from="2867,4851"
+  to="2867,5973">
+  <v:stroke endarrow="block"/>
+ </v:line><v:shape id="_x0000_s1042" type="#_x0000_t202" style='position:absolute;
+  left:2493;top:4477;width:374;height:374' filled="f" stroked="f">
+  <v:textbox>
+<![if !mso]>
+<table cellpadding="0" cellspacing="0" width="100%">
+  <tr>
+    <td><![endif]>
+    <div>
+      <p class="MsoNormal">z</div>
+    <![if !mso]></td>
+  </tr>
+</table>
+<![endif]></v:textbox>
+ </v:shape></v:group><![endif]--><![if !vml]><span style='mso-ignore:vglayout;
+position:absolute;z-index:1;left:266px;top:3711px;width:330px;height:219px'><img
+width=330 height=219 src="index_files/image007.gif" v:shapes="_x0000_s1028 _x0000_s1029 _x0000_s1030 _x0000_s1031 _x0000_s1032 _x0000_s1033 _x0000_s1034 _x0000_s1035 _x0000_s1036 _x0000_s1037 _x0000_s1038 _x0000_s1039 _x0000_s1040 _x0000_s1041 _x0000_s1042"></span><![endif]></p>
+<p>&nbsp;</p>
+<p class="MsoNormal" style="margin-left:.75in">&nbsp;</p>
+<p class="MsoNormal" style="margin-left:.75in">&nbsp;</p>
+<p class="MsoNormal" style="margin-left:.75in">&nbsp;</p>
+<p class="MsoNormal" style="margin-left:.75in">&nbsp;</p>
+<p class="MsoNormal" style="margin-left:.75in">&nbsp;</p>
+<p>- Use glMultMatrix() to multiply the current matrix with this shadow matrix 
+and use it to paint the floor shadow of&nbsp; a cone <br>
+- Write a function that calls a ShadeScene function twice, once to render the 
+scene and once to render its floor shadow (make sure that the shadow is in a 
+uniform dark color with a non-shiny surface, while the object in the scene are 
+displayed with their own colors.<br>
+- Demonstrate it by rendering a cylinder and its floor shadow.<br>
+- Make another image with the light in a different direction</p>
+<table border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111" width="100%" id="AutoNumber3" height="245">
+  <tr>
+    <td width="26%" height="245"><a href="cylinder1.gif">
+<img src="cylinder1_sm.gif" border="0" width="200" height="200"></a> <br>
+&nbsp; <b><font size="2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; (click for larger 
+    image)</font></b></td>
+    <td width="26%" height="245"><a href="cylinder2.gif">
+<img src="cylinder2_sm.gif" border="0" width="200" height="200"></a> <br>
+&nbsp; <b><font size="2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; (click for larger 
+    image)</font></b></td>
+    <td width="122%" height="245"><a href="cylinder3.gif">
+<img src="cylinder3_sm.gif" border="0" width="200" height="200"></a> <br>
+&nbsp; <b><font size="2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; (click for larger 
+    image)</font></b></td>
+  </tr>
+</table>
+<p>To generate the cylinder with shadow, a DrawScene() (rather than ShadeScene) 
+function was implemented.&nbsp; The draw_scene() function takes in a boolean 0 
+or 1 to determine whether or not to shade.&nbsp; To draw a scene with shadows, 
+one must call: draw_scene(0) to draw the objects, and then draw_scene(1) to draw 
+the shadows with the transformed matrix.</p>
+<pre>/* draw_scene takes in an int to determine whether or not to draw objects
+ * or shadows.  0 will draw objects, 1 will draw shadows. */
+void draw_scene(int shade)
+{
+        /* variable for recursion level */
+        int rec = 0;
+
+        GLfloat mat_red[] = {1.0, 0.0, 0.0, 0.0};
+        GLfloat mat_green[] = {0.0, 1.0, 0.0, 0.0};
+        GLfloat mat_blue[]  = {0.0, 0.0, 1.0, 0.0};
+        GLfloat mat_black[] = {0.0, 0.0, 0.0, 0.0};
+        GLfloat mat_brown[]  = {0.43, 0.16, 0.08, 0.0};
+        GLfloat mat_dark_green[]  = {0.23, 0.43, 0.21, 0.0};
+
+	if (shade == 0) {
+	  glMaterialfv(GL_FRONT_AND_BACK, GL_AMBIENT_AND_DIFFUSE, mat_blue);
+	}
+	else if (shade == 1) {
+	  glPushMatrix();
+	  glMaterialfv(GL_FRONT_AND_BACK, GL_SPECULAR, mat_black);
+	  glMaterialfv(GL_FRONT_AND_BACK, GL_SHININESS, mat_black);
+	  glMaterialfv(GL_FRONT_AND_BACK, GL_AMBIENT_AND_DIFFUSE, mat_black);
+	  glMultMatrixf(m); /* apply shading matrix */
+	}
+
+	glPushMatrix();
+	glTranslatef(2.0, -2.0, 0);
+	glRotatef(20, 0, 0, 1);
+	draw_chair1();
+	glPopMatrix();
+	
+	if (shade == 0) {
+	  glMaterialfv(GL_FRONT_AND_BACK, GL_AMBIENT_AND_DIFFUSE, mat_red);
+	}
+
+	/* code snip - draw more objects, trees, chairs, etc. */
+
+	if (shade == 1) {
+	  glPopMatrix();
+	}
+}</pre>
+<p>Note the use of the glMultMatrix(m) that multiplies the current matrix by the 
+shadow matrix, m:</p>
+<pre>        /* this is the shadow matrix.  It has been implemented correctly.
+         * OpenGL has a funky ordering for rows and columns
+         * use this ordering for rows and columns.  The identity matrix with Mr,c = M3,3 = 0;
+         */
+        m[0]= 1; m[4]= 0; m[8] = -(light1_x/light1_z); m[12]= 0;
+        m[1]= 0; m[5]= 1; m[9] = -(light1_y/light1_z); m[13]= 0;
+        m[2]= 0; m[6]= 0; m[10]= 0;                    m[14]= 0;
+        m[3]= 0; m[7]= 0; m[11]= 0;                    m[15]= 1;</pre>
+<p>&nbsp;The images above are made using a light source at (10, 10, 10), then at 
+(0, 45, 10), and (13, -25, 10) respectively.</p>
+<table border="1" cellpadding="0" cellspacing="0" style="border-collapse: collapse" width="100%" id="AutoNumber1" bgcolor="#C0C0C0">
+  <tr>
+    <td width="27%"><b>Floor tiles texture</b></td>
+  </tr>
+</table>
+<p>- Use a large polygon on the floor and a checkerboard texture (of your 
+choice) to create the impression of tiles on the floor.<br>
+- Make sure that the tiles are slightly under the shadows.</p>
+<p><a href="texture_bmp.gif">
+<img src="texture_bmp_sm.gif" border="0" width="200" height="200"></a> <br>
+&nbsp; <b><font size="2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; (click for larger 
+image)</font></b></p>
+<p>Using this image:</p>
+<p><img src="checkerboard.gif" border="0" width="128" height="128"><br>
+<a href="checkerboard.bmp">checkerboard.bmp</a></p>
+<p>For full code to implement a textured image, see
+<a href="http://www2.york.ac.uk/services/cserv/sw/graphics/OPENGL/L16.c">
+http://www2.york.ac.uk/services/cserv/sw/graphics/OPENGL/L16.c</a>.&nbsp; This 
+link is to a class website on graphics, with similar work on textured images.&nbsp; 
+Basically, the image is loaded using the BMPloader.c code, also provided and 
+credited below, as a texture map.&nbsp; The code necessary is that to load the 
+texture and enable it using&nbsp; glEnable(GL_TEXTURE_2D), and to draw the 
+coordinates with the glTexCoord2f(x, y) before drawing the vertices of our quad 
+for the floor.</p>
+<pre>/* display tiles */
+/* code provided by Rob Fletcher 2001 
+* http://www2.york.ac.uk/services/cserv/sw/graphics/OPENGL/L16.c
+*/
+GLvoid LoadTexture(GLvoid)
+{ 
+   /* code snip */
+}
+</pre>
+<p>The code to implement the textured floor without a bmp texture image was 
+already provided in the p3 sample code.&nbsp; See below for links.</p>
+<table border="1" cellpadding="0" cellspacing="0" style="border-collapse: collapse" width="100%" id="AutoNumber1" bgcolor="#C0C0C0">
+  <tr>
+    <td width="27%"><b>Put It All Together</b></td>
+  </tr>
+</table>
+<p>- Make a garden scene with some trees and some chairs arranged in patterns<br>
+- Use the tiles floor<br>
+- Add shadows for everything<br>
+- Make several images showing how the shadows vary throughout the day</p>
+<table border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111" width="100%" id="AutoNumber4" height="245">
+  <tr>
+    <td width="34%" height="245"><a href="garden1.gif">
+<img src="garden1_sm.gif" border="0" width="200" height="200"></a> <br>
+&nbsp; <b><font size="2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; (click for larger 
+    image)</font></b></td>
+    <td width="66%" height="245"><a href="garden2.gif">
+<img src="garden2_sm.gif" border="0" width="200" height="200"></a> <br>
+&nbsp; <b><font size="2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; (click for larger 
+    image)</font></b></td>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111" width="100%" id="AutoNumber5" height="245">
+  <tr>
+    <td width="34%" height="245"><a href="garden3.gif">
+<img src="garden3_sm.gif" border="0" width="200" height="200"></a> <br>
+&nbsp; <b><font size="2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; (click for larger 
+    image)</font></b></td>
+    <td width="66%" height="245"><a href="garden4.gif">
+<img src="garden4_sm.gif" border="0" width="200" height="200"></a> <br>
+&nbsp; <b><font size="2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; (click for larger 
+    image)</font></b></td>
+  </tr>
+</table>
+<p>The entire scene is simply rendered in the draw_scene() procedure as series 
+of calls to functions that draw objects.&nbsp; The final draw_scene() function 
+is as follows:</p>
+<pre>/* draw_scene takes in an int to determine whether or not to draw objects
+ * or shadows.  0 will draw objects, 1 will draw shadows. */
+void draw_scene(int shade)
+{
+        /* variable for recursion level */
+        int rec = 0;
+
+        GLfloat mat_red[] = {1.0, 0.0, 0.0, 0.0};
+        GLfloat mat_green[] = {0.0, 1.0, 0.0, 0.0};
+        GLfloat mat_blue[]  = {0.0, 0.0, 1.0, 0.0};
+        GLfloat mat_black[] = {0.0, 0.0, 0.0, 0.0};
+        GLfloat mat_brown[]  = {0.43, 0.16, 0.08, 0.0};
+        GLfloat mat_dark_green[]  = {0.23, 0.43, 0.21, 0.0};
+
+	if (shade == 0) {
+	  glMaterialfv(GL_FRONT_AND_BACK, GL_AMBIENT_AND_DIFFUSE, mat_blue);
+	}
+	else if (shade == 1) {
+	  glPushMatrix();
+	  glMaterialfv(GL_FRONT_AND_BACK, GL_SPECULAR, mat_black);
+	  glMaterialfv(GL_FRONT_AND_BACK, GL_SHININESS, mat_black);
+	  glMaterialfv(GL_FRONT_AND_BACK, GL_AMBIENT_AND_DIFFUSE, mat_black);
+	  glMultMatrixf(m); /* apply shading matrix */
+	}
+
+	glPushMatrix();
+	glTranslatef(2.0, -2.0, 0);
+	glRotatef(20, 0, 0, 1);
+	draw_chair1();
+	glPopMatrix();
+	
+	if (shade == 0) {
+	  glMaterialfv(GL_FRONT_AND_BACK, GL_AMBIENT_AND_DIFFUSE, mat_red);
+	}
+	glPushMatrix();
+	glTranslatef(-1.75, 0.25, 0);
+	glRotatef(-20, 0, 0, 1);
+	draw_chair2();
+	glPopMatrix();
+
+	if (shade == 0) {
+	  glMaterialfv(GL_FRONT_AND_BACK, GL_AMBIENT_AND_DIFFUSE, mat_green);
+	}
+	glPushMatrix();
+	glTranslatef(-1.0, -2.0, 0);
+	glRotatef(40, 0, 0, 1);
+	draw_chair2();
+	glPopMatrix();
+
+	if (shade == 0) {
+	  glMaterialfv(GL_FRONT_AND_BACK, GL_AMBIENT_AND_DIFFUSE, mat_green);
+	}
+	glPushMatrix();
+	glTranslatef(-1.75, -2.0, 0);
+	glRotatef(-50, 0, 0, 1);
+	draw_chair1();
+	glPopMatrix();
+
+	if (shade == 0) {
+	  glMaterialfv(GL_FRONT_AND_BACK, GL_AMBIENT_AND_DIFFUSE, mat_brown);
+	}
+	rec = 7;
+	glPushMatrix();
+	glTranslatef(0, -0.5, 0);
+	tree2(rec, 1.8);
+	glPopMatrix();
+
+	if (shade == 0) {
+	  glMaterialfv(GL_FRONT_AND_BACK, GL_AMBIENT_AND_DIFFUSE, mat_dark_green);
+	}
+	rec = 6;
+	glPushMatrix();
+	glTranslatef(-3.0, 3.0, 0);
+	tree(rec, 1.1);
+	glPopMatrix();
+
+	if (shade == 0) {
+	  glMaterialfv(GL_FRONT_AND_BACK, GL_AMBIENT_AND_DIFFUSE, mat_dark_green);
+	}
+	rec = 7;
+	glPushMatrix();
+	glTranslatef(-3.0, -3.5, 0);
+	tree(rec, 1.5);
+	glPopMatrix();
+
+	if (shade == 0) {
+	  glMaterialfv(GL_FRONT_AND_BACK, GL_AMBIENT_AND_DIFFUSE, mat_brown);
+	}
+	rec = 6;
+	glPushMatrix();
+	glTranslatef(3.0, -3.0, 0);
+	glRotatef(-90, 0, 0, 1);
+	tree(rec, 1.3);
+	glPopMatrix();
+
+	if (shade == 0) {
+	  glMaterialfv(GL_FRONT_AND_BACK, GL_AMBIENT_AND_DIFFUSE, mat_dark_green);
+	}
+	rec = 6;
+	glPushMatrix();
+	glTranslatef(3.0, 3.0, 0);
+	glRotatef(90, 0, 0, 1);
+	tree(rec, 1.5);
+	glPopMatrix();
+
+	if (shade == 1) {
+	  glPopMatrix();
+	}
+
+</pre>
+<p>The images above show the light source at different directions to simulate 
+different times of the day.&nbsp; One shows late sunset, another with sun at 
+high noon (shadow straight down) and others with the light source in between.</p>
+<table border="1" cellpadding="0" cellspacing="0" style="border-collapse: collapse" width="100%" id="AutoNumber1" bgcolor="#C0C0C0">
+  <tr>
+    <td width="27%"><b>View Control</b></td>
+  </tr>
+</table>
+<p>- Make 3 images of the garden from different directions (no roll).</p>
+<table border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111" width="100%" id="AutoNumber6" height="245">
+  <tr>
+    <td width="34%" height="245"><a href="garden_view1.gif">
+<img src="garden_view1_sm.gif" border="0" width="200" height="200"></a> <br>
+&nbsp; <b><font size="2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; (click for larger 
+    image)</font></b></td>
+    <td width="66%" height="245"><a href="garden_view2.gif">
+<img src="garden_view2_sm.gif" border="0" width="200" height="200"></a> <br>
+&nbsp; <b><font size="2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; (click for larger 
+    image)</font></b></td>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111" width="100%" id="AutoNumber7" height="245">
+  <tr>
+    <td width="34%" height="245"><a href="garden_view3.gif">
+<img src="garden_view3_sm.gif" border="0" width="200" height="200"></a> <br>
+&nbsp; <b><font size="2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; (click for larger 
+    image)</font></b></td>
+    <td width="66%" height="245"><a href="garden_view4.gif">
+<img src="garden_view4_sm.gif" border="0" width="200" height="200"></a> <br>
+&nbsp; <b><font size="2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; (click for larger 
+    image)</font></b></td>
+  </tr>
+</table>
+<p>To generate the garden views, I implemented a form of view control.&nbsp; I 
+also implemented a way to change the lighting direction.</p>
+<p>To move the light source while the program is running, one can use:<br>
+w and s to move the light source's x value up and down.<br>
+a and d to move the light source's y value up and down.</p>
+<p>To move the view, in this case the eye_point, one can use:<br>
+j and l to move the eye point's x value up and down.<br>
+i and k to move the eye point's y value up and down.<br>
+u and o to move the eye point's z value up and down. </p>
+<p>This allows one to generate all sorts of scenes from inside the program.&nbsp; 
+One can increase the y value of the light to make it look like a sunset, while 
+moving the view towards the west to see how the trees become darker on the side 
+closer to the shadows.&nbsp; The code to change the values was placed inside the 
+keyboard GLUT function, and the glutPostRedisplay() called at the end.&nbsp; The 
+eyepoint code is:</p>
+<pre>        /* multiplies the current matrix by a tranformation matrix that puts the eyepoint 
+         * at <eye_x,eye_y,eye_z>, center of the image at <0,0,0>, and up vector of <0,0,1> (z-axis). */
+        gluLookAt(eye_x,eye_y,eye_z, 0,0,0, 0,0,1); 
+</pre>
+<p>Unfortuantely, the complexity of the scene makes it hard to do smooth 
+rendering, upon multiple view changes, it takes a few seconds to render.&nbsp; 
+More limitations are discussed below.</p>
+<table border="1" cellpadding="0" cellspacing="0" style="border-collapse: collapse" width="100%" id="AutoNumber1" bgcolor="#C0C0C0">
+  <tr>
+    <td width="27%"><b>Limitations / Unrealistic Aspects</b></td>
+  </tr>
+</table>
+<p>The goal of computer graphics is to generate realistic looking scenes quickly 
+and efficiently.&nbsp; One of the main goals is to mimic the real world, and we 
+do this by applying all sorts of neat tricks, like shadows, lights, textures, 
+and complex objects.&nbsp; In this project, a complex garden scene was created, 
+however, the scene contains some limitations that make it seem unrealistic.</p>
+<p>The objects themselves were created using cones and cylinders.&nbsp; Objects 
+in the real world may often resemble spheres, boxes, and even more complex 
+objects.&nbsp; Using cones to render all objects will greatly reduce realistic 
+image production.&nbsp; Even using an object like a caplet allows for some 
+complexity, but still objects exist that are not comprised of basic shapes--they 
+themselves are basic shapes.&nbsp; The cones work well to generate trees, 
+however, the trees themselves have no real collision detection.&nbsp; The 
+branches on greater recursion levels and complexity levels actually collide with 
+each other and grow into each other.&nbsp; This does not happen in the real 
+world.&nbsp; Objects may also collide, without repercussions.&nbsp; Chairs may 
+hit backs, or other objects and trees.</p>
+<p>The main limitation is that of the shadows only on the floor.&nbsp; Our 
+current method for implementing the shadows only generates a shadow on the 
+floor, not on other objects.&nbsp; It does not take into account any other 
+objects combination of shadows, but only generates every shadow as a black 
+texture on the floor.&nbsp; Also, the shadow is only from one light source.&nbsp; 
+We cannot generate multiple transparent shadows from many angles with the 
+current code and implementation.&nbsp; We could add the ability to detect if a 
+shadow falls on a surface, or we could simply use a different form of shadow 
+calculation.&nbsp; We could handle all the cases where a shadow fell on a object 
+by using detection.&nbsp; For instance, we could generate our shadow and compare 
+it to all the objects we have created.&nbsp; We could then use a form of texture 
+application to let the object display the shadow.&nbsp; As of now, the code 
+cannot be made to display shadows on objects easily.</p>
+<p>Other unrealistic aspects are the use of single colors and textures, and the 
+apparent floating achieved by only displaying a floor.&nbsp; No background or 
+sky was used, so the objects have a distant &quot;floating&quot; aspect that implies they 
+are very unrealistic.&nbsp; The trees are also somewhat uniform, and do not show 
+signs of &quot;randomness,&quot; what we associate with nature.&nbsp; No two trees in 
+nature look alike, yet all of ours differ only in rotation, translation, 
+recursion/complexity levels, and sizes of branches.<br>
+&nbsp;</p>
+<table border="1" cellpadding="0" cellspacing="0" style="border-collapse: collapse" width="100%" id="AutoNumber1" bgcolor="#C0C0C0">
+  <tr>
+    <td width="27%"><b>Full Source Code</b></td>
+  </tr>
+</table>
+<p><a href="Makefile">Makefile</a><br>
+<a href="p3.c">p3.c</a><br>
+<a href="BMPloader.c">BMPloader.c</a><br>
+<a href="Quinn_Charles_3.tar">Quinn_Charles_3.tar</a> - archive of all files 
+including pictures</p>
+<hr>
+<p><i>Date Posted / Last Updated:  Tuesday, 29 October 2002,  2:55 EST<br>
+by Charles Brian Quinn <a href="mailto:gte430p@mail.gatech.edu">gte430p@mail.gatech.edu</a></i>
+
+</body>
+
+</html>

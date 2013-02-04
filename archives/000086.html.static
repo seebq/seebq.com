@@ -1,0 +1,164 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<meta name="generator" content="http://www.movabletype.org/" />
+
+<title>seebq.com - shameless self promotion: totally new server</title>
+
+<link rel="stylesheet" href="http://www.seebq.com/styles-site.css" type="text/css" />
+<link rel="alternate" type="application/rss+xml" title="RSS" href="http://www.seebq.com/index.rdf" />
+<link rel="alternate" type="application/atom+xml" title="Atom" href="http://www.seebq.com/atom.xml" />
+
+<link rel="start" href="http://www.seebq.com/" title="Home" />
+<link rel="prev" href="http://www.seebq.com/archives/000083.html" title="web wandering" />
+
+<link rel="next" href="http://www.seebq.com/archives/000123.html" title="blogs and galleries" />
+
+
+
+
+
+
+
+</head>
+
+<body>
+
+<div id="banner">
+<img src="images/seebq_title.gif" width="456" height="79" border="0" />
+</div>
+
+<div id="container">
+
+<div class="blog">
+
+<div id="menu">
+<p align="right">
+<a href="http://www.seebq.com/archives/000083.html">« web wandering</a> |
+
+<a href="http://www.seebq.com/">Main</a>
+| <a href="http://www.seebq.com/archives/000123.html">blogs and galleries »</a>
+
+</p>
+</div>
+
+<h2>September 10, 2003</h2>
+
+<h3>totally new server</h3>
+
+<p>seebq.com is getting more l33t every day!</p>
+
+<div id="a000086more"><div id="more">
+<p>So, Georgia Tech (good ole Ma Tech) finally deleted me from existence.  Without proper warning, either.  My e-mail account, my web server, and all my files are gone, gone, gone.  Thanks for shafting me again, even after I graduated, Ma Tech!</p>
+
+<p>Anywho, enough of the griping, I went out and joined the big leagues, and bought a self-managed dedicated server.  As you can tell, it's set up pretty l33t (elite), and I upgraded a LOT of the software.  The movabletype is new, the gallery is even newer, and I'm even doing real DNS (and seebq.com has its own IP-based hosting! wu-hahaha)....</p>
+
+<p>Alright, just thought I'd update ya.  Guess I gotta go update the server specs now - since this new machine is even sweeter.  I got 80GB to fill up....</p>
+
+<p>y'all come back now ya here?</p>
+</div></div>
+
+<p class="posted">Posted by seebq at September 10, 2003 11:08 AM</p>
+
+
+
+
+<h2 id="comments">Comments</h2>
+
+<div id="c79">
+<p>LIVE FROM NEW YORK IT'S SATURDAY NIGHT!</p>
+</div>
+<p class="posted">Posted by: <a target="_blank" title="http://www.elfurioso.com" href="http://www.seebq.com/cgi-bin/spam-sucks-dont-do-it.cgi?__mode=red;id=79">Cody</a>  at September 19, 2003 04:31 PM</p>
+<div id="c127">
+<p>I love Brian Quinn.   Brian Quinn is the hottest guy alive.  I want to be Brian Quinn when I grow up.</p>
+
+<p>All I want for Christmas is Brian Quinn.</p>
+
+<p>Thank you.</p>
+</div>
+<p class="posted">Posted by: <a target="_blank" title="http://www.adamkirk.com" href="http://www.seebq.com/cgi-bin/spam-sucks-dont-do-it.cgi?__mode=red;id=127">Adam</a>  at October 23, 2003 08:57 PM</p>
+<div id="c324">
+<p>I want Brian Quinn......to get my website up!!</p>
+</div>
+<p class="posted">Posted by: <a href="mailto&#58;coachfitz63&#64;yahoo&#46;com">Fitz</a>  at March 31, 2004 05:02 PM</p>
+
+
+
+
+<h2>Post a comment</h2>
+
+
+<div id="thanks">
+<p>Thanks for signing in, 
+<script type="text/javascript" src="http://www.seebq.com/cgi-bin/spam-sucks-dont-do-it.cgi?__mode=cmtr_name_js"></script><script>document.write(commenter_name);</script>.
+Now you can comment. (<a href="http://www.seebq.com/cgi-bin/spam-sucks-dont-do-it.cgi?__mode=handle_sign_in&static=1&entry_id=86&logout=1">sign out</a>)</p>
+
+(If you haven't left a comment here before, you may need to be approved by the site owner before your comment will appear. Until then, it won't appear on the entry. Thanks for waiting.)
+
+<form method="post" action="http://www.seebq.com/cgi-bin/spam-sucks-dont-do-it.cgi" name="comments_form" onsubmit="if (this.bakecookie[0].checked) rememberMe(this)">
+<input type="hidden" name="static" value="1" />
+<input type="hidden" name="entry_id" value="86" />
+
+<p><label for="url">URL:</label><br />
+<input tabindex="1" type="text" name="url" id="url" />
+Remember me?
+<input type="radio" id="remember" name="bakecookie" /><label for="remember">Yes</label><input type="radio" id="forget" name="bakecookie" onclick="forgetMe(this.form)" value="Forget Info" style="margin-left: 15px;" /><label for="forget">No</label><br style="clear: both;" />
+
+</p>
+
+<p><label for="text">Comments:</label><br />
+<textarea tabindex="2" id="text" name="text" rows="10" cols="50"></textarea></p>
+
+<div align="center">
+<input type="submit" tabindex="3" name="preview" value=" Preview " />
+<input style="font-weight: bold;" tabindex="4" type="submit" name="post" value=" Post " />
+</div>
+</form>
+
+</div>
+
+<script language="javascript" type="text/javascript">
+<!--
+if (commenter_name) {
+    document.getElementById('thanks').style.display = 'block';
+} else {
+    document.write('You are not signed in. You need to be registered to comment on this site. <a href="https://www.typekey.com/t/typekey/login?&t=h0bKzm04aok5Cy2hxBrX&v=1&_return=http://www.seebq.com/cgi-bin/spam-sucks-dont-do-it.cgi%3f__mode=handle_sign_in%26static=1%26entry_id=86"> Sign in</a>');
+    document.getElementById('thanks').style.display = 'none';
+}
+// -->
+</script>
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" language="javascript">
+<!--
+if (document.comments_form.email != undefined)
+    document.comments_form.email.value = getCookie("mtcmtmail");
+if (document.comments_form.author != undefined)
+    document.comments_form.author.value = getCookie("mtcmtauth");
+if (document.comments_form.url != undefined)
+    document.comments_form.url.value = getCookie("mtcmthome");
+if (getCookie("mtcmtauth") || getCookie("mtcmthome")) {
+    document.comments_form.bakecookie[0].checked = true;
+} else {
+    document.comments_form.bakecookie[1].checked = true;
+}
+//-->
+</script>
+
+
+
+
+</div>
+</div>
+
+</body>
+</html>

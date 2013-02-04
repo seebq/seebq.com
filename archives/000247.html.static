@@ -1,0 +1,195 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<meta name="generator" content="http://www.movabletype.org/" />
+
+<title>seebq.com - shameless self promotion: time for a shoutcast update</title>
+
+<link rel="stylesheet" href="http://www.seebq.com/styles-site.css" type="text/css" />
+<link rel="alternate" type="application/rss+xml" title="RSS" href="http://www.seebq.com/index.rdf" />
+<link rel="alternate" type="application/atom+xml" title="Atom" href="http://www.seebq.com/atom.xml" />
+
+<link rel="start" href="http://www.seebq.com/" title="Home" />
+<link rel="prev" href="http://www.seebq.com/archives/000246.html" title="dual tuner mythtv and fixes" />
+
+<link rel="next" href="http://www.seebq.com/archives/000248.html" title="performance indexing" />
+
+
+
+
+
+
+
+</head>
+
+<body>
+
+<div id="banner">
+<img src="images/seebq_title.gif" width="456" height="79" border="0" />
+</div>
+
+<div id="container">
+
+<div class="blog">
+
+<div id="menu">
+<p align="right">
+<a href="http://www.seebq.com/archives/000246.html">« dual tuner mythtv and fixes</a> |
+
+<a href="http://www.seebq.com/">Main</a>
+| <a href="http://www.seebq.com/archives/000248.html">performance indexing »</a>
+
+</p>
+</div>
+
+<h2>January 12, 2005</h2>
+
+<h3>time for a shoutcast update</h3>
+
+<p>SANS report reveals Shoutcast DNS Server has a security issue:</p>
+
+<p>(2) HIGH: Nullsoft SHOUTcast Server Format String Vulnerability<br />
+Affected:<br />
+SHOUTcast version 1.9.4 and prior</p>
+
+<p>Description: SHOUTcast Distributed Network Audio Server (DNAS) is a<br />
+popularly used free audio streaming server for Windows and UNIX<br />
+platforms. The server contains a format string vulnerability. The flaw<br />
+can be triggered by an HTTP request to access a media filename<br />
+containing format string characters such as "%x.mp3", and exploited to<br />
+execute arbitrary code on the SHOUTcast server. Exploit code to leverage<br />
+this flaw on Linux SHOUTcast servers is publicly available.</p>
+
+<p>Status: Vendor confirmed, upgrade to version 1.9.5.</p>
+
+<p>Council Site Actions: The affected software is not in production or<br />
+widespread use, or is not officially supported at any of the council<br />
+sites. They reported that no action was necessary.</p>
+
+<p>References:<br />
+<a href="http://www.securityfocus.com/archive/1/385350/2004-12-18/2004-12-24/0">Posting by Damian Put</a><br />
+<a href="http://www.k-otik.com/exploits/20041223.SHOUTcast.c.php">Exploit Code</a><br />
+<a href="http://forums.winamp.com/showthread.php?s=16d073f61b6c7e99d46c9fffe24ea5aa&threadid=202936">Vulnerability Discussion on SHOUTcast Mailing List</a><br />
+<a href="http://www.shoutcast.com/support/docs/docs.phtml?filenumber=80&language=english&layout=normal&prevlayout=normal">SHOUTcast DNAS Doc</a><br />
+<a href="http://www.securityfocus.com/bid/12096">SecurityFocus BID</a></p>
+
+<p>So, my little shoutcast, which, has been running for, months, now, is due for a little restart.  Gotta love these kind of statistics.  Know any Windows servers that have been running for 163 days?</p>
+
+<pre>
+ 12:49am  up 163 days, 21:12,  1 user,  load average: 0.25, 1.17, 1.54
+110 processes: 106 sleeping, 4 running, 0 zombie, 0 stopped
+CPU states:  0.1% user,  0.2% system,  0.0% nice,  0.1% idle
+Mem:   514672K av,  503096K used,   11576K free,       0K shrd,   51364K buff
+Swap: 1028148K av,  103308K used,  924840K free                  226448K cached
+  PID USER     PRI  NI  SIZE  RSS SHARE STAT %CPU %MEM   TIME COMMAND
+15697 root      15   0 52152 3996   828 S    15.2  0.7 24072m sc_trans_linux
+ 5273 root      16   0  1068 1068   824 R     3.8  0.2   0:00 top
+    1 root      15   0   472  436   412 S     0.0  0.0   0:08 init
+    2 root      15   0     0    0     0 SW    0.0  0.0   0:00 keventd
+    3 root      15   0     0    0     0 SW    0.0  0.0   0:00 kapmd
+    4 root      34  19     0    0     0 SWN   0.0  0.0   0:00 ksoftirqd_CPU0
+    5 root      15   0     0    0     0 SW    0.0  0.0   1:18 kswapd
+    6 root      15   0     0    0     0 SW    0.0  0.0   0:00 bdflush
+    7 root      15   0     0    0     0 SW    0.0  0.0   0:03 kupdated
+    8 root      25   0     0    0     0 SW    0.0  0.0   0:00 mdrecoveryd
+   12 root      15   0     0    0     0 SW    0.0  0.0  78:06 kjournald
+  133 root      15   0     0    0     0 SW    0.0  0.0   0:00 kjournald
+  475 root      16   0   548  512   472 S     0.0  0.0  31:14 syslogd
+  480 root      15   0   432  372   372 S     0.0  0.0   0:00 klogd
+  582 named     15   0  5152 4976  1644 S     0.0  0.9   0:00 named
+  584 named     15   0  5152 4976  1644 S     0.0  0.9   0:00 named
+  585 named     15   0  5152 4976  1644 S     0.0  0.9  15:38 named
+</pre>
+
+<div id="a000247more"><div id="more">
+
+</div></div>
+
+<p class="posted">Posted by seebq at January 12, 2005 12:38 AM</p>
+
+
+
+
+<h2 id="comments">Comments</h2>
+
+
+
+
+
+<h2>Post a comment</h2>
+
+
+<div id="thanks">
+<p>Thanks for signing in, 
+<script type="text/javascript" src="http://www.seebq.com/cgi-bin/spam-sucks-dont-do-it.cgi?__mode=cmtr_name_js"></script><script>document.write(commenter_name);</script>.
+Now you can comment. (<a href="http://www.seebq.com/cgi-bin/spam-sucks-dont-do-it.cgi?__mode=handle_sign_in&static=1&entry_id=247&logout=1">sign out</a>)</p>
+
+(If you haven't left a comment here before, you may need to be approved by the site owner before your comment will appear. Until then, it won't appear on the entry. Thanks for waiting.)
+
+<form method="post" action="http://www.seebq.com/cgi-bin/spam-sucks-dont-do-it.cgi" name="comments_form" onsubmit="if (this.bakecookie[0].checked) rememberMe(this)">
+<input type="hidden" name="static" value="1" />
+<input type="hidden" name="entry_id" value="247" />
+
+<p><label for="url">URL:</label><br />
+<input tabindex="1" type="text" name="url" id="url" />
+Remember me?
+<input type="radio" id="remember" name="bakecookie" /><label for="remember">Yes</label><input type="radio" id="forget" name="bakecookie" onclick="forgetMe(this.form)" value="Forget Info" style="margin-left: 15px;" /><label for="forget">No</label><br style="clear: both;" />
+
+</p>
+
+<p><label for="text">Comments:</label><br />
+<textarea tabindex="2" id="text" name="text" rows="10" cols="50"></textarea></p>
+
+<div align="center">
+<input type="submit" tabindex="3" name="preview" value=" Preview " />
+<input style="font-weight: bold;" tabindex="4" type="submit" name="post" value=" Post " />
+</div>
+</form>
+
+</div>
+
+<script language="javascript" type="text/javascript">
+<!--
+if (commenter_name) {
+    document.getElementById('thanks').style.display = 'block';
+} else {
+    document.write('You are not signed in. You need to be registered to comment on this site. <a href="https://www.typekey.com/t/typekey/login?&t=h0bKzm04aok5Cy2hxBrX&v=1&_return=http://www.seebq.com/cgi-bin/spam-sucks-dont-do-it.cgi%3f__mode=handle_sign_in%26static=1%26entry_id=247"> Sign in</a>');
+    document.getElementById('thanks').style.display = 'none';
+}
+// -->
+</script>
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" language="javascript">
+<!--
+if (document.comments_form.email != undefined)
+    document.comments_form.email.value = getCookie("mtcmtmail");
+if (document.comments_form.author != undefined)
+    document.comments_form.author.value = getCookie("mtcmtauth");
+if (document.comments_form.url != undefined)
+    document.comments_form.url.value = getCookie("mtcmthome");
+if (getCookie("mtcmtauth") || getCookie("mtcmthome")) {
+    document.comments_form.bakecookie[0].checked = true;
+} else {
+    document.comments_form.bakecookie[1].checked = true;
+}
+//-->
+</script>
+
+
+
+
+</div>
+</div>
+
+</body>
+</html>

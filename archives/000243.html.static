@@ -1,0 +1,150 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<meta name="generator" content="http://www.movabletype.org/" />
+
+<title>seebq.com - shameless self promotion: kill spam dead</title>
+
+<link rel="stylesheet" href="http://www.seebq.com/styles-site.css" type="text/css" />
+<link rel="alternate" type="application/rss+xml" title="RSS" href="http://www.seebq.com/index.rdf" />
+<link rel="alternate" type="application/atom+xml" title="Atom" href="http://www.seebq.com/atom.xml" />
+
+<link rel="start" href="http://www.seebq.com/" title="Home" />
+<link rel="prev" href="http://www.seebq.com/archives/000239.html" title="awesome wireless spot" />
+
+<link rel="next" href="http://www.seebq.com/archives/000244.html" title="the obligatory new year's post" />
+
+
+
+
+
+
+
+</head>
+
+<body>
+
+<div id="banner">
+<img src="images/seebq_title.gif" width="456" height="79" border="0" />
+</div>
+
+<div id="container">
+
+<div class="blog">
+
+<div id="menu">
+<p align="right">
+<a href="http://www.seebq.com/archives/000239.html">« awesome wireless spot</a> |
+
+<a href="http://www.seebq.com/">Main</a>
+| <a href="http://www.seebq.com/archives/000244.html">the obligatory new year's post »</a>
+
+</p>
+</div>
+
+<h2>December 20, 2004</h2>
+
+<h3>kill spam dead</h3>
+
+<p>For some reason, I've taken on an extreme hatred for SPAM.  So much so, that I decided to stay up all night and install several extreme measures to prevent SPAM from ever bothering me (again).</p>
+
+<p>I finally hunkered down and installed <a href="http://spamassassin.apache.org/">SpamAssassin</a> 3.0.1.  It is kicking a little arse right now as we speak - and with some custom rules kicking out messages on the server as well as once they're in my inbox - no more will I fear checking mail on my Treo, just to see 15 spam messages.  Those f---ers!  </p>
+
+<p>I also installed <a href="http://www.movabletype.org/">MovableType</a> 3.121, and have a <a href="http://www.typekey.com/">TypeKey</a> registration, and do not allow anonymous comments - we'll see how I like this, it's unfortunate, but probably the best way to go.  </p>
+
+<p>You know, I wonder if the poor saps who got conned themselves into purchasing software to "increase their inbound link relevancy" by clogging the internet with shit, actually know how the software they are using works.....  I mean honestly, do they think that this auto-pilot ass-retarded software coming by my site, and all my buddies' sites and posting the same fucktard comment or simply sending messages to every possible name on my server will somehow magically get more people to buy their viagra pills, versus, someone else's?</p>
+
+<p>Fuck Spam.  I'm over it!</p>
+
+<div id="a000243more"><div id="more">
+
+</div></div>
+
+<p class="posted">Posted by seebq at December 20, 2004 03:08 AM</p>
+
+
+
+
+<h2 id="comments">Comments</h2>
+
+
+
+
+
+<h2>Post a comment</h2>
+
+
+<div id="thanks">
+<p>Thanks for signing in, 
+<script type="text/javascript" src="http://www.seebq.com/cgi-bin/spam-sucks-dont-do-it.cgi?__mode=cmtr_name_js"></script><script>document.write(commenter_name);</script>.
+Now you can comment. (<a href="http://www.seebq.com/cgi-bin/spam-sucks-dont-do-it.cgi?__mode=handle_sign_in&static=1&entry_id=243&logout=1">sign out</a>)</p>
+
+(If you haven't left a comment here before, you may need to be approved by the site owner before your comment will appear. Until then, it won't appear on the entry. Thanks for waiting.)
+
+<form method="post" action="http://www.seebq.com/cgi-bin/spam-sucks-dont-do-it.cgi" name="comments_form" onsubmit="if (this.bakecookie[0].checked) rememberMe(this)">
+<input type="hidden" name="static" value="1" />
+<input type="hidden" name="entry_id" value="243" />
+
+<p><label for="url">URL:</label><br />
+<input tabindex="1" type="text" name="url" id="url" />
+Remember me?
+<input type="radio" id="remember" name="bakecookie" /><label for="remember">Yes</label><input type="radio" id="forget" name="bakecookie" onclick="forgetMe(this.form)" value="Forget Info" style="margin-left: 15px;" /><label for="forget">No</label><br style="clear: both;" />
+
+</p>
+
+<p><label for="text">Comments:</label><br />
+<textarea tabindex="2" id="text" name="text" rows="10" cols="50"></textarea></p>
+
+<div align="center">
+<input type="submit" tabindex="3" name="preview" value=" Preview " />
+<input style="font-weight: bold;" tabindex="4" type="submit" name="post" value=" Post " />
+</div>
+</form>
+
+</div>
+
+<script language="javascript" type="text/javascript">
+<!--
+if (commenter_name) {
+    document.getElementById('thanks').style.display = 'block';
+} else {
+    document.write('You are not signed in. You need to be registered to comment on this site. <a href="https://www.typekey.com/t/typekey/login?&t=h0bKzm04aok5Cy2hxBrX&v=1&_return=http://www.seebq.com/cgi-bin/spam-sucks-dont-do-it.cgi%3f__mode=handle_sign_in%26static=1%26entry_id=243"> Sign in</a>');
+    document.getElementById('thanks').style.display = 'none';
+}
+// -->
+</script>
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" language="javascript">
+<!--
+if (document.comments_form.email != undefined)
+    document.comments_form.email.value = getCookie("mtcmtmail");
+if (document.comments_form.author != undefined)
+    document.comments_form.author.value = getCookie("mtcmtauth");
+if (document.comments_form.url != undefined)
+    document.comments_form.url.value = getCookie("mtcmthome");
+if (getCookie("mtcmtauth") || getCookie("mtcmthome")) {
+    document.comments_form.bakecookie[0].checked = true;
+} else {
+    document.comments_form.bakecookie[1].checked = true;
+}
+//-->
+</script>
+
+
+
+
+</div>
+</div>
+
+</body>
+</html>

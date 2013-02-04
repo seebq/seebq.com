@@ -1,0 +1,103 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+
+<title>seebq.com - shameless self promotion: xml-speak Archives</title>
+
+<link rel="stylesheet" href="http://www.seebq.com/styles-site.css" type="text/css" />
+<link rel="alternate" type="application/rss+xml" title="RSS" href="http://www.seebq.com/index.rdf" />
+
+<script language="javascript" type="text/javascript">
+function OpenComments (c) {
+    window.open(c,
+                    'comments',
+                    'width=480,height=480,scrollbars=yes,status=yes');
+}
+
+function OpenTrackback (c) {
+    window.open(c,
+                    'trackback',
+                    'width=480,height=480,scrollbars=yes,status=yes');
+}
+</script>
+
+</head>
+
+<body>	
+
+<div id="banner">
+<h1><a href="http://www.seebq.com/" accesskey="1">seebq.com - shameless self promotion</a></h1>
+<span class="description"></span>
+</div>
+
+<div id="container">
+
+<div class="blog">
+
+
+<h2 class="date">August 22, 2005</h2>
+
+
+<div class="blogbody">
+
+<a name="000303"></a>
+<h3 class="title">vs.net: large xml to datagrid = slow</h3>
+
+<p>I'm trying to perform validation on serial #s on a PocketPC PDA/phone device -- the Siemens SX66, also branded under SprintPCS and Verizon as a different device, but still the same puppy.</p>
+
+<p>The file is huge.  14,000 serial #s, thus a very large XML.  I hate XML files that are that long -- just think of the wasted space in those tags -- the cost to pay for meta-data.</p>
+
+<p>The xml file looks like:</p>
+
+<p><code><br />
+&lt;?xml version="1.0" encoding="utf-8"?&gt;<br />
+&lt;validate xmlns="http://usmicrocorp.com/validate.xsd"&gt;<br />
+&lt;items&gt;<br />
+&lt;row sn="111" /&gt;<br />
+&lt;row sn="222" /&gt;<br />
+&lt;row sn="333" /&gt;<br />
+...<br />
+&lt;/items&gt;<br />
+&lt;/validate&gt;<br />
+</code></p>
+
+<p>The code looks like:<br />
+<code><br />
+               dsValidate.ReadXml(GetAppPath() + "validate.xml");<br />
+               dsValidate.Tables["row"].PrimaryKey = new DataColumn[] {dsValidate.Tables["row"].Columns["sn"]};<br />
+               <br />
+                ...</p>
+
+<p>               strSelect = "sn='" + txtSerialNumber.Text + "'";<br />
+               dr = dsValidate.Tables["row"].Select(strSelect);<br />
+               if (dr.Length > 0) {<br />
+                    // we found a duplicate<br />
+               }<br />
+</code></p>
+
+<p>Oh, but man is that slow on the phone with a sufficiently large dataset.  The poor little arm processor can't build that primary key in under 5 minutes.  Just sits there, and at the end actually errors out (throwing an exception), but then goes on to let me validate very quickly (the select statements) all the #s I tried. </p>
+
+<p>Anyone know of any quick data structures (hash buckets, etc.) that a dinky little ARM processor might be able to handle?</p>
+
+<p>In the meantime, I may migrate it over to a Web Service, but that's a lot of overhead for a quick serial # scan from a barcode scanner, then a call to a web-service, even if it's over the SprintPCS network.  Wifi, maybe?</p>
+
+
+
+<div class="posted">
+	Posted by seebq at <a href="http://www.seebq.com/archives/xmlspeak/vsnet_large_xml_to_datagrid_slow.html">09:38 AM</a>
+		| <a href="http://www.seebq.com/cgi-bin/spam-sucks-dont-do-it.cgi?entry_id=303" onclick="OpenComments(this.href); return false">Comments (0)</a>
+	
+	
+</div>
+
+</div>
+
+
+</div>
+
+</div>
+
+</body>
+</html>

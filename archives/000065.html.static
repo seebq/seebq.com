@@ -1,0 +1,156 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<meta name="generator" content="http://www.movabletype.org/" />
+
+<title>seebq.com - shameless self promotion: DVFX Final Screening</title>
+
+<link rel="stylesheet" href="http://www.seebq.com/styles-site.css" type="text/css" />
+<link rel="alternate" type="application/rss+xml" title="RSS" href="http://www.seebq.com/index.rdf" />
+<link rel="alternate" type="application/atom+xml" title="Atom" href="http://www.seebq.com/atom.xml" />
+
+<link rel="start" href="http://www.seebq.com/" title="Home" />
+<link rel="prev" href="http://www.seebq.com/archives/000027.html" title="Back in the good ole USofA" />
+
+<link rel="next" href="http://www.seebq.com/archives/000083.html" title="web wandering" />
+
+
+
+
+
+
+
+</head>
+
+<body>
+
+<div id="banner">
+<img src="images/seebq_title.gif" width="456" height="79" border="0" />
+</div>
+
+<div id="container">
+
+<div class="blog">
+
+<div id="menu">
+<p align="right">
+<a href="http://www.seebq.com/archives/000027.html">« Back in the good ole USofA</a> |
+
+<a href="http://www.seebq.com/">Main</a>
+| <a href="http://www.seebq.com/archives/000083.html">web wandering »</a>
+
+</p>
+</div>
+
+<h2>May 26, 2003</h2>
+
+<h3>DVFX Final Screening</h3>
+
+<p>My group finished the designing, coding, filming, editing, and effect software pipeline for our face deformation effect.  Watch the video!</p>
+
+<div id="a000065more"><div id="more">
+<p>Looks like the College of Computing is happy that our heavily funded class has once again completed some great work.</p>
+
+<p>It's funny though, the front page of the <a href="http://www.cc.gatech.edu/">College of Computing Home</a> has one of the videos highlighted, but if you'll notice, it's the one by the entirely girl team.  Now, keep in mind we are highlighting the 50th year of women at Tech, and not that I'm bitter or anything, but this is a highly political strategery move by the College of Computing.  I suppose they are trying to show "girl-power," but I think we have all learned our lesson in trying to be too politically correct.  Anyways, their effect was good, but ours was better.  ;-)</p>
+
+<p>Check out the links on my <a href="portfolio.html">portfolio</a> page, or try here:</p>
+
+<p>See the DVFX 2003 Video Productions at:<br />
+<a href="http://www.cc.gatech.edu/dvfx/videos/dvfx2003.html">http://www.cc.gatech.edu/dvfx/videos/dvfx2003.html</a>.</p>
+
+<p>Also see the class website at: <a href="http://www.cc.gatech.edu/classes/AY2003/cs4480_spring/">http://www.cc.gatech.edu/classes/AY2003/cs4480_spring/</a></p>
+
+<p>Watch the <a href="http://www.cc.gatech.edu/dvfx/movies/dvfx2003/Movie/BeautyCream9001.mpg">Full Video</a> (<a href="http://www.cc.gatech.edu/dvfx/movies/dvfx2003/Movie_small/BeautyCream9001-web.mpg">half</a>) here.  Then, watch the <a href="http://www.cc.gatech.edu/dvfx/movies/dvfx2003/Making/BeautyCream9001-MakingOf.mpg">Making-Of</a> (<a href="http://www.cc.gatech.edu/dvfx/movies/dvfx2003/Making_small/BeautyCream9001-MakingOf.mpg">half</a>).</p>
+
+<p>Check out <a href="http://swiki.cc.gatech.edu:8080/dvfx2003/3">The Team Skewed Page</a> for a showcase of more work.<br />
+</p>
+</div></div>
+
+<p class="posted">Posted by seebq at May 26, 2003 05:56 PM</p>
+
+
+
+
+<h2 id="comments">Comments</h2>
+
+
+
+
+
+<h2>Post a comment</h2>
+
+
+<div id="thanks">
+<p>Thanks for signing in, 
+<script type="text/javascript" src="http://www.seebq.com/cgi-bin/spam-sucks-dont-do-it.cgi?__mode=cmtr_name_js"></script><script>document.write(commenter_name);</script>.
+Now you can comment. (<a href="http://www.seebq.com/cgi-bin/spam-sucks-dont-do-it.cgi?__mode=handle_sign_in&static=1&entry_id=65&logout=1">sign out</a>)</p>
+
+(If you haven't left a comment here before, you may need to be approved by the site owner before your comment will appear. Until then, it won't appear on the entry. Thanks for waiting.)
+
+<form method="post" action="http://www.seebq.com/cgi-bin/spam-sucks-dont-do-it.cgi" name="comments_form" onsubmit="if (this.bakecookie[0].checked) rememberMe(this)">
+<input type="hidden" name="static" value="1" />
+<input type="hidden" name="entry_id" value="65" />
+
+<p><label for="url">URL:</label><br />
+<input tabindex="1" type="text" name="url" id="url" />
+Remember me?
+<input type="radio" id="remember" name="bakecookie" /><label for="remember">Yes</label><input type="radio" id="forget" name="bakecookie" onclick="forgetMe(this.form)" value="Forget Info" style="margin-left: 15px;" /><label for="forget">No</label><br style="clear: both;" />
+
+</p>
+
+<p><label for="text">Comments:</label><br />
+<textarea tabindex="2" id="text" name="text" rows="10" cols="50"></textarea></p>
+
+<div align="center">
+<input type="submit" tabindex="3" name="preview" value=" Preview " />
+<input style="font-weight: bold;" tabindex="4" type="submit" name="post" value=" Post " />
+</div>
+</form>
+
+</div>
+
+<script language="javascript" type="text/javascript">
+<!--
+if (commenter_name) {
+    document.getElementById('thanks').style.display = 'block';
+} else {
+    document.write('You are not signed in. You need to be registered to comment on this site. <a href="https://www.typekey.com/t/typekey/login?&t=h0bKzm04aok5Cy2hxBrX&v=1&_return=http://www.seebq.com/cgi-bin/spam-sucks-dont-do-it.cgi%3f__mode=handle_sign_in%26static=1%26entry_id=65"> Sign in</a>');
+    document.getElementById('thanks').style.display = 'none';
+}
+// -->
+</script>
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" language="javascript">
+<!--
+if (document.comments_form.email != undefined)
+    document.comments_form.email.value = getCookie("mtcmtmail");
+if (document.comments_form.author != undefined)
+    document.comments_form.author.value = getCookie("mtcmtauth");
+if (document.comments_form.url != undefined)
+    document.comments_form.url.value = getCookie("mtcmthome");
+if (getCookie("mtcmtauth") || getCookie("mtcmthome")) {
+    document.comments_form.bakecookie[0].checked = true;
+} else {
+    document.comments_form.bakecookie[1].checked = true;
+}
+//-->
+</script>
+
+
+
+
+</div>
+</div>
+
+</body>
+</html>

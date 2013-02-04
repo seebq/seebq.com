@@ -1,0 +1,152 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<meta name="generator" content="http://www.movabletype.org/" />
+
+<title>seebq.com - shameless self promotion: recompiling the kernel</title>
+
+<link rel="stylesheet" href="http://www.seebq.com/styles-site.css" type="text/css" />
+<link rel="alternate" type="application/rss+xml" title="RSS" href="http://www.seebq.com/index.rdf" />
+<link rel="alternate" type="application/atom+xml" title="Atom" href="http://www.seebq.com/atom.xml" />
+
+<link rel="start" href="http://www.seebq.com/" title="Home" />
+<link rel="prev" href="http://www.seebq.com/archives/000123.html" title="blogs and galleries" />
+
+<link rel="next" href="http://www.seebq.com/archives/000139.html" title="New York, New York" />
+
+
+
+
+
+
+
+</head>
+
+<body>
+
+<div id="banner">
+<img src="images/seebq_title.gif" width="456" height="79" border="0" />
+</div>
+
+<div id="container">
+
+<div class="blog">
+
+<div id="menu">
+<p align="right">
+<a href="http://www.seebq.com/archives/000123.html">« blogs and galleries</a> |
+
+<a href="http://www.seebq.com/">Main</a>
+| <a href="http://www.seebq.com/archives/000139.html">New York, New York »</a>
+
+</p>
+</div>
+
+<h2>December 06, 2003</h2>
+
+<h3>recompiling the kernel</h3>
+
+<p>seebq just recompiled his kernel...</p>
+
+<div id="a000136more"><div id="more">
+<p>Yes, I have joined the uber-l33t ranks of geekiness and I recompiled my linux kernel just a few short minutes ago.  </p>
+
+<p>After I recompiled my kernel, I rebuilt the NVIDIA nvnet rpm for my specific kernel and now the network drivers work.  I then loaded the newly built module, and I am on the internet!  This was my first order of business, once bringing my uber-l33t new computer on-line with an upgraded mandrake linux distro.  I could be one of the first people to have the new nvnet drivers working on the newest kernel, since I couldn't find it anywhere, but maybe not.</p>
+
+<p>Wow, I am so l33t!</p>
+
+<p>I am now running 2.4.22-21mdk (yes, It's mandrake), and yes, I technically didn't recompile the kernel so much as installed the rpm, but I had it it verbose mode, so I saw it all going down....</p>
+
+<p>Sorry for the techno-babble, I just had to tell someone, and well, you all, my loyal weblog fans, will just have to deal with it.</p>
+
+<p>over and out from super-l33t-dom,</p>
+</div></div>
+
+<p class="posted">Posted by seebq at December  6, 2003 11:51 AM</p>
+
+
+
+
+<h2 id="comments">Comments</h2>
+
+
+
+
+
+<h2>Post a comment</h2>
+
+
+<div id="thanks">
+<p>Thanks for signing in, 
+<script type="text/javascript" src="http://www.seebq.com/cgi-bin/spam-sucks-dont-do-it.cgi?__mode=cmtr_name_js"></script><script>document.write(commenter_name);</script>.
+Now you can comment. (<a href="http://www.seebq.com/cgi-bin/spam-sucks-dont-do-it.cgi?__mode=handle_sign_in&static=1&entry_id=136&logout=1">sign out</a>)</p>
+
+(If you haven't left a comment here before, you may need to be approved by the site owner before your comment will appear. Until then, it won't appear on the entry. Thanks for waiting.)
+
+<form method="post" action="http://www.seebq.com/cgi-bin/spam-sucks-dont-do-it.cgi" name="comments_form" onsubmit="if (this.bakecookie[0].checked) rememberMe(this)">
+<input type="hidden" name="static" value="1" />
+<input type="hidden" name="entry_id" value="136" />
+
+<p><label for="url">URL:</label><br />
+<input tabindex="1" type="text" name="url" id="url" />
+Remember me?
+<input type="radio" id="remember" name="bakecookie" /><label for="remember">Yes</label><input type="radio" id="forget" name="bakecookie" onclick="forgetMe(this.form)" value="Forget Info" style="margin-left: 15px;" /><label for="forget">No</label><br style="clear: both;" />
+
+</p>
+
+<p><label for="text">Comments:</label><br />
+<textarea tabindex="2" id="text" name="text" rows="10" cols="50"></textarea></p>
+
+<div align="center">
+<input type="submit" tabindex="3" name="preview" value=" Preview " />
+<input style="font-weight: bold;" tabindex="4" type="submit" name="post" value=" Post " />
+</div>
+</form>
+
+</div>
+
+<script language="javascript" type="text/javascript">
+<!--
+if (commenter_name) {
+    document.getElementById('thanks').style.display = 'block';
+} else {
+    document.write('You are not signed in. You need to be registered to comment on this site. <a href="https://www.typekey.com/t/typekey/login?&t=h0bKzm04aok5Cy2hxBrX&v=1&_return=http://www.seebq.com/cgi-bin/spam-sucks-dont-do-it.cgi%3f__mode=handle_sign_in%26static=1%26entry_id=136"> Sign in</a>');
+    document.getElementById('thanks').style.display = 'none';
+}
+// -->
+</script>
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" language="javascript">
+<!--
+if (document.comments_form.email != undefined)
+    document.comments_form.email.value = getCookie("mtcmtmail");
+if (document.comments_form.author != undefined)
+    document.comments_form.author.value = getCookie("mtcmtauth");
+if (document.comments_form.url != undefined)
+    document.comments_form.url.value = getCookie("mtcmthome");
+if (getCookie("mtcmtauth") || getCookie("mtcmthome")) {
+    document.comments_form.bakecookie[0].checked = true;
+} else {
+    document.comments_form.bakecookie[1].checked = true;
+}
+//-->
+</script>
+
+
+
+
+</div>
+</div>
+
+</body>
+</html>

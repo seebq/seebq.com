@@ -1,0 +1,1260 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+
+<title>seebq.com - shameless self promotion: techno-babble Archives</title>
+
+<link rel="stylesheet" href="http://www.seebq.com/styles-site.css" type="text/css" />
+<link rel="alternate" type="application/rss+xml" title="RSS" href="http://www.seebq.com/index.rdf" />
+
+<script language="javascript" type="text/javascript">
+function OpenComments (c) {
+    window.open(c,
+                    'comments',
+                    'width=480,height=480,scrollbars=yes,status=yes');
+}
+
+function OpenTrackback (c) {
+    window.open(c,
+                    'trackback',
+                    'width=480,height=480,scrollbars=yes,status=yes');
+}
+</script>
+
+</head>
+
+<body>	
+
+<div id="banner">
+<h1><a href="http://www.seebq.com/" accesskey="1">seebq.com - shameless self promotion</a></h1>
+<span class="description"></span>
+</div>
+
+<div id="container">
+
+<div class="blog">
+
+
+<h2 class="date">September 24, 2005</h2>
+
+
+<div class="blogbody">
+
+<a name="000313"></a>
+<h3 class="title">AJAX in Action</h3>
+
+<p>Went to a nice talk on "AJAX — Time for The Transformation of Web Applications" presented by CHI*A, an off-shoot of the ACM organization here in Atlanta.  Though the talk did have a sales pitch at the end, and some shameless plugs, they were bearable -- and actually the company who sponsored, <a href="http://www.clearnova.com">ClearNova</a>, actually has a pretty good product.  I'm no fan of frame-works on top of frame-works, but hey if it works (then, it works).</p>
+
+<p>The speaker, Steve Benfield, had a few really good points about AJAX that we've all heard, but it was nice to hear them again in good context.  The first being, that yes, it's just a name given to a set of technologies that have been around for a while -- that in itself is a "good thing."  Being able to classify a form of rich, user-interactive web-site building tools, however dorky and technically incorrect some feel the acronym may be (see my previous post), is not the important part.  The important part is the fan-fare and hoopla, and research, books, frameworks, interest, and talks that ensue.  And so they ensue.</p>
+
+<p>The other interesting point was that because it is a new term and a spankin' new technology, people always wonder, will it stick around.  The answer, our speaker says, is absolutely.  Main reason being:  Users Like It.  If a user is shown on one hand, a web-app with nicely AJAX-ified features, and on the other hand a standard form/post/response web-app on the other -- it's guaranteed they'll go for the more responsive, more intuitive web-app, for sure.</p>
+
+<p>In other news, my pal Bart just got a crazy-wicked job for the Washington Post working on some (yup, you guessed it), AJAX-ified web-app projects that sound really, really cool.  Behind all the bitter jealousy, we're all happy for him.  ;-)  Good luck Bart!</p>
+
+
+
+<div class="posted">
+	Posted by seebq at <a href="http://www.seebq.com/archives/technobabble/ajax_in_action.html">05:30 PM</a>
+		| <a href="http://www.seebq.com/cgi-bin/spam-sucks-dont-do-it.cgi?entry_id=313" onclick="OpenComments(this.href); return false">Comments (0)</a>
+	
+	
+</div>
+
+</div>
+
+
+
+<h2 class="date">September 19, 2005</h2>
+
+
+<div class="blogbody">
+
+<a name="000312"></a>
+<h3 class="title">Upcoming Meetings</h3>
+
+<p>There are some really good meetings coming up soon, and just wanted to blog about a few of 'em:</p>
+
+<p>AJAX — Time for The Transformation of Web Applications: presented by CHI*A Thursday, September 22, 6:30pm at Macquarium.  Details: <a href="http://www.chia.org/">www.chia.org</a>.</p>
+
+<p>PHP Templating Engines: Monthly Atlanta PHP Users Group meeting, presented by yours truly! Thursday, October 6, 6:30pm at New Horizons.  Details: <a href="http://www.atlphp.org/node/88">http://www.atlphp.org/node/88</a>.</p>
+
+<p>The Monthly Atlanta Ruby Users Group meeting is starting back up, with my good pal Derek Haynes of <a href="http://www.highgroove.com">HighGroove Studios</a> heading up the charge.  Details forthcoming, but possibly Late October.  Details: http://highgroove.com:2532/atlrug/show/Events</p>
+
+<p>Stay Tuned!</p>
+
+
+
+<div class="posted">
+	Posted by seebq at <a href="http://www.seebq.com/archives/technobabble/upcoming_meetings.html">12:30 AM</a>
+		| <a href="http://www.seebq.com/cgi-bin/spam-sucks-dont-do-it.cgi?entry_id=312" onclick="OpenComments(this.href); return false">Comments (0)</a>
+	
+	
+</div>
+
+</div>
+
+
+
+<h2 class="date">September 06, 2005</h2>
+
+
+<div class="blogbody">
+
+<a name="000308"></a>
+<h3 class="title">db schema diffs ?</h3>
+
+<p>Is it possible to create some sort of database schema diff file, but smarter?  So, for instance, I know one can take a diff of the the current db schema in use (some scripts to dump the two schemas in question and compare them manually), but I don't know of any way one can generate those magical statements like ALTER TABLE ....  or ADD/DROP COLUMN, in any type of automatic fashion.  It's either all or nothing on a table, right?</p>
+
+<p>I know, I know, the DB Schema was supposed to be set in stone, months ago during the all-encompassing, formal design docs that figured out every single possible data field we wanted stored forevermore and into the future.  Riiiight.</p>
+
+<p>So how do people do it?  Besides being really careful about altering data-types, and making sure you hand-code up the same change that you want to do in the dev/test/prod database, right?  Or simply writing down the exact steps (or using something like phpMyAdmin, phpPGAdmin, or the Oracle Enterprise Manager Java-based piece of s___ -- these tools being able to let you copy-paste and hand-jam manual ALTERs and ADD/DROP COLUMNs)?</p>
+
+<p>I mean, yes, I know there are more problems to be had when altering tables like so (what about all the data that's in 'em), but I'm just curious to know if anyone has run into making common changes to a db schema, being able to "check those revisions" into a source-code control system (subversion/cvs/etc) and have your developers upgrade, seemlessly.</p>
+
+<p>I know I've seen it in some open-source projects -- on an upgrade of one of my fav open-source projects (<a href="http://www.mythtv.org/">MythTV</a>, I've seen the upgrade go through all the revisions and upgrade the db accordingly (and I've also seen that break and I've had to go in manually and drop and restore entire tables too, though)....  Something to think about.</p>
+
+
+
+<div class="posted">
+	Posted by seebq at <a href="http://www.seebq.com/archives/technobabble/db_schema_diffs_.html">05:40 PM</a>
+		| <a href="http://www.seebq.com/cgi-bin/spam-sucks-dont-do-it.cgi?entry_id=308" onclick="OpenComments(this.href); return false">Comments (0)</a>
+	
+	
+</div>
+
+</div>
+
+
+
+<h2 class="date">September 03, 2005</h2>
+
+
+<div class="blogbody">
+
+<a name="000307"></a>
+<h3 class="title">securing me from myself?</h3>
+
+<p>OK, this is driving me nuts.  On a Edgewall Trac wiki and project managment site I set up on a gentoo box (specifically for serving this up), I am consistently getting a "Document Contains no Data" error when ever I post certain words to the wiki.</p>
+
+<p>One night, it only took me 3 hours to determine that a line containing the word "/docs/" was causing the server to immeditately spit back "Document Contains No Data."  It was sitting in the middle of a url, just a link to a page.  What in the world could it be?  I tried escaping it, to no avail.</p>
+
+<p>It is the most irritating thing, because I found today that I posted a line that contained the words:</p>
+
+<p>$/ usr/local/pgsql/bin  ....</p>
+
+<p>It simply dies, yet again.  What in the hell is running on my gentoo box that's killing that kind of request?  Is it se_linux (hell no, I didn't install that).  Is it mod_security ?  No - it's possible that it is so built in that I can't even find it, but that's not loaded up in the default apache2 ebuild.  I can't seem to turn on enough logging anywhere to find out why only when certain words are posted to the wiki, the server just fires back that annoying message.</p>
+
+<p>Stuck, and clueless, and tired of trying to find out this very strange, very cryptic problem....</p>
+
+
+
+<div class="posted">
+	Posted by seebq at <a href="http://www.seebq.com/archives/technobabble/securing_me_from_myself.html">03:09 AM</a>
+		| <a href="http://www.seebq.com/cgi-bin/spam-sucks-dont-do-it.cgi?entry_id=307" onclick="OpenComments(this.href); return false">Comments (0)</a>
+	
+	
+</div>
+
+</div>
+
+
+
+<h2 class="date">August 28, 2005</h2>
+
+
+<div class="blogbody">
+
+<a name="000306"></a>
+<h3 class="title">jumping on the "escape input, filter output" bandwagon</h3>
+
+<p>It's true, I'm jumping on board the "<a href="http://benramsey.com/2005/08/19/filter-input-escape-output-t-shirt/">escape input, filter output</a>" bandwagon.  This mantra, coined by <a href="http://shiflett.org/">Chris Shiflett</a> of Brainbulb, and made oh-so-popular by my pal <a href="http://benramsey.com/">Ben Ramsey</a>.</p>
+
+<p>Here's how I do it in my most recent PHP project, using PHP's PEAR DB library (because it was MySQL, and now it's postgreSQL):</p>
+
+<p>For escaping:</p>
+
+<p><code></p>
+
+<p>$data_from_user_clean = $dbh->escapeSimple($data_from_user);<br />
+$stmt = $dbh->prepare("INSERT INTO table (thing) VALUES (?)");<br />
+$sql_data = array($data_from_user_clean);<br />
+$dbh->execute($stmt, $sql_data);</p>
+
+<p></code></p>
+
+<p>PEAR DB's escapeSimple will perform the equivalent of mysql_real_escape_string() or whatever db implementation you've got.  Also, the prepare statement is pretty robust, ensuring that whatever gets plopped in is a value, and not just inserted into the statement using PHP's "." concatentation.</p>
+
+<p>For filtering:</p>
+
+<p><code></p>
+
+<p>$something = $dbh->getOne("SELECT something FROM ...");<br />
+// .. check $dbh for error</p>
+
+<p>$something_filter = filter_output($something);</p>
+
+<p></code></p>
+
+<p>Which whips out, among a few other things (on arrays and single pieces of data): </p>
+
+<p><code></p>
+
+<p>$to_return = htmlentities($something, ENT-QUOTES, ‘UTF-8’);</p>
+
+<p></code></p>
+
+<p>I'm also using <a href="http://smarty.php.net/">Smarty Template Engine</a> for every piece of displayed code, which serves as a great variable modifier and "filterer" of bad-ness.  Also, I've got my templates locked away from the html doc root, and apache/nobody/httpd does not own them.</p>
+
+<p>Locked down?  Somewhat.  She's getting there.</p>
+
+
+
+<div class="posted">
+	Posted by seebq at <a href="http://www.seebq.com/archives/technobabble/jumping_on_the_escape_input_filter_output_bandwagon.html">03:08 PM</a>
+		| <a href="http://www.seebq.com/cgi-bin/spam-sucks-dont-do-it.cgi?entry_id=306" onclick="OpenComments(this.href); return false">Comments (1)</a>
+	
+	
+</div>
+
+</div>
+
+
+
+<h2 class="date">August 27, 2005</h2>
+
+
+<div class="blogbody">
+
+<a name="000305"></a>
+<h3 class="title">Atlanta PHP September Meeting</h3>
+
+<p>From the php mailing list (ala <a href="http://www.benramsey.com/">Ben Ramsey</a>):</p>
+
+<p>Atlanta PHP September Meeting<br />
+Thursday, September 1, 2005, 7pm<br />
+New Horizons, Tucker, GA</p>
+
+<p>The September meeting of Atlanta PHP will be a free-form Q & A session. If you're new to PHP and LAMP, come with your questions. If you've been programming in PHP or related technologies for years, come to offer your knowledge and answer a few questions. All are guaranteed to learn something and benefit from the discussion.</p>
+
+<p>Towards the end of the meeting, we'll take a few minutes to cover some business and ask for future topic ideas and presentation volunteers. If there's a topic you want to know more about, please speak up and we'll see what we can put together.</p>
+
+<p>Afterwards, we'll go to the Mellow Mushroom for some drinks and food.</p>
+
+<p>Come expecting great networking opportunities and chances to learn what other PHP developers are doing in the Atlanta area!</p>
+
+<p>For details and directions, go here: <a href="http://www.atlphp.org/node/79">http://www.atlphp.org/node/79</a></p>
+
+
+
+<div class="posted">
+	Posted by seebq at <a href="http://www.seebq.com/archives/technobabble/atlanta_php_september_meeting.html">12:01 PM</a>
+		| <a href="http://www.seebq.com/cgi-bin/spam-sucks-dont-do-it.cgi?entry_id=305" onclick="OpenComments(this.href); return false">Comments (0)</a>
+	
+	
+</div>
+
+</div>
+
+
+
+<h2 class="date">July 27, 2005</h2>
+
+
+<div class="blogbody">
+
+<a name="000295"></a>
+<h3 class="title">postgresql goodness</h3>
+
+<p>We've migrated our "super-stealth-mode" project's backend from <a href="http://www.mysql.org">mysql</a> to <a href="http://www.postgresql.org">postgresql</a>.  The reasons:  because mysql doesn't have support for functions or views, or real live table locking (well somewhat, InnoDB and mysql 5.0+) -- and the license is somewhat better (free no strings-attached).  It will be easier for development in the short-run and long-run, having worked with several, ahem, Oracle databases -- I hope.</p>
+
+<p>And the real reason:  peer pressure.  My buddy <a href="http://www.triblock.com">Ola</a> said: "MySQL is the VB of Databases."  Owch.</p>
+
+
+
+<div class="posted">
+	Posted by seebq at <a href="http://www.seebq.com/archives/technobabble/postgresql_goodness.html">12:34 PM</a>
+		| <a href="http://www.seebq.com/cgi-bin/spam-sucks-dont-do-it.cgi?entry_id=295" onclick="OpenComments(this.href); return false">Comments (0)</a>
+	
+	
+</div>
+
+</div>
+
+
+
+
+
+<div class="blogbody">
+
+<a name="000294"></a>
+<h3 class="title">my love hate relationship with .NET development</h3>
+
+<p>It's just so darn easy to develop with .NET.  The Visual Studio IDE just keeps getting better, and gosh, Microsoft even went to the trouble to make their crappy source control system (Visual Source Safe 6.0 which came out years and years ago) work amazing with Visual Studio.  BUT, why-oh-why does it have to go and change all the file permissions on my xml settings files to read-only rightbefore they get built into the PocketPC ARM specific CAB to be deployed on the device?</p>
+
+<p>After spending all morning debugging a new:</p>
+
+<p><code><br />
+System.UnauthorizedAccessException System.Windows.Forms.dll<br />
+</code></p>
+
+<p>Exception that broke the entire mobile-app.  I realized quickly that Visual Studio and/or SourceSafe was making all my .xml settings files read-only.</p>
+
+<p>I added some code in all the right places to do a quick:</p>
+
+<p><code><br />
+System.IO.FileInfo fi = new System.IO.FileInfo(settingsFile);<br />
+// remove readonly attribute<br />
+if ((fi.Attributes & System.IO.FileAttributes.ReadOnly) != 0)<br />
+	fi.Attributes -= System.IO.FileAttributes.ReadOnly;<br />
+</code></p>
+
+<p>Fixed.</p>
+
+
+
+<div class="posted">
+	Posted by seebq at <a href="http://www.seebq.com/archives/technobabble/my_love_hate_relationship_with_net_development.html">12:28 PM</a>
+		| <a href="http://www.seebq.com/cgi-bin/spam-sucks-dont-do-it.cgi?entry_id=294" onclick="OpenComments(this.href); return false">Comments (2)</a>
+	
+	
+</div>
+
+</div>
+
+
+
+<h2 class="date">July 26, 2005</h2>
+
+
+<div class="blogbody">
+
+<a name="000292"></a>
+<h3 class="title">radio is dead</h3>
+
+<p>It's official.  I've always despised radio.  It's just one of those businesses you know has stayed around because of some kind of deep entrenchment into lots of people's pockets.  The technology is dated -- very dated, and the FCC (at least here in the US) mandates almost everything, except for what music is played -- that is decided by who pays the most:</p>
+
+<p><a href="http://biz.yahoo.com/ap/050725/music_probe.html?.v=11">Sony Agrees to $10M 'Payola' Settlement</a></p>
+
+<p>So here's the alternative.  You've got music, right?  Your friends have music too, huh?  Let's create lots of radio stations from ourselves, and then time-shift them to allow playing on all kinds of devices (in your car, at home, jogging, etc.).  Let's make it seemless, and easy, and more importantly, easy to pay all those involved in producing (the artists, maybe?)</p>
+
+<p>Here's how I setup my radio station that streams all my music at home over a shoutcast server setup....  Read on....</p>
+
+<p><a href="http://www.seebq.com/albums/junk/shoutcast_setup.gif"><img src="http://www.seebq.com/albums/junk/shoutcast_setup.highlight.gif" border="0"></a></p>
+
+<p>We're going to setup both the Shoutcast DNAS Server and the Shoutcast Transcoder.  For more information on what these do, hit up <a href="http://www.shoutcast.com/">shoutcast.com</a>.</p>
+
+<p>First, get the shoutcast DNAS server from shoutcast.com.  At time of writing:</p>
+
+<p>shoutcast-1-9-5-linux-glibc6.tar.gz</p>
+
+<p><br />
+next, get the Shoutcast Transcoder from shoutcast.com.  At time of writing: </p>
+
+<p>sc_trans_posix_040.tgz from shoutcast.com</p>
+
+<p>Unzip files:<br />
+<code><br />
+# tar xzvf shoutcast-1-9-5-linux-glibc6.tar.gz<br />
+# tar xzvf sc_trans_posix_040.tgz<br />
+# cd shoutcast-1-9-5-linux...<br />
+</code></p>
+
+<p>Now edit sc_serv.conf --> change settings to your liking</p>
+
+<p><code><br />
+# mkdir /usr/local/shoutcast<br />
+# cp sc_serv.conf /etc/<br />
+# cp sc_serv /usr/local/shoutcast/<br />
+</code></p>
+
+<p>test the server:</p>
+
+<p><code><br />
+# /usr/local/shoutcast/sc_serv sc_serv.conf<br />
+*******************************************************************************<br />
+** SHOUTcast Distributed Network Audio Server<br />
+** Copyright (C) 1998-2004 Nullsoft, Inc.  All Rights Reserved.<br />
+** Use "sc_serv filename.ini" to specify an ini file.<br />
+*******************************************************************************<br />
+</code><br />
+<code><br />
+Event log:<br />
+<07/25/05@22:54:52> [SHOUTcast] DNAS/Linux v1.9.5 (Dec 27 2004) starting up...<br />
+<07/25/05@22:54:52> [main] pid: 7541<br />
+<07/25/05@22:54:52> [main] loaded config from sc_serv.conf<br />
+<07/25/05@22:54:52> [main] initializing (usermax:32 portbase:8000)...<br />
+<07/25/05@22:54:52> [main] No ban file found (sc_serv.ban)<br />
+<07/25/05@22:54:52> [main] No rip file found (sc_serv.rip)<br />
+<07/25/05@22:54:52> [main] opening source socket<br />
+<07/25/05@22:54:52> [main] source thread starting<br />
+<07/25/05@22:54:52> [main] opening client socket<br />
+<07/25/05@22:54:52> [main] Client Stream thread [0] starting<br />
+<07/25/05@22:54:52> [main] client main thread starting<br />
+<07/25/05@22:54:52> [source] listening for connection on port 8001<br />
+<07/25/05@22:55:07> [sleeping] 0 listeners (0 unique)<br />
+</code></p>
+
+<p>it works, and it's waiting for the relay connection, fire up another terminal</p>
+
+<p>Now change into the scn_trans_posix directory and edit/vi sc_trans.conf -> edit to your hearts content </p>
+
+<p><code><br />
+# cp sc_trans_linux /usr/local/shoutcast/<br />
+</code></p>
+
+<p>Now build a playlist:<br />
+<code><br />
+# cd /usr/local/shoutcast/<br />
+# find /path/to/mp3/directory -type f -name "*.mp3" > playlist.lst<br />
+</code></p>
+
+<p>Now give her a run:<br />
+<code><br />
+# /usr/local/shoutcast/sc_trans_linux /etc/sc_trans.conf<br />
+</code></p>
+
+<p>now connect to your server (if you've got a firewall, may want to enable 8000 and 8001)</p>
+
+<p>for instance on same server you can try:</p>
+
+<p>http://localhost:8000/</p>
+
+<p>click on listen, wallah</p>
+
+<p>ok now to make it start on boot</p>
+
+<p>I made a nifty shoutcast sysv style startup script based on previous work by a guy named spacemeat.</p>
+
+<p>download this <a href="http://www.seebq.com/projects/shoutcast">shoutcast</a> file and chmod +x it -- may want to edit it to reflect where your binaries are (in this case /usr/local/shoutcast/sc_....) and your config files in /etc/</p>
+
+<p><code><br />
+# cp shoutcast /etc/init.d/<br />
+</code></p>
+
+<p>now test it first:</p>
+
+<p><code><br />
+# /etc/init.d/shoutcast start<br />
+</code></p>
+
+<p>If all goes well, you can:</p>
+
+<p><code><br />
+# chkconfig --add shoutcast<br />
+</code></p>
+
+<p>should start up on reboot now, you are good to go</p>
+
+<p></p>
+
+<p>fun stuff:</p>
+
+<p>if you've got a nice firewall/router appliance (or another linux box)</p>
+
+<p>you can add a firewall rule or port forwarding/triggering request<br />
+from your router's appliance ports 8000-80001 tcp/udp to your shoutcast box</p>
+
+<p>now with your dynamic dns you can get your music from anywhere:</p>
+
+<p>http://your-dyn-dns-address:8000/</p>
+
+<p>Now it's time to setup some shell scripts for choosing content, and allowing on-demand grabbing of ANY song!  next time....</p>
+
+
+<div class="posted">
+	Posted by seebq at <a href="http://www.seebq.com/archives/technobabble/radio_is_dead.html">09:30 AM</a>
+		| <a href="http://www.seebq.com/cgi-bin/spam-sucks-dont-do-it.cgi?entry_id=292" onclick="OpenComments(this.href); return false">Comments (1)</a>
+	
+	
+</div>
+
+</div>
+
+
+
+<h2 class="date">July 25, 2005</h2>
+
+
+<div class="blogbody">
+
+<a name="000290"></a>
+<h3 class="title">I'm up on CNET!</h3>
+
+<p>Thanks to Lionel of <a href="http://www.carhacks.org/">CarHacks(.org)</a> for the excellent write-up on CNET Car Tech:</p>
+
+<p><a href="http://reviews.cnet.com/4520-10895_7-6261864-1.html?tag=img"> Show Us Yours: Car: DIY Jeep Cherokee dash mod</a></p>
+
+<p>I'm happy for the coverage, but feel that there are so many other great dash-modders out there from which I was inspired and have helped.  Check my links on the <a href="http://www.seebq.com/projects.html">seebq.com Car Computer Project</a> page for more info!</p>
+
+
+
+<div class="posted">
+	Posted by seebq at <a href="http://www.seebq.com/archives/technobabble/im_up_on_cnet.html">11:06 AM</a>
+		| <a href="http://www.seebq.com/cgi-bin/spam-sucks-dont-do-it.cgi?entry_id=290" onclick="OpenComments(this.href); return false">Comments (2)</a>
+	
+	
+</div>
+
+</div>
+
+
+
+<h2 class="date">July 11, 2005</h2>
+
+
+<div class="blogbody">
+
+<a name="000288"></a>
+<h3 class="title">link tagging the new "it" thing</h3>
+
+<p>Some updates on the "it" thing, link-tagging.  Yahoo rolled out it's MyWeb2.0 at the end of June, which allows users to "tag" sites, thus creating a "people" search engine.  It is similiar to <a href="http://del.icio.us/">del.icio.us</a>, but revolves around the social network for 360.  Also in the news, the notion of tag-spamming, and the invetible techno-meme of the week/day (or is it hourly now?), spag.</p>
+
+<p>Links:<br />
+A <a href="http://www.geektronica.com/2005-07-10-yahoo-myweb-2-vs-delicious">Yahoo MyWeb 2.0 vs. del.icio.us</a> Review , done very well.<br />
+Caterina Fake (of Flikr-dom) <a href="http://ysearchblog.com/myweb/archives/000142.html">fights back against the skeptics</a>.  </p>
+
+
+
+<div class="posted">
+	Posted by seebq at <a href="http://www.seebq.com/archives/technobabble/link_tagging_the_new_it_thing.html">11:20 AM</a>
+		| <a href="http://www.seebq.com/cgi-bin/spam-sucks-dont-do-it.cgi?entry_id=288" onclick="OpenComments(this.href); return false">Comments (0)</a>
+	
+	
+</div>
+
+</div>
+
+
+
+<h2 class="date">July 01, 2005</h2>
+
+
+<div class="blogbody">
+
+<a name="000286"></a>
+<h3 class="title">i still don't get it (podcasting)</h3>
+
+<p>I really tried.  Honestly.  I think I'm just getting old.  So I never really got into <a href="http://en.wikipedia.org/wiki/Podcasting">podcasting</a>, and for some reason never saw this whole super-trend coming.  Wait, let me try and understand it.  It's like I make an mp3, right.  And then I make an XML file, that actually lists the mp3 and a description, and now, I've got a friggin' podcast!  </p>
+
+<p>This one will last as long as the <a href="http://www.livejournal.com/users/kevinquinnyo/27998.html">AudioBlog</a>.  <a href="http://www.livejournal.com/users/kevinquinnyo/28603.html">My Favorite</a>.</p>
+
+<p>I even tried the whole <a href="http://www.lifehacker.com/software/entertainment/index.php#how-to-find-and-add-media-to-your-itunes-library-with-delicious-110812">del.icio.us + podcasting</a>.  Still don't get it.</p>
+
+<p>I'd also like to share my disdain for all these wierd new techno-memes that don't make sense.  First, you don't need an iPod to do podcasting, and lots of <a href="http://en.wikipedia.org/wiki/AJAX">AJAX</a> implementations (buzzword of the last few months) don't even use XML (which is what the X is for).</p>
+
+<p>I am getting old.</p>
+
+
+
+<div class="posted">
+	Posted by seebq at <a href="http://www.seebq.com/archives/technobabble/i_still_dont_get_it_podcasting.html">08:00 PM</a>
+		| <a href="http://www.seebq.com/cgi-bin/spam-sucks-dont-do-it.cgi?entry_id=286" onclick="OpenComments(this.href); return false">Comments (4)</a>
+	
+	
+</div>
+
+</div>
+
+
+
+
+
+<div class="blogbody">
+
+<a name="000285"></a>
+<h3 class="title">linux kernel updates</h3>
+
+<p>I love it -- a kernel update comes down from the Fedora group, and in the change logs they write:</p>
+
+<pre>
+* Thu Jun 23 2005 Dave Jones <davej@redhat.com>
+- Make orinoco driver suck less.
+(Scanning/roaming/ethtool support).
+</pre>
+
+<p>What an awesome description for a kernel update!  You'd never see that on a formalized, strict, standardized development process.  That's why I love linux.  The informality of it all!</p>
+
+
+
+<div class="posted">
+	Posted by seebq at <a href="http://www.seebq.com/archives/technobabble/linux_kernel_updates.html">03:25 PM</a>
+		| <a href="http://www.seebq.com/cgi-bin/spam-sucks-dont-do-it.cgi?entry_id=285" onclick="OpenComments(this.href); return false">Comments (0)</a>
+	
+	
+</div>
+
+</div>
+
+
+
+<h2 class="date">June 21, 2005</h2>
+
+
+<div class="blogbody">
+
+<a name="000283"></a>
+<h3 class="title">whole house - whole world audio through itunes et al</h3>
+
+<p>Let's hash this out.  Here's my dilemma.  I like listening to music everywhere I go - at home, at work, in every room, everywhere.  I also like iTunes, the iPod, and the Apple Airport Extreme with AirTunes.  I absolutely hate Digital Rights Management (DRM).  I have bought many a stuff from iTunes music store, only to find out that my iPod loses the DRM and just won't play music I have _payed for_, or that any AAC protected files are not playable on my linux laptop or mythtv-server.  The worst part is that I would probably buy so much more music if it wasn't so crippled with DRM.  Alas, it is a sad situation, and not one that I would like to comment on much more, so here is my work-around.</p>
+
+<p>At home, Jodi's powerbook sits in the kitchen.  It has iTunes and quite a few songs stored locally on its hard drive.  I have my mythtv-server sharing its music through rendezvous and mDNSresponder so that it shows up under shared music.  In that share I have my old iTunes collection (including some DRM protected AACs) that will play fine, once authorized on the powerbook.  </p>
+
+<p>This solution is nice, but there is no way to make playlists or change ratings on the shared music -- since it's not technically writable.  So now, I have an nfs mount that is auto exported on the powerbook, and it can read/write/sync the entire media collection (as /mnt/media) or view it read-only through the share.</p>
+
+<p>Now, I can setup a playlist of all types of media, AAC protected, mp3s, whatever from the local computer, from the mythtv-server, etc., and hit play.  I use my Airport Extreme with AirTunes to stream it wirelessly to a closet where I have carefully (over several renovations, mind you) wired 14-gauge 4-wire UL-approved speaker wire all over the house.  I have a pair of in-cieling speakers in the kitchen (with a volume control wired in-line), I have a pair of in-wall speakers in the bedroom (with another volume control wired in-line), and 2 more sets of in-ceiling speakers, one in the master bathroom and one in the master closet (with a single volume control to control both since they are pretty close).  They are connected to an old AIWA amp with a line-in from the Airport Extreme with AirTunes.  Very discreet, very sweet, whole house audio.  I even named the iTunes AirTunes speaker "Whole House Audio" so that does exactly what it says.</p>
+
+<p>Now I rock out to my iTunes through out the whole house.  I can drop the volume locally through the volume controls if need be, but what if a crappy song comes on.  Can I hit next?  Can I pause?  Only if I bring the powerbook with me, which is not so bad, but what if I'm in the bedroom, almost asleep, and want to turn it off (or on), or walking around the house?</p>
+
+<p>If only there were a way to control iTunes from any where.  I'm thinking some type of web-interface served up so that I could use a laptop, or even better, my PocketPC on the wireless LAN....</p>
+
+<p>Well, lo and behold there are some applescripts for controlling iTunes, and someone has built a rudimentary interface with php running on apache on OSX, and boom, there it is:  <a href="http://www.whatsmyip.org/itunesremote/">iTunes Web Remote</a>.</p>
+
+<p>There are also some scripts to grab your iTunes library and convert from <a href="http://homepage.mac.com/fromconcentrate/Applescripts/index.html">iTunes to HTML</a> (though I've seen an xml export of the iTunes library stored on my old PC, and I'm sure there's a way to do an xsl transformation on that to html to make it look perty).  </p>
+
+<p>So there's part of the solution.  What about the ability to play anywhere?  Well, unfortunately, the only streaming media solutions I know of are shoutcast and icecast (which I run on another server and soon to be mythtv-server) which do mp3s, and the Windows Media Encoder 9 (Windows only though -- do I even have access to a windows machine?) -- also I have heard of aacPlus (which I admit I know nothing about) but am starting to get very interested after reading <a href="http://www.codingtechnologies.com/products/aacPlus.htm">this</a>.</p>
+
+<p>I almost forgot to mention my Russound 1-zone 2-channel amp that distributes audio to the bedroom, but locally will sense if audio is coming from my second mythtv-bedroom installation (or any local source, like a television), and automatically switch and amplify the local source signal and play it over the same in-wall speakers.  Add to that the fact that the screen is a projector on the wall, and you can just drool over the techno-goodness that is my whole-house audio/video system.</p>
+
+
+
+<div class="posted">
+	Posted by seebq at <a href="http://www.seebq.com/archives/technobabble/whole_house_whole_world_audio_through_itunes_et_al.html">10:43 PM</a>
+		| <a href="http://www.seebq.com/cgi-bin/spam-sucks-dont-do-it.cgi?entry_id=283" onclick="OpenComments(this.href); return false">Comments (0)</a>
+	
+	
+</div>
+
+</div>
+
+
+
+<h2 class="date">June 02, 2005</h2>
+
+
+<div class="blogbody">
+
+<a name="000279"></a>
+<h3 class="title">how to live web 2.0 style</h3>
+
+<p>What does it take to live web 2.0 style?  How does one become ...err... "one" with the web 2.0 mantra?  Let's just see:</p>
+
+<p>- check multiple e-mail addresses, several <a href="http://gmail.google.com/">g-mail</a> accounts (very web2.0), a <a href="http://mail.yahoo.com/">yahoo mail</a>, and an old <a href="http://www.hotmail.com">hotmail</a> just for kicks<br />
+- have massive amounts of rule-based entries, <a href="http://spamassassin.apache.org/">spamassassin</a> filters, in said e-mail accounts, have a nice little PDA device and/or smartphone that grabs the last few mails from the important ones<br />
+- update your blogs regularly.  Definitely, very web2.0, to update all your blogs at least 3 times a day.  We're talking, your <a href="http://wordpress.org/">Wordpress</a> blog on your own dedicated server, your <a href="http://www.sixapart.com/movabletype/">MovableType</a> (and <a href="http://www.sixapart.com/typepad/">Typepad</a>) blog, your blogspot and blogger blogs, your <a href="http://www.livejournal.com/">livejournal</a> diary, your <a href="http://www.myspace.com/">myspace</a> blog, bloglines, yahoo 360!, googleblogs (I made that one up, but by the time I finish this post, I'm sure it will be invented) and make sure you ping and <a href="http://www.technorati.com/">technorati</a> tag the crap out of everyone and everything.  Oh, and be sure to <a href="http://www.flickr.com/">flickr</a> blog your breakfast, lunch, and dinner, and everything in between.<br />
+- bookmark everything (including this post) with your bookmarklet software of the day using <a href="http://del.icio.us/">del.icio.us</a><br />
+- blogroll everyone: not only must you blog yourself, but you must also make sure you perform roll call on all your friend's blogs and their friend's friend's blogs, which leads me to my next web2.0 item d'jour:<br />
+- social network the crap out of everyone.  You must update your profile and send at least a million messages on your <a href="http://www.friendster.com/">Friendster</a>, <a href="http://www.orkut.com/">Orkut</a>, <a href="http://www.linkedin.com/">Linkedin</a>, <a href="http://www.ryze.com/">Ryze</a>, <a href="http://www.myspace.com/">mySpace</a>, classmates, and all 50 other social networks you're in.<br />
+- use an API to build an API on top of an API to automate your job, life, and social-life (what's that?)</p>
+
+<p>Then, and only then, will you be web2.0.</p>
+
+
+
+<div class="posted">
+	Posted by seebq at <a href="http://www.seebq.com/archives/technobabble/how_to_live_web_20_style.html">05:00 PM</a>
+		| <a href="http://www.seebq.com/cgi-bin/spam-sucks-dont-do-it.cgi?entry_id=279" onclick="OpenComments(this.href); return false">Comments (0)</a>
+	
+	
+</div>
+
+</div>
+
+
+
+
+
+<div class="blogbody">
+
+<a name="000278"></a>
+<h3 class="title">a mythtv plugin proposal</h3>
+
+<p>While over at my Mom's, I happened to notice the Tivo (I bought her) recommending all sorts of wierd things.  Let's just pretend that we don't know the recommendations are really from paid sponsorships, and that the commercials it automatically downloads are really quite nice.  Like I said, pretend....</p>
+
+<p>Here's my idea.  Now that some of my techno-savvy buddies now have <a href="http://www.mythtv.org/">mythtv</a> setups, I think it would be quite cool to build a little system that would provide suggestions/recommendations from your friends.  <strong>Oh No</strong> did I just think up another social network peer recommendation friendster linkedin super clone idea!?!  Yes, I did.</p>
+
+<p>So here's how it would work -- all it would do would either take your current recordings or scheduled recordings and make basic "search queries" on the titles, times, and maybe channel names (because channel #s are different everywhere).  It would then provide a little web service type (rss xml whatever) off your mythweb and let each machine hit each other's feed.  The page to view these suggestions would be just a list of your friend and their suggestions, allowing you to click (thinking about the web interface) the suggestion to perform a search on your current schedule database and schedule the recording if you'd like.  They're just recommendations, after all.</p>
+
+<p>The other idea would be to build some sort of mechanism to actively recommend, by either providing some sort of thumbs up or down rating to recordings ala tivo, but it would be cooler if it could do it semi-automatically.  However, I just don't want all my buddies to know I'm recording Queer Eye for the Straight Guy, and the Trading Spaces marathon, followed by American Idol.  Also, the mythtv setup in my household (don't know about yours) has two users, so allowing a simple thumbs up or down wouldn't work (James complains how after my brothers and I come over to their house and use their Tivo, it starts recording those dern MTV/VH1 shows).  No offense <a href="http://www.jodibell.com">Jodi</a>, but I like Law and Order, but not enough to record all 50 episodes that come on per day.</p>
+
+<p>It's almost there - huh?</p>
+
+
+
+<div class="posted">
+	Posted by seebq at <a href="http://www.seebq.com/archives/technobabble/a_mythtv_plugin_proposal.html">12:28 PM</a>
+		| <a href="http://www.seebq.com/cgi-bin/spam-sucks-dont-do-it.cgi?entry_id=278" onclick="OpenComments(this.href); return false">Comments (1)</a>
+	
+	
+</div>
+
+</div>
+
+
+
+<h2 class="date">May 31, 2005</h2>
+
+
+<div class="blogbody">
+
+<a name="000276"></a>
+<h3 class="title">the internet archive</h3>
+
+<p>Is this not incredibly cool?</p>
+
+<p><a href="http://web.archive.org/web/*/http://www.seebq.com">http://web.archive.org/web/*/http://www.seebq.com</a></p>
+
+<p>If you like taking a trip down memory lane, give that a whirl.  Be sure to check out their archives of <a href="http://web.archive.org/web/19961022174817/http://www.amazon.com/exec/obidos/subst/index2.html">Amazon.com cerca 1996</a>, and <a href="http://web.archive.org/web/19961220154510/http://www.yahoo.com/">Yahoo! December 20, 1996</a>.  </p>
+
+
+
+<div class="posted">
+	Posted by seebq at <a href="http://www.seebq.com/archives/technobabble/the_internet_archive.html">04:29 PM</a>
+		| <a href="http://www.seebq.com/cgi-bin/spam-sucks-dont-do-it.cgi?entry_id=276" onclick="OpenComments(this.href); return false">Comments (0)</a>
+	
+	
+</div>
+
+</div>
+
+
+
+<h2 class="date">April 09, 2005</h2>
+
+
+<div class="blogbody">
+
+<a name="000265"></a>
+<h3 class="title">@#$#@! XML!</h3>
+
+<p>XML is not cool.  Nor are XSLT transformations that don't friggin' work all because of a mis-named namespace.</p>
+
+<p>Son of a ....  I mean, I get it guys, let's come up with this "extra" name-space tag so that you can add one extra layer of naming on top of XML, right.  So instead of saying:  </p>
+
+<p>&lt;worthless&gt;data&lt;/worthless&gt;</p>
+
+<p>you say:</p>
+
+<p>&lt;evenmore:worthless&gt;data&lt;/evenmore:worthless&gt;</p>
+
+<p>but do we have to have <a href="http://www.dpawson.co.uk/xsl/sect2/N5536.html#d6409e979">this</a> <a href="http://www.w3.org/TR/REC-xml-names/">much</a> <a href="http://www.rpbourret.com/xml/NamespacesFAQ.htm">explanation</a>?</p>
+
+
+
+<div class="posted">
+	Posted by seebq at <a href="http://www.seebq.com/archives/technobabble/_xml.html">05:38 PM</a>
+		| <a href="http://www.seebq.com/cgi-bin/spam-sucks-dont-do-it.cgi?entry_id=265" onclick="OpenComments(this.href); return false">Comments (0)</a>
+	
+	
+</div>
+
+</div>
+
+
+
+<h2 class="date">April 08, 2005</h2>
+
+
+<div class="blogbody">
+
+<a name="000264"></a>
+<h3 class="title">been a while since I praised mythtv</h3>
+
+<p>It's been a while since I've praised <a href="http://www.mythtv.org/">MythTV</a>.  I'd just like everyone to know how much I love it!  </p>
+
+<p>Last night I was watching (yet another) Law & Order with Jodi, in "time-stretch" mode (adjusting the playback speed to 1.1x - 1.2x normal speed, but keeping audio at the same pitch), and we were able to get through two episodes (skipping right throught the commercials, and pausing/re-winding to go to the kitchen) in, well, ummm, 1.2 times faster than we normally do!</p>
+
+<p>We have about 10 or so movies saved up that we want to watch, all kinds of Independent Film Channel stuff, The Office episodes, and tons of other junk (all 50+ Law & Orders per day).  It really makes TV actually enjoyable -- TV on my time.  I could imagine myself actually watching a Reality-show now, with the ability to time-stretch to 1.3, or even more, and fast-forwarding, commercial-skipping and long-dramatic-drawn-out-dialog skipping....</p>
+
+<p>And did I mention that the Mac OS X binary for version 0.17 is simply brilliant?  I simply downloaded a "MythTV" frontend binary for Mac, and double-clicked on it.  Boom, another client in the <a href="http://www.seebq.com/gallery/kitchen">kitchen</a> on Jodi's Powerbook.  I knew I ran Cat-5 (Cat-6 actually) to the kitchen for a good reason.</p>
+
+<p>However, <a href="http://thomashawk.com/2005/04/i-always-feel-like-somebodys-watching.html">this</a> scares me.</p>
+
+
+
+<div class="posted">
+	Posted by seebq at <a href="http://www.seebq.com/archives/technobabble/been_a_while_since_i_praised_mythtv.html">11:50 AM</a>
+		| <a href="http://www.seebq.com/cgi-bin/spam-sucks-dont-do-it.cgi?entry_id=264" onclick="OpenComments(this.href); return false">Comments (0)</a>
+	
+	
+</div>
+
+</div>
+
+
+
+<h2 class="date">March 25, 2005</h2>
+
+
+<div class="blogbody">
+
+<a name="000262"></a>
+<h3 class="title">Atlanta Linux Meetup!</h3>
+
+<p>The Atlanta Linux Meetup(.com) Meeting will be held Tuesday, April 5, at the Oaks at Buckhead.</p>
+
+<p>This month's topic is Fedora Core Linux.  We'll be discussing the Fedora Project (Red Hat's community based distro), and then diving in and doing an install of Fedora Core 3 on a fresh PC.</p>
+
+<p>Come one, come all, but RSVP....  <a href="http://linux.meetup.com/115">Atlanta Linux Meetup.com</a></p>
+
+<p><a href="http://fedora.redhat.com/">http://fedora.redhat.com/</a><br />
+<a href="http://www.fedorafaq.org/">http://www.fedorafaq.org/</a><br />
+<a href="http://www.fedoraforum.org/">http://www.fedoraforum.org/</a></p>
+
+
+
+<div class="posted">
+	Posted by seebq at <a href="http://www.seebq.com/archives/technobabble/atlanta_linux_meetup.html">11:21 AM</a>
+	
+	
+</div>
+
+</div>
+
+
+
+<h2 class="date">March 24, 2005</h2>
+
+
+<div class="blogbody">
+
+<a name="000261"></a>
+<h3 class="title">oh no seebq is a dot net shop!</h3>
+
+<p>Has SeeBQ turned into a dot net shop?  Has SeeBQ sold out, abandoning his Open-Source mantra -- the one he swore to on the blood of a Microsoft OEM single-licence 1-2 CPU holographic license booklet?</p>
+
+<p>No!  Though, it is true, I'm coding like a fiend here in Microsoft Visual Studio .NET 2003, I've been justifying because it is just sooo much fun.  The .NET IDE is just plain tight.  Intellisense completion of code as you write (I know Eclipse and Netbeans got it too, shush), automatic deployment to Mobile Pocket PC 2003 devices (and the built-in emulators), ability to deploy and debug Web Services (not to mention how easy it is to write a simple one), the list goes on and on!</p>
+
+
+
+<div class="posted">
+	Posted by seebq at <a href="http://www.seebq.com/archives/technobabble/oh_no_seebq_is_a_dot_net_shop.html">09:51 AM</a>
+		| <a href="http://www.seebq.com/cgi-bin/spam-sucks-dont-do-it.cgi?entry_id=261" onclick="OpenComments(this.href); return false">Comments (0)</a>
+	
+	
+</div>
+
+</div>
+
+
+
+<h2 class="date">February 04, 2005</h2>
+
+
+<div class="blogbody">
+
+<a name="000252"></a>
+<h3 class="title">everyone needs a paypal account</h3>
+
+<p>What if everyone had their <a href=”http://www.paypal.com”>paypal</a>-type system?  What if, I could intuitively broker a deal with someone, decide to pay him/her a predetermined amount, and then execute the transaction?  Before you start imagining all the techno-babble that would provide automatic notification, precise management, and secure transfer of funds, with XML-parsing POST/REST, Service Enabled Architectures on 3-tiered platforms, let's just assume that it could be done, easily.  My question, then becomes, what kind of new relationships between people -- partnerships, companies, makeshift organizations, posses, could be built from a system like this?  Are we almost there?</p>
+
+
+
+<div class="posted">
+	Posted by seebq at <a href="http://www.seebq.com/archives/technobabble/everyone_needs_a_paypal_account.html">12:44 AM</a>
+		| <a href="http://www.seebq.com/cgi-bin/spam-sucks-dont-do-it.cgi?entry_id=252" onclick="OpenComments(this.href); return false">Comments (0)</a>
+	
+	
+</div>
+
+</div>
+
+
+
+<h2 class="date">January 29, 2005</h2>
+
+
+<div class="blogbody">
+
+<a name="000251"></a>
+<h3 class="title">Remote, synchronized backup</h3>
+
+<p>It all started when <a href="http://www.jodibell.com">Jodi</a> told me she accidentally deleted a mail in her mailbox.  I remember setting up her mail client on her powerbook as a pop account, and enabling her to permanently delete mail.  I decided to see how l33t I really was, and went into her mail directory on the server.  I decided to try to undelete the file, and used grep to search the partition.  I read somewhere you could do this, so I decided to search the last 1.8MB on the partition for the phrase "jodibell.com."  Not a good idea.  For some reason, or somehow, the command locked up all processes.  I'm talking:  ssh, httpd, ncftpd, EVERYTHING.  There was no way to stop the command, and unfortunately, no way to reboot the server remotely.  I waited for a while, but then got really worried.  You know, that sinking feeling when you start to imagine the worst possible outcome:  what if my server was really hosed up good and I lost everything?  When was the last time I backed up?  How much would I lose!?!?  </p>
+
+<p>Well, to make a long story short, I eventually called my dedicated hosting provider, <a href="http://www.interland.com/">Interland</a>, who are great, BTW, and they simply rebooted the box.  She was up within 20 minutes of the ordeal.  Yes, there goes my 99.9% uptime, and my 180+ days of continuous uptime with no reboots, but alas, at least she's up and back purring....  </p>
+
+<p>So, to answer the question of when the last time I backed up was - well, let's just say it has been too long.</p>
+
+<p>I started searching for some backup scripts or even a backup program, but then decided to build my own.  I am using a script running daily/weekly (we'll see how it goes) in the crontab that runs rsync on several directories, including the entire seebq.com virtual host directory, to synchronize with my linux server at home - the mythtv-server.  I have heard that rsync-diff is the way to go, but I'll try that some other time.  I also grabbed the etc directory and then proceeded to whip out some mysqldumps (since my movabletype is storing data in a mysql DB) and rsynced those too.</p>
+
+<p>I had some difficulty adding the ssh key so it would automatically trust my mythtv-server at home, but then found out about running processes under the ssh-agent - and fixed it.</p>
+
+<p>So the gist of my script does:<br />
+<pre><br />
+rsync --delete --compress --archive --rsh=ssh $directory_to_backup <br />
+backupuser@$remote_host:backups/<br />
+</pre></p>
+
+<p>And to get the mysql dumps, a quick:</p>
+
+<pre>
+mysqldump --opt -u $dbuser -p$dbpass $database > 
+/root/mysqlbackup/mysql_database.bak.dump
+</pre>
+
+<p>and then I rsync the mysqlbackup directory, after performing several mysqldumps on the various directories.</p>
+
+<p>The hardest part is setting up the automatic ssh login.  So - let's just hope, like every good backup, that I never have to use it.  </p>
+
+<p>References:<br />
+<a href="http://rimuhosting.com/howto/rsyncbackup.jsp">http://rimuhosting.com/howto/rsyncbackup.jsp</a><br />
+<a href="http://www.cs.indiana.edu/Facilities/FAQ/Security/openssh.html">http://www.cs.indiana.edu/Facilities/FAQ/Security/openssh.html</a><br />
+<a href="http://rimuhosting.com/howto/mysqlbackup.jsp">http://rimuhosting.com/howto/mysqlbackup.jsp</a></p>
+
+
+
+<div class="posted">
+	Posted by seebq at <a href="http://www.seebq.com/archives/technobabble/remote_synchronized_backup.html">01:37 PM</a>
+		| <a href="http://www.seebq.com/cgi-bin/spam-sucks-dont-do-it.cgi?entry_id=251" onclick="OpenComments(this.href); return false">Comments (0)</a>
+	
+	
+</div>
+
+</div>
+
+
+
+<h2 class="date">January 13, 2005</h2>
+
+
+<div class="blogbody">
+
+<a name="000249"></a>
+<h3 class="title">php users group meeting</h3>
+
+<p>I gotta give a shout out to the <a href="http://www.phpusers.net/">PHP Users Group of Nashville</a> for letting me crash their monthly meeting while in town.  I gleaned some juicy tidbits about upcoming <a href="http://www.zend.com/store/products/zend-studio/beta.php">Zend Studio 4</a>, and the whole <a href="http://www.zend.com">Zend</a> push.  I suppose I had never thought Zend Studio being the "answer" to WebSphere, but I think that's where they want to head.  Zend does say pretty clearly on the web-site that they are "making PHP enterprise grade."  So, yup, that's it, it's over.  Too commercial for me, too mainstream.  PHP is so lastweek.com.  I'm kidding.  Sorta.</p>
+
+
+
+<div class="posted">
+	Posted by seebq at <a href="http://www.seebq.com/archives/technobabble/php_users_group_meeting.html">11:00 PM</a>
+		| <a href="http://www.seebq.com/cgi-bin/spam-sucks-dont-do-it.cgi?entry_id=249" onclick="OpenComments(this.href); return false">Comments (0)</a>
+	
+	
+</div>
+
+</div>
+
+
+
+<h2 class="date">January 12, 2005</h2>
+
+
+<div class="blogbody">
+
+<a name="000247"></a>
+<h3 class="title">time for a shoutcast update</h3>
+
+<p>SANS report reveals Shoutcast DNS Server has a security issue:</p>
+
+<p>(2) HIGH: Nullsoft SHOUTcast Server Format String Vulnerability<br />
+Affected:<br />
+SHOUTcast version 1.9.4 and prior</p>
+
+<p>Description: SHOUTcast Distributed Network Audio Server (DNAS) is a<br />
+popularly used free audio streaming server for Windows and UNIX<br />
+platforms. The server contains a format string vulnerability. The flaw<br />
+can be triggered by an HTTP request to access a media filename<br />
+containing format string characters such as "%x.mp3", and exploited to<br />
+execute arbitrary code on the SHOUTcast server. Exploit code to leverage<br />
+this flaw on Linux SHOUTcast servers is publicly available.</p>
+
+<p>Status: Vendor confirmed, upgrade to version 1.9.5.</p>
+
+<p>Council Site Actions: The affected software is not in production or<br />
+widespread use, or is not officially supported at any of the council<br />
+sites. They reported that no action was necessary.</p>
+
+<p>References:<br />
+<a href="http://www.securityfocus.com/archive/1/385350/2004-12-18/2004-12-24/0">Posting by Damian Put</a><br />
+<a href="http://www.k-otik.com/exploits/20041223.SHOUTcast.c.php">Exploit Code</a><br />
+<a href="http://forums.winamp.com/showthread.php?s=16d073f61b6c7e99d46c9fffe24ea5aa&threadid=202936">Vulnerability Discussion on SHOUTcast Mailing List</a><br />
+<a href="http://www.shoutcast.com/support/docs/docs.phtml?filenumber=80&language=english&layout=normal&prevlayout=normal">SHOUTcast DNAS Doc</a><br />
+<a href="http://www.securityfocus.com/bid/12096">SecurityFocus BID</a></p>
+
+<p>So, my little shoutcast, which, has been running for, months, now, is due for a little restart.  Gotta love these kind of statistics.  Know any Windows servers that have been running for 163 days?</p>
+
+<pre>
+ 12:49am  up 163 days, 21:12,  1 user,  load average: 0.25, 1.17, 1.54
+110 processes: 106 sleeping, 4 running, 0 zombie, 0 stopped
+CPU states:  0.1% user,  0.2% system,  0.0% nice,  0.1% idle
+Mem:   514672K av,  503096K used,   11576K free,       0K shrd,   51364K buff
+Swap: 1028148K av,  103308K used,  924840K free                  226448K cached
+  PID USER     PRI  NI  SIZE  RSS SHARE STAT %CPU %MEM   TIME COMMAND
+15697 root      15   0 52152 3996   828 S    15.2  0.7 24072m sc_trans_linux
+ 5273 root      16   0  1068 1068   824 R     3.8  0.2   0:00 top
+    1 root      15   0   472  436   412 S     0.0  0.0   0:08 init
+    2 root      15   0     0    0     0 SW    0.0  0.0   0:00 keventd
+    3 root      15   0     0    0     0 SW    0.0  0.0   0:00 kapmd
+    4 root      34  19     0    0     0 SWN   0.0  0.0   0:00 ksoftirqd_CPU0
+    5 root      15   0     0    0     0 SW    0.0  0.0   1:18 kswapd
+    6 root      15   0     0    0     0 SW    0.0  0.0   0:00 bdflush
+    7 root      15   0     0    0     0 SW    0.0  0.0   0:03 kupdated
+    8 root      25   0     0    0     0 SW    0.0  0.0   0:00 mdrecoveryd
+   12 root      15   0     0    0     0 SW    0.0  0.0  78:06 kjournald
+  133 root      15   0     0    0     0 SW    0.0  0.0   0:00 kjournald
+  475 root      16   0   548  512   472 S     0.0  0.0  31:14 syslogd
+  480 root      15   0   432  372   372 S     0.0  0.0   0:00 klogd
+  582 named     15   0  5152 4976  1644 S     0.0  0.9   0:00 named
+  584 named     15   0  5152 4976  1644 S     0.0  0.9   0:00 named
+  585 named     15   0  5152 4976  1644 S     0.0  0.9  15:38 named
+</pre>
+
+
+
+<div class="posted">
+	Posted by seebq at <a href="http://www.seebq.com/archives/technobabble/time_for_a_shoutcast_update.html">12:38 AM</a>
+		| <a href="http://www.seebq.com/cgi-bin/spam-sucks-dont-do-it.cgi?entry_id=247" onclick="OpenComments(this.href); return false">Comments (0)</a>
+	
+	
+</div>
+
+</div>
+
+
+
+<h2 class="date">January 09, 2005</h2>
+
+
+<div class="blogbody">
+
+<a name="000246"></a>
+<h3 class="title">dual tuner mythtv and fixes</h3>
+
+<p>I made some modifications to my <a href="http://www.mythtv.org/">mythtv</a> setup - just some minor updates.  The ease of the <a href="http://www.atrpms.net">apt-get</a> rpm packaging management system is amazing.  In just a few simple commands, you can completely update your system.  I'm now running the 2.6.9-1.11 kernel on the mythtv-server, the latest nvidia drivers (though, they're licensed now, and thus "taint the kernel" by adding non-obtainable source binaries to an otherwise open-source linux system), the newest ivtv drivers (tv tuner card), and lircd (remote control drivers).  I also finally setup both Hauppauge 350 tv tuner cards on the server, and went ahead and ran CAT6 cable (little overkill, I know) from the server to the backend, to replace this Wireless G bridge.  Streaming video over Wireless was just too flaky.  Needless to say, I'm watching Ghost in the Shell now on the projector on the wall in the bedroom, and it is absolutely flawless over ethernet!  No skipping or stuttering at all!</p>
+
+
+
+<div class="posted">
+	Posted by seebq at <a href="http://www.seebq.com/archives/technobabble/dual_tuner_mythtv_and_fixes.html">12:38 AM</a>
+		| <a href="http://www.seebq.com/cgi-bin/spam-sucks-dont-do-it.cgi?entry_id=246" onclick="OpenComments(this.href); return false">Comments (1)</a>
+	
+	
+</div>
+
+</div>
+
+
+
+<h2 class="date">January 04, 2005</h2>
+
+
+<div class="blogbody">
+
+<a name="000245"></a>
+<h3 class="title">mock security</h3>
+
+<p>I hacked free Internet at my hotel.  Sure, I probably shouldn't document it, in that I got something for free that is normally not, but it really was so easy that I think it deserves to be brought out into the open.  If only they'd purchased a new security certificate (their's expired), I would have gladly punched in my credit card to their totally unsecure site.  Yeah right.  </p>
+
+<p>I simply saved the page locally, altered the form to post to the server and changed the cleverly named field for: </p>
+
+<p>&lt;input type=hidden name=billing_method_id value=1&gt;<br />
+to:<br />
+&lt;input type=hidden name=billing_method_id value=2&gt;</p>
+
+<p>Boom.  Free.</p>
+
+<p>I wonder what would happen if I started posting data to the creditcard.cgi -> or even better, just injected some sql to show databases, describe tables, then select * from all the stored credit-card #s.  hmmmm....</p>
+
+
+
+<div class="posted">
+	Posted by seebq at <a href="http://www.seebq.com/archives/technobabble/mock_security.html">10:46 PM</a>
+		| <a href="http://www.seebq.com/cgi-bin/spam-sucks-dont-do-it.cgi?entry_id=245" onclick="OpenComments(this.href); return false">Comments (0)</a>
+	
+	
+</div>
+
+</div>
+
+
+
+<h2 class="date">December 20, 2004</h2>
+
+
+<div class="blogbody">
+
+<a name="000243"></a>
+<h3 class="title">kill spam dead</h3>
+
+<p>For some reason, I've taken on an extreme hatred for SPAM.  So much so, that I decided to stay up all night and install several extreme measures to prevent SPAM from ever bothering me (again).</p>
+
+<p>I finally hunkered down and installed <a href="http://spamassassin.apache.org/">SpamAssassin</a> 3.0.1.  It is kicking a little arse right now as we speak - and with some custom rules kicking out messages on the server as well as once they're in my inbox - no more will I fear checking mail on my Treo, just to see 15 spam messages.  Those f---ers!  </p>
+
+<p>I also installed <a href="http://www.movabletype.org/">MovableType</a> 3.121, and have a <a href="http://www.typekey.com/">TypeKey</a> registration, and do not allow anonymous comments - we'll see how I like this, it's unfortunate, but probably the best way to go.  </p>
+
+<p>You know, I wonder if the poor saps who got conned themselves into purchasing software to "increase their inbound link relevancy" by clogging the internet with shit, actually know how the software they are using works.....  I mean honestly, do they think that this auto-pilot ass-retarded software coming by my site, and all my buddies' sites and posting the same fucktard comment or simply sending messages to every possible name on my server will somehow magically get more people to buy their viagra pills, versus, someone else's?</p>
+
+<p>Fuck Spam.  I'm over it!</p>
+
+
+
+<div class="posted">
+	Posted by seebq at <a href="http://www.seebq.com/archives/technobabble/kill_spam_dead.html">03:08 AM</a>
+		| <a href="http://www.seebq.com/cgi-bin/spam-sucks-dont-do-it.cgi?entry_id=243" onclick="OpenComments(this.href); return false">Comments (0)</a>
+	
+	
+</div>
+
+</div>
+
+
+
+<h2 class="date">November 21, 2004</h2>
+
+
+<div class="blogbody">
+
+<a name="000238"></a>
+<h3 class="title">my mythtv setup</h3>
+
+<p>My <a href="http://www.mythtv.org">MythTV</a> setup is nearing completion.  Aww, who am I kidding - I'm just getting started!  The low-down:  <br />
+<li>MythTV server - AMD 2.4 ghz Athlon 512MB RAM running Fedora Core 2 and MythTV 0.16.  This server is housed in a closet in the office, with several wires running through the wall to the living room (including IR remote receiver).  External firewall port map and dynamic DNS allows me to hit a web-site to schedule remote recordings (no, I'm not telling you what it is, in case you decide to start recording stuff and fill up my 200+ GB reiserfs shared video store, causing Jodi's recording rule of every Law and Order, CSI, and Without a Trace to fail).  <br />
+<li>MythTV bedroom - this little puppy is the show-stopper.  It's a MythTV remote-frontend, powered by a mini-itx form-factor VIA Epia M10000 Nehemiah with a sleek, small, silent case, slot-loading DVD/CD-RW, running a custom kernel (lots of epia patches), and a Wireless bridge, hooked up to a projector (just an inFocus travel model) -- the wall in the bedroom is now a Tivo on speed that allows playback of server-recorded material and the streaming of live TV.  Now, technically it has a PVR-350 in it, to run as a remote back-end server, but next weekend's project is to move it to the server (so it'll have dual tuners)!</p>
+
+<p>This setup is amazing.  Nothing beats the ability when I'm working in another state to fire up my web browser, view the program guide (beautiful program guide, btw), schedule a recording, then come home, fire it up on the living room TV, pause, skip commercials, hit stop, walk to the bedroom, jump into bed, fire up the projector, and continue watching my recordings, stream live-tv, or just stream music.  </p>
+
+<p>Next up, since the mythtv-server is in the office/spare-bedroom, I'm thinking of adding a monitor mount on the wall, so the bedroom can view the same as the living room.  And of course, another tv-tuner....  and maybe an hd-tuner, and then replace the TV with a nice hd-plasma display... mmmm....</p>
+
+<div class="comments-body"><center>
+<img src="http://www.seebq.com/albums/mythtv/MythTVSetup_011.thumb.jpg"> &nbsp; <img src="http://www.seebq.com/albums/mythtv/MythTVSetup_010.thumb.jpg">
+</center></div>
+
+<p>Want more pics?  Visit the <a href="http://www.seebq.com/gallery/mythtv">MythTV Setup Gallery</a>.</p>
+
+
+
+<div class="posted">
+	Posted by seebq at <a href="http://www.seebq.com/archives/technobabble/my_mythtv_setup.html">10:24 PM</a>
+		| <a href="http://www.seebq.com/cgi-bin/spam-sucks-dont-do-it.cgi?entry_id=238" onclick="OpenComments(this.href); return false">Comments (0)</a>
+	
+	
+</div>
+
+</div>
+
+
+
+<h2 class="date">October 11, 2004</h2>
+
+
+<div class="blogbody">
+
+<a name="000233"></a>
+<h3 class="title">real linux hacking</h3>
+
+<p>I'll admit, I've been a little obsessive recently.  I've been working almost non-stop on getting my mini-ITX form factor EPIA M10000 Nehemia up and running Linux and my favorite open-source project, MythTV.  I am almost there.  Holy moly.  I've recompiled an epia-patched 2.6.8 kernel, re-compiled XFree86 4.4 with unichrome via driver support, and it is amazing.  The vanilla (default) XFree86 that used a generic VESA driver scared me, when I loaded up the ivtv drivers for my Hauppauge PVR 350, it was extremely choppy, but the new XFree86 with unichrome and video-4-linux extensions, are unbelievably smooth for such a small machine!  MythTV 0.16 is a go, unbelievable!  Full write-up coming soon!</p>
+
+
+
+<div class="posted">
+	Posted by seebq at <a href="http://www.seebq.com/archives/technobabble/real_linux_hacking.html">06:06 PM</a>
+		| <a href="http://www.seebq.com/cgi-bin/spam-sucks-dont-do-it.cgi?entry_id=233" onclick="OpenComments(this.href); return false">Comments (1)</a>
+	
+	
+</div>
+
+</div>
+
+
+
+<h2 class="date">September 24, 2004</h2>
+
+
+<div class="blogbody">
+
+<a name="000222"></a>
+<h3 class="title">shoutcast streaming server</h3>
+
+<p>holy moly.  seebq's shoutcast streaming audio server went live.  </p>
+
+<p><a href="http://www.norobotsallowed.com/">no robots allowed</a></p>
+
+<p>let me just fire that baby up on my <a href="http://www.palmone.com/us/products/smartphones/treo600/">treo</a>.</p>
+
+<p>HowTo:</p>
+
+<p>shoutcast: <a href="http://www.shoutcast.com/download/broadcast.phtml">download</a><br />
+linuxforum: <a href="http://www.linuxforum.com/linux_tutorials/77/1.php">SHOUTcast multi-stream LAN mp3 server</a></p>
+
+<p>Then, I modified a shoutcast daemon to start my streams as well.  </p>
+
+<p>the original is located at:  <a href="http://enki.cthuugle.com/archives/000015.php">Shoutcast Daemon (Source, Download & Docs)</a></p>
+
+<p>My version is <a href="http://www.seebq.com/projects/shoutcast">here</a>.  Damn, I'm good.</p>
+
+
+<div class="posted">
+	Posted by seebq at <a href="http://www.seebq.com/archives/technobabble/shoutcast_streaming_server.html">01:41 AM</a>
+		| <a href="http://www.seebq.com/cgi-bin/spam-sucks-dont-do-it.cgi?entry_id=222" onclick="OpenComments(this.href); return false">Comments (2)</a>
+	
+	
+</div>
+
+</div>
+
+
+
+
+
+<div class="blogbody">
+
+<a name="000221"></a>
+<h3 class="title">mt-blacklist rules</h3>
+
+<p>Thank you, <a href="http://www.jayallen.org/">Jay Allen</a>.  Job well done.  I just installed <a href="http://www.jayallen.org/projects/mt-blacklist/">mt-blacklist</a> and in my own geeky, sys-admin, power-trip-high kind of way, have given the old F U to the spammers.  </p>
+
+<p>I'm telling you, man, there's nothing better than clicking on that little PayPal link donation button and actually paying for something worthwhile.  Holy crap.</p>
+
+<p>This is how things should be.  All comments are appreciated (hah!)</p>
+
+
+
+<div class="posted">
+	Posted by seebq at <a href="http://www.seebq.com/archives/technobabble/mtblacklist_rules.html">12:45 AM</a>
+		| <a href="http://www.seebq.com/cgi-bin/spam-sucks-dont-do-it.cgi?entry_id=221" onclick="OpenComments(this.href); return false">Comments (0)</a>
+	
+	
+</div>
+
+</div>
+
+
+
+<h2 class="date">September 15, 2004</h2>
+
+
+<div class="blogbody">
+
+<a name="000216"></a>
+<h3 class="title">Open Innovation</h3>
+
+<p>From <a href="http://www.amazon.com/exec/obidos/tg/detail/-/1578518377/ref=pd_luc_17_lc_a3x0//104-3769368-0267153?v=glance&s=books">Open Innovation: The New Imperative for Creating and Profiting from Technology</a> by Henry William Chesbrough:</p>
+
+<div class="comments-body">In today's information-rich environment, companies can no longer afford to rely entirely on their own ideas to advance their business, nor can they restrict their innovations to a single path to market. As a result, says Harvard Business School professor Henry W. Chesbrough, the traditional model for innovation--which has been largely internally focused, closed off from outside ideas and technologies--is becoming obsolete. Emerging in its place is a new paradigm, "open innovation," which strategically leverages internal and external sources of ideas and takes them to market through multiple paths.</div>
+
+<p>I think many people wonder how there are so many successful, open-source projects - I mean, honestly, &lt;sarcasm&gt; without tons of corporate funding, patent-laws, trade-marks, industry secrets, and structured R&D, how does anything worthwhile, that's "open-source" get built? &lt;/sarcasm&gt;  Perhaps it is for those exact lack of conditions that truly open innovation occurs.</p>
+
+<p>I'm of the mindset that value is derived from a little bit more complicated formula than "how much?"  In an increasingly service-oriented economy, it makes sense that one would pay for services, for time, for opportunity, but not for access to information, not for pre-packaged, marked-up goods, not licenses, not perpetuation of protectionist laws.</p>
+
+<p>On a separate note, how does an increasingly intangible, service-oriented market affect something like the <a href="http://www.fairtax.org/">Fair Tax</a>?</p>
+
+
+
+<div class="posted">
+	Posted by seebq at <a href="http://www.seebq.com/archives/technobabble/open_innovation.html">12:15 AM</a>
+		| <a href="http://www.seebq.com/cgi-bin/spam-sucks-dont-do-it.cgi?entry_id=216" onclick="OpenComments(this.href); return false">Comments (0)</a>
+	
+	
+</div>
+
+</div>
+
+
+</div>
+
+</div>
+
+</body>
+</html>

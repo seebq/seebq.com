@@ -1,0 +1,572 @@
+<html>
+
+<head>
+<meta name="GENERATOR" content="Microsoft FrontPage 5.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<title>CS4451B - Project 2 - Team Greenlee</title>
+<style>
+<!--
+div.Section1
+	{page:Section1;}
+span.SpellE
+	{}
+-->
+</style>
+</head>
+
+<body>
+
+<table border="1" cellpadding="0" cellspacing="0" style="border-collapse: collapse" width="100%" id="AutoNumber1" bgcolor="#C0C0C0">
+  <tr>
+    <td width="27%">
+
+<p><font size="5">CS 4451B - Project 2 - Team Greenlee</font></p>
+    </td>
+  </tr>
+</table>
+<p>Charles Brian Quinn <a href="mailto:gte430p@prism.gatech.edu">
+gte430p@prism.gatech.edu</a><br>
+Brandon Yarbrough <a href="mailto:gte055u@prism.gatech.edu">
+gte055u@prism.gatech.edu</a></p>
+<p>The goals of this project:</p>
+<ul>
+  <li>Create 4 files (cube, tetrahedron, torus, and non-convex shape such as an 
+  Lshape figure) 3D format.</li>
+  <li>Perform the Butterfly Subdivision of Triangle meshes on the files to 
+  create new (larger) files.</li>
+  <li>Display these triangle meshes in OpenGL.</li>
+  <li>Implement smooth shading and lighting using the calculated vector normals.</li>
+  <li>Animate the objects by specifying a simple control polygon of 4 points for 
+  each vertex, and subdividing using a uniform cubic B-spline to smooth the 
+  animation.</li>
+  <li>Create movie files of animations.</li>
+</ul>
+<table border="1" cellpadding="0" cellspacing="0" style="border-collapse: collapse" width="100%" id="AutoNumber1" bgcolor="#C0C0C0">
+  <tr>
+    <td width="27%"><font size="4">Part A:&nbsp; Preliminaries</font></td>
+  </tr>
+</table>
+<p>The objective of this portion of the project is to implement a simple subdivision 
+algorithm.&nbsp; The program will take in a file, and compute a new file that is 
+4 times longer, with 4 times as many triangles, each triangle is subdivided into 
+4 based on the butterfly subdivision algorithm.</p>
+<p>We plan on using the C language, compiled on Linux, using OPENGL and 
+the GLUT library utilities.</p>
+<p>The general algorithm employed to implement the butterfly subdivision on 
+triangle mesh surfaces is as follows:</p>
+<pre><font color="#FF0000">
+	# general algorithm for butterfly subdivision on triangle mesh surfaces
+	# this program will take in a three dimensional shape, and then subdivides into a smooth shape.</font>
+	read k; allocate(X[4k], Y[4k], Z[4k]); 
+	for i:=0 to k–1 do 
+		read(X[i],Y[i],Z[i]); <font color="#FF0000"># k = number of points in shape
+	</font>read t, allocate(V[3t]); 
+	for i:=0 to 3t–1 do 
+		read(V[i]); <font color="#FF0000"># t = number of triangles</font>
+	allocate(O[3t], F[3t], M[3t], W[12t]); <font color="#FF0000"># F = first points nearest (f in the diagram), M = midedge points
+	# compute the o table (opposite corners)</font>
+	for c:=0 to 3t–2 do for b:=c+1 to 3t-1 do
+		if (c.n.v==b.p.v) &amp;&amp; (c.p.v ==b.n.v) then {O[c]:=b; O[b]:=c};
+<font color="#FF0000">	# compute the midpoint edges for each corner and the midpoint offset</font>
+	i:=k–1; 
+	for c:=0 to 3t–1 do {
+		M[c]:=M[c.o]:=++i;
+		(X[i],Y[i],Z[i]):=(c.n.v+c.p.v)/2+((c.v+c.o.v)/2–(c.l.v+c.r.v+c.o.l.v+c.o.r.v)/4)/4;}
+<font color="#FF0000">	# compute the new v table entries in terms of c</font>
+	i:=0; 
+	for c:=0 to 3t–1 do if c.f then {
+		F[c]:=F[c.n]:=F[c.p]:=false; <font color="#FF0000"># to avoid unnecessary repetition</font>
+		W[i++]:= c.v; W[i++]:= c.p.m.v; W[i++]:= c.n.m.v; <font color="#FF0000"># W = new V table with 4 times as many triangles</font>
+		W[i++]:= c.p.m.v; W[i++]:= c.n.v; W[i++]:= c.m.v;
+		W[i++]:= c.n.m.v; W[i++]:= c.m.v; W[i++]:= c.p.v;
+		W[i++]:= c.m.v; W[i++]:= c.n.m.v; W[i++]:= c.p.m.v};
+	write (4k, X, Y, Z, 4t, W);
+</pre>
+<p>The code, while accurate, is inefficient.&nbsp; Improvements could come in 
+saving some of the temporary stuff it sets up so that when it's run again (which 
+it will be), it will not have to compute as much of the O-table the second time.</p>
+<p>There will be many changes in this code when it is redone in C.&nbsp; For 
+instance, use of features like realloc will make table expansion easier.&nbsp; 
+Also, reading and writing will be much more complex.&nbsp; A file specification 
+will be made to ensure valid input.&nbsp; There may be small optimizations 
+throughout.</p>
+
+<table border="1" cellpadding="0" cellspacing="0" style="border-collapse: collapse" width="100%" id="AutoNumber1" bgcolor="#C0C0C0">
+  <tr>
+    <td width="27%"><font size="4">Part B:&nbsp; Implementation of Subdivision</font></td>
+  </tr>
+</table>
+
+<p>We created 4 files to implement subdivision.&nbsp; We created a cube, a tetrahedron, 
+an l-shaped figure, and a torus.&nbsp; The data files are 
+included below.&nbsp; We had some difficulties implementing the torus and 
+l-shaped figure, but have since been worked out.&nbsp; The l-shaped figure had a 
+misaligned corner (as detected by our subdivision algorithm).&nbsp; All files 
+are correct now.&nbsp; <i>Updated page to reflect changes on Monday, September 
+29 2002. 23:38 EST</i></p>
+
+<p>The program is divided into two parts.&nbsp; One part simply draws a triangle mesh representation of a shape in 3D space based on an input tgz 
+file (see specification of tgz file below).&nbsp; </p>
+
+<p>The draw program uses the GLUT toolkit to set up the window and draw the 
+polygons for the triangle mesh representation.&nbsp; </p>
+
+<p>To initialize the glut libraries and set up the window we make several 
+glutInit calls.</p>
+
+<pre>	glutInit(&argc, argv);  <font color="#FF0000"># initalizes glut</font>
+	glutInitDisplayMode (GLUT_SINGLE | GLUT_RGB);
+	glutInitWindowSize (Vx_max-Vx_min, Vy_max-Vy_min);
+	glutInitWindowPosition (100, 100);
+	glutCreateWindow (argv[0]);
+
+	<font color="#FF0000">/* read in files and do usage checking */</font></pre>
+
+<pre>   	init ();  <font color="#FF0000"># init sets up the model for shading and lighting (implemented later) see below</font>
+
+	glutDisplayFunc(display);  <font color="#FF0000"># called to draw the shapes
+</font>	glutReshapeFunc(reshape);  <font color="#FF0000"># called when window is resized (and upon opening)
+</font>	glutMouseFunc(mouse);      <font color="#FF0000"># used to capture mouse events</font>
+	glutMainLoop();            <font color="#FF0000"># goes into the main loop to keep image displayed and poll for mouse</font>
+</pre>
+
+<p>To create the polygonal representation, we used the GL_TRIANGLES methods for 
+drawing in GLUT.</p>
+
+<pre>	glBegin(GL_TRIANGLES);
+    	glVertex3f(V1x, V1y, V1z);  <font color="#FF0000"># specifying vertexes as floats</font>
+        glVertex3f(V2x, V2y, V2z);
+        glVertex3f(V3x, V3y, V3z);
+</pre>
+
+<p>The usage for the draw program is:</p>
+
+<pre>	./draw &lt;inputfile&gt;</pre>
+<p>You can superimpose one image over another by typing in two input files after 
+proj2.</p>
+<p>The subdivision program is invoked from the command line.&nbsp; It takes in 
+file based on the specifications provided below, and outputs a file in those 
+same specifications, only with 4 times as many points, as a result of subdivison.</p>
+<p>We first implemented a data structure to hold the shape information.</p>
+<pre>	typedef struct Shape
+	{
+	        int numVertices; <font color="#FF0000">/*we must know how many vertices*/</font>
+	        float *vTable;   <font color="#FF0000">/*this is an array with numVertices*3 elements.</font>
+	                         <font color="#FF0000"> * It is a list of vertices and their 3D locations*/</font>
+	        int *tTable;     <font color="#FF0000">/*this is an array with (2*numVertices - 3)*3</font>
+	                         <font color="#FF0000"> * elements.  It is a list of triangles (counter-</font>
+	                         <font color="#FF0000"> * clockwise sides out)*/</font>
+	        int numTris;
+	} *Shape, Shape_Typ;
+</pre>
+<p>The subdivision is implemented as follows:</p>
+<pre>   	vTable = inShape->vTable;
+   	for(c=0;c&lt;<numTriangles(inShape)*3;c++)
+   {
+        if(mTable[c] ==
+        {
+                counter++;
+                outShape- 1)>vTable[counter*3]=0;
+                outShape-&gt;vTable[counter*3]=
+                        (vTable[3*V(inShape,N(c))]
+                         + vTable[3*V(inShape,P(c))])/2;
+                outShape->vTable[counter*3]+=
+                        (
+                         ( vTable[3*V(inShape,c)]
+                           + vTable[3*V(inShape,oTable[c])]
+                         )/2
+                         -
+                         (
+                          vTable[3*L(inShape,c,oTable)] 
+                          + vTable[3*R(inShape,c,oTable)]
+                          + vTable[3*L(inShape,oTable[c],oTable)] 
+                          + vTable[3*R(inShape,oTable[c],oTable)] 
+                         )/4
+                        )/4;
+                outShape->vTable[counter*3+1]=
+                        (vTable[3*(V(inShape,N(c)))+1]
+                         + vTable[3*(V(inShape,P(c)))+1])/2
+                        +
+                        (
+                         ( vTable[3*(V(inShape,c))+1]
+                           vTable[3*(V(inShape,oTable[c]))+1]
+                         )/2
+                         -
+                         (
+                           vTable[3*(L(inShape,c,oTable))+1] 
+                           + vTable[3*(R(inShape,c,oTable))+1]
+                           + vTable[3*(L(inShape,oTable[c],oTable))+1]
+                           + vTable[3*(R(inShape,oTable[c],oTable))+1]
+                         )/4
+                        )/4;
+                outShape->vTable[counter*3+2]=
+                        (vTable[3*(V(inShape,N(c)))+2]+
+                         vTable[3*(V(inShape,P(c)))+2])/2
+                        +
+                        (
+                         ( vTable[3*(V(inShape,c))+2] +
+                           vTable[3*(V(inShape,oTable[c]))+2]
+                         )/2
+                         -
+                         (
+                          vTable[3*(L(inShape,c,oTable))+2] 
+                          + vTable[3*(R(inShape,c,oTable))+2]
+                          + vTable[3*(L(inShape,oTable[c],oTable))+2]
+                          + vTable[3*(R(inShape,oTable[c],oTable))+2]
+                         )/4
+                        )/4;
+</pre>
+<p>The usage for the subdivision (curving) program is:</p>
+<pre>	./curver &lt;inputfile&gt; &lt;outputfile&gt;</pre>
+<p>So, to subdivide and display a polygon, we do the following:</p>
+<pre>	./curver cube1.tg1 cube2.tg1
+	./draw cube2.tg1</pre>
+<p>Here is the result of the cube after successive levels of subdivision:</p>
+<img src="cube_trianglemesh.gif" width="700" height="264"><br>
+<p>Here is the result of the tetrahedron after successive levels of subdivision:</p>
+<img src="tetra_trianglemesh.gif" width="703" height="300"><br>
+<p>Here is the result of the torus after successive levels of subdivision:</p>
+<img src="torus_trianglemesh.gif" width="775" height="319"><br>
+<p>The input data files (<a href="tetra1.tg1">tetra1.tg1</a>, <a href="cube.tg1">
+cube.tg1</a>, <a href="torus.tg1">torus.tg1</a>, and <a href="lshape.tg1">
+lshape.tg1</a>) are of the following format:</p>
+<pre>	---
+	&lt;tag for our file&gt;
+	&lt;# of vertices&gt;
+	&lt;list of vertices coordinates in x y z&gt;
+	&lt;list of triangles&gt;
+	---
+</pre>
+<p>Example data file (cube):</p>
+<pre>	---
+	BSV1
+	8
+	0 0 0
+	2 0 0
+	2 2 0
+	0 2 0
+	0 0 2
+	2 0 2
+	2 2 2
+	0 2 2
+	3 1 2
+	0 1 3
+	7 5 4
+	7 6 5
+	7 3 2
+	2 6 7
+	1 4 5
+	4 1 0
+	2 1 5
+	6 2 5
+	7 4 0
+	3 7 0
+	---
+</pre>
+<p>The complete tar ball for <b>Part B</b> (including the makefile, shapes, and images) 
+can be obtained here:&nbsp; <br>
+<a href="http://www.seebq.com/cs4451/project2/team_greenlee_prj2_a.tar">http://www.seebq.com/cs4451/project2/team_greenlee_prj2_a.tar</a></p>
+
+<table border="1" cellpadding="0" cellspacing="0" style="border-collapse: collapse" width="100%" id="AutoNumber1" bgcolor="#C0C0C0">
+  <tr>
+    <td width="27%"><font size="4">Part C:&nbsp; Smooth Shading</font></td>
+  </tr>
+</table>
+
+<p>We added smooth shading to our models using OpenGL and the GLUT toolkit.&nbsp; 
+We first calculated the normals for each vertex and inserted them into the code 
+that draws the shape.&nbsp; Essentially the only thing we had to add was the 
+OpenGL command to set the normals before each glVertex3f() comand.</p>
+
+<pre>	glNormal3fv( vertex normal array );
+	glVertex3f(vertex_x, vertex_y, vertex_z);
+</pre>
+
+<p>The normal was calculated using the corner table data structure to go around 
+a vertex and sum up cross products of pairs of leading edge vectors.&nbsp; Using 
+this method we can get an estimate for the surface normal at that vertex. </p>
+
+<p>When we found each pair, we simply added up the normals and then called:</p>
+
+<pre>	glEnable(GL_NORMALIZE);
+</pre>
+
+<p>This enabled us to normalize the vectors to unit length one.</p>
+
+<p>We used different views and added some ambient and positioned lighting to 
+obtain better angles of our models.</p>
+
+<p>To set up the shading and lighting, in the init() procedure:</p>
+
+<pre>	GLfloat mat_specular[] = { 1.0, 1.0, 1.0, 1.0 };
+	GLfloat mat_shininess[] = { 50.0 };
+	GLfloat light_position[] = { 1.0, 1.0, 1.0, 0.0 };
+	glClearColor (0.0, 0.0, 0.0, 0.0);
+	glShadeModel (GL_SMOOTH);
+
+	glMaterialfv(GL_FRONT, GL_SPECULAR, mat_specular);
+	glMaterialfv(GL_FRONT, GL_SHININESS, mat_shininess);
+	glLightfv(GL_LIGHT0, GL_POSITION, light_position);
+
+	glEnable(GL_LIGHTING);
+	glEnable(GL_LIGHT0);
+	glEnable(GL_DEPTH_TEST);
+</pre>
+
+<p>Below are all 4 subdivisions on the 4 models.</p>
+
+<img src="shading_cube.gif" width="738" height="325"><p>&nbsp;<img src="shading_tetra.gif" width="486" height="252"></p>
+<p>&nbsp;<img src="shading_lshape.gif" width="807" height="363"></p>
+<p>
+<img src="shading_torus.gif" width="944" height="303"> </p>
+
+<p>We applied some ambient blue lighting to the torus, just for fun by using:</p>
+
+<pre>	/* blue color in RGB */
+	GLfloat light1_color[] = { 0.0, 0.0, 1.0, 1.0 };
+
+	glLightfv(GL_LIGHT1, GL_AMBIENT, light1_color);
+</pre>
+
+<img src="shading_torus_blue.gif" width="260" height="297">
+
+<p>The updated tar ball for part C (including make and the shapes with usage) is located here:</p>
+
+<p><a href="http://www.seebq.com/cs4451/project2/team_greenlee_prj2_c.tar">http://www.seebq.com/cs4451/project2/team_greenlee_prj2_c.tar</a></p>
+
+<table border="1" cellpadding="0" cellspacing="0" style="border-collapse: collapse" width="100%" id="AutoNumber1" bgcolor="#C0C0C0">
+  <tr>
+    <td width="27%"><font size="4">Part D:&nbsp; Animation</font></td>
+  </tr>
+</table>
+
+<p>In order to implement animation, we first extended the input files so that 
+each vertex is represented by 4 points.&nbsp; The total number of coordinates is 
+now 12.&nbsp; For the first of the four vertices, we simply use the first point.&nbsp; 
+We then moved the other 3 points by a small amount, to create a &quot;bulging&quot; or 
+transformation of the object.</p>
+<p>The input data files (<a href="tetra1.tg1">tetra1.tg3</a>, <a href="cube.tg1">
+cube.tg3</a>, <a href="torus.tg1">torus.tg3</a>, and <a href="lshape.tg1">
+Lshape.tg3</a>) are now of the following format:</p>
+<pre>	---
+	&lt;tag for our file&gt;
+	&lt;# of vertices&gt;
+	&lt;# of triangles&gt;
+	&lt;vertex1 coordinates in x y z for frame 1&gt;
+	&lt;vertex1 coordinates in x y z for frame 2&gt;
+	&lt;vertex1 coordinates in x y z for frame 3&gt;
+	&lt;vertex1 coordinates in x y z for frame 4&gt;
+	&lt;vertex2 coordinates in x y z for frame 1&gt;
+	&lt;vertex2 coordinates in x y z for frame 2&gt;
+	...
+	&lt;list of triangles&gt;
+	---
+</pre>
+<p>Example data file (tetrahedron):</p>
+<pre>	---
+	BSV3
+	4
+	4
+	0 0 0	
+	-1 0 0
+	-2 0 0
+	-3 0 0
+	1 0 0
+	1.5 0 0	
+	3 0 0
+	4.5 0 0
+	1.5 0 1
+	1.5 0 1	
+	1.5 0 1
+	1.5 0 1
+	1 1 0
+	1 2 0
+	1 3 0
+	1 4 0
+	3 0 1
+	3 1 2
+	3 2 0
+	1 0 2
+	---
+</pre>
+<p>We are essentially defining a control polygon to move the vertices.&nbsp; We 
+then subdivided this control polygon using a uniform cubic B-spline subdivision 
+algorithm to create a smooth motion through the vertices.</p>
+
+<pre>	Point bspline_find_new_point (Point pt1, Point pt2, Point pt3, Point pt4) {
+
+	  Point midPoint, midPointprime, toReturn;
+
+	  <font color="#FF0000">// find new midpoint between 2 and 3
+</font>	  midPoint.x = (pt2.x + pt3.x) / 2;
+	  midPoint.y = (pt2.y + pt3.y) / 2;
+	  midPoint.z = (pt2.z + pt3.z) / 2;
+	
+	  <font color="#FF0000">// find midpoint of p1 and p4</font>
+	  midPointprime.x = (pt1.x + pt4.x) / 2;
+	  midPointprime.y = (pt1.y + pt4.y) / 2;
+	  midPointprime.x = (pt1.z + pt4.z) / 2;
+	
+	  <font color="#FF0000">// find length of new midpoint and other midpoint
+	  // take 1/8 of this length
+	  // add to new midpoint</font>
+	  toReturn.x = midPoint.x + (midPoint.x - midPointprime.x)/8;
+	  toReturn.y = midPoint.y + (midPoint.y - midPointprime.y)/8;
+	  toReturn.z = midPoint.z + (midPoint.z - midPointprime.z)/8;
+	
+	  return toReturn;
+	}
+</pre>
+
+<p>The B-spline helper function above uses the 4-point method, to interpolate 
+the vertices.&nbsp; It is only calculated when displaying the 128 points.&nbsp; 
+We had to reformat our shape structure in order to accommodate these changes:</p>
+
+<pre>	typedef struct Shape
+	{
+	        int numVertices; <font color="#FF0000">/*we must know how many vertices*/</font>
+	        float *vTable;   <font color="#FF0000">/*this is an array with numVertices*3 elements.</font>
+	                         <font color="#FF0000"> * It is a list of vertices and their 3D locations*/</font>
+
+	        int *tTable;     <font color="#FF0000">/*this is an array with (2*numVertices - 3)*3</font>
+	                         <font color="#FF0000"> * elements.  It is a list of triangles (counter-</font>
+	                         <font color="#FF0000"> * clockwise sides out)*/</font>
+	        int numTris;
+	        int curVTable;   <font color="#FF0000">/* the current index that the vTable is set to*/</font>
+	        int numTables;   <font color="#FF0000">/* the number of vTables*/</font>
+	        float **vTables; <font color="#FF0000">/* an array of vTables*/</font>
+} *Shape, Shape_Typ;
+</pre>
+
+<p>We subdivided this control polygon a total of 5 times, to create 128 frames 
+of motion.</p>
+<pre><font color="#FF0000">	/* last step - B-spline control point subdivision 5 times */
+	/* this executes 5 times to turn the 2^2 points to 2^(2+5), or 128, points. */
+</font>	bSpline(shape);
+    	bSpline(shape);
+    	bSpline(shape);
+    	bSpline(shape);
+    	bSpline(shape);
+</pre>
+<p>Because the only difference between the new shapes is the location, we do not 
+recalculate the vtables for each frame.&nbsp; We only store 4 different vtables, 
+when we display, we have 128 tables.&nbsp; The O-table and T-tables are only 
+calculated once, allowing for optimization.</p>
+
+<p>Our animation program is simply an update to the draw program.&nbsp; We used 
+the
+<a href="http://www.cc.gatech.edu/classes/AY2003/cs4451b_fall/movie-win.c" style="color: blue; text-decoration: underline; text-underline: single">
+movie-<span class="SpellE">win.c</span></a> files found on the
+<a href="http://www.cc.gatech.edu/classes/AY2003/cs4451b_fall/">CS4451: Computer 
+Graphics</a> home page.&nbsp; We created 128 .ppm files by capturing the 
+frameBuffer and writing it to disk.&nbsp; We then converted these .ppms to an 
+mpeg using a program called mjpeg (<a href="http://mjpeg.sourcefourge.net/">http://mjpeg.sourefourge.net/</a>).&nbsp; </p>
+
+<table border="1" cellpadding="0" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111" width="100%" id="AutoNumber2">
+  <tr>
+    <td width="100%" colspan="4" bgcolor="#C0C0C0">
+
+<b>Animations</b></td>
+  </tr>
+  <tr>
+    <td width="25%">
+
+<p align="center">
+
+<a href="lshape_file.htm">
+<img src="lshape_reg.jpg" width="111" height="110" border="0"><br>
+Lshape Animation</a> </td>
+    <td width="25%">
+    <p align="center">
+
+<a href="tetra_file.htm">
+<img src="tetra4.jpg" width="111" height="110" border="0"><br>
+Tetrahedron Animation</a></td>
+    <td width="25%">
+
+<p align="center">
+
+<a href="torus_file.htm">
+<img src="torus4.jpg" width="111" height="110" border="0"><br>
+Torus Animation</a></td>
+    <td width="25%">
+    <p align="center">
+
+<a href="cube_file.htm">
+<img src="cube.jpg" width="111" height="110" border="0"><br>
+Cube Animation</a></td>
+  </tr>
+</table>
+<p>
+
+&nbsp;</p>
+<table border="1" cellpadding="0" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111" width="100%" id="AutoNumber3">
+  <tr>
+    <td width="100%" colspan="3" bgcolor="#C0C0C0">
+<p>
+
+<b>Interesting Animations / Models</b></p>
+    </td>
+  </tr>
+  <tr>
+    <td width="33%">
+<p align="center">
+
+<a href="lshape_rotate_file.htm">
+<img src="lshape_reg.jpg" width="111" height="110" border="0"></a><a href="lshape_file.htm"><br>
+Lshape Animation</a> without rotating camera angle</p>
+    </td>
+    <td width="33%">
+    <p align="center"><a href="squirrel.jpg">
+    <img src="squirrel.jpg" width="111" height="110" border="0"> <br>
+    Squirrel Model</a><br>
+    (source obtained from Brandon B <br>
+    modified to BSV3 format)</td>
+    <td width="34%">&nbsp;</td>
+  </tr>
+</table>
+<p>
+
+<br>
+<b>Project Potentials & Limitations</b></p>
+<p>The project can generate complex, unique, smooth animations from relatively 
+very little information.&nbsp; The files used to create these animations are a 
+few lines long, yet the program can generate thousands of lines of new point 
+information.&nbsp; The draw program is robust and can perform many calculations 
+to display these new complex shapes with lighting and shading and even rotating 
+of the view.&nbsp; This program could potentially be used to generate complex 
+models from simple representations in a short amount of time.</p>
+<p>The project is limited in that we can only use non-convex objects.&nbsp; 
+Also, the objects can only be triangle meshes, that have to be aligned.&nbsp; 
+Figuring out this alignment can be tricky.&nbsp; Most objects used in 3D 
+animation can be constructed using triangles, but often times a polygonal 
+approach for the primitives is used.&nbsp; Also, the animations require a 
+knowledge in advance of the tweaking, and the points can only move a small bit.&nbsp; 
+We cannot specify more complex paths for movement of points, since we only start 
+from 4.&nbsp; The objects must also be watertight.</p>
+<p>While the computations are not that intensive, we tried our program on a 
+model that contained over 9000 vertices.&nbsp; The object was a squirrel, and 
+the subdivision and animation took almost an hour to complete (before we gave 
+up).&nbsp; Given more time, we could implement more optimizations, and perhaps 
+generate code for special hardware to speed it up.</p>
+<b>Code & Files</b></p>
+<p>
+<a href="Makefile">Makefile</a><br>
+<a href="shape.h">shape.h</a><br>
+<a href="shape.c">shape.c</a><br>
+<a href="curver.c">curver.c</a><br>
+<a href="proj2.c">proj2.c</a><br>
+--<br>
+<a href="Lshape.tg3">Lshape.tg3</a><br>
+<a href="torus.tg3">torus.tg3</a><br>
+<a href="tetra.tg3">tetra.tg3</a><br>
+<a href="cube.tg1">cube.tg3</a><br>
+The complete code can be found at:<br>
+<a href="http://www.seebq.com/cs4451/project2/team_greenlee_final.tar.gz">
+http://www.seebq.com/cs4451/project2/team_greenlee_final.tar.gz</a></p>
+<hr>
+<i>Last updated: Tuesday, Oct 4 2002.  13:10 EST
+</body>
+
+</html>

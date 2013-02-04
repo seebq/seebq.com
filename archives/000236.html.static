@@ -1,0 +1,153 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<meta name="generator" content="http://www.movabletype.org/" />
+
+<title>seebq.com - shameless self promotion: my babies</title>
+
+<link rel="stylesheet" href="http://www.seebq.com/styles-site.css" type="text/css" />
+<link rel="alternate" type="application/rss+xml" title="RSS" href="http://www.seebq.com/index.rdf" />
+<link rel="alternate" type="application/atom+xml" title="Atom" href="http://www.seebq.com/atom.xml" />
+
+<link rel="start" href="http://www.seebq.com/" title="Home" />
+<link rel="prev" href="http://www.seebq.com/archives/000235.html" title="your vote counts" />
+
+<link rel="next" href="http://www.seebq.com/archives/000237.html" title="bush won" />
+
+
+
+
+
+
+
+</head>
+
+<body>
+
+<div id="banner">
+<img src="images/seebq_title.gif" width="456" height="79" border="0" />
+</div>
+
+<div id="container">
+
+<div class="blog">
+
+<div id="menu">
+<p align="right">
+<a href="http://www.seebq.com/archives/000235.html">« your vote counts</a> |
+
+<a href="http://www.seebq.com/">Main</a>
+| <a href="http://www.seebq.com/archives/000237.html">bush won »</a>
+
+</p>
+</div>
+
+<h2>October 26, 2004</h2>
+
+<h3>my babies</h3>
+
+<p><img alt="Picture031_23Oct04.jpg" src="http://www.seebq.com/archives/Picture031_23Oct04.jpg" width="320" height="240" border="0" /></p>
+
+<p>Jodi, Jameson, and Paris.</p>
+
+<div id="a000236more"><div id="more">
+
+</div></div>
+
+<p class="posted">Posted by seebq at October 26, 2004 02:42 PM</p>
+
+
+
+
+<h2 id="comments">Comments</h2>
+
+<div id="c1240">
+<p>Hey kids,<br />
+What is the software that you and omar use at jakata to program new interfaces for legacy systems?</p>
+</div>
+<p class="posted">Posted by: <a target="_blank" title="http://www.charleslumpkin.com" href="http://www.seebq.com/cgi-bin/spam-sucks-dont-do-it.cgi?__mode=red;id=1240">Charles Lumpkin</a>  at November  4, 2004 10:00 PM</p>
+<div id="c1241">
+<p>At Jacada, we have our own suite of legacy integration "total solutions," meaning that we have do have software you can buy, but along with software comes training packages, professional services, consulting, support, maintanence, etc.  Technically, catered to large enterprises.  If you're looking to integrate a legacy system quickly, your best bet is to find out as much as you can about the system you're trying to integrate (i.e., is it truly a AS/400 TN3270/5250 mainframe system, or can you get at the DB2 database or whatever the back-end is).  IBM has some great tools for accessing legacy data such as JDBC and others that I can't quite name off the top of my head.  Good luck.</p>
+</div>
+<p class="posted">Posted by: <a target="_blank" title="http://www.seebq.com/" href="http://www.seebq.com/cgi-bin/spam-sucks-dont-do-it.cgi?__mode=red;id=1241">seebq</a>  at November  4, 2004 10:49 PM</p>
+
+
+
+
+<h2>Post a comment</h2>
+
+
+<div id="thanks">
+<p>Thanks for signing in, 
+<script type="text/javascript" src="http://www.seebq.com/cgi-bin/spam-sucks-dont-do-it.cgi?__mode=cmtr_name_js"></script><script>document.write(commenter_name);</script>.
+Now you can comment. (<a href="http://www.seebq.com/cgi-bin/spam-sucks-dont-do-it.cgi?__mode=handle_sign_in&static=1&entry_id=236&logout=1">sign out</a>)</p>
+
+(If you haven't left a comment here before, you may need to be approved by the site owner before your comment will appear. Until then, it won't appear on the entry. Thanks for waiting.)
+
+<form method="post" action="http://www.seebq.com/cgi-bin/spam-sucks-dont-do-it.cgi" name="comments_form" onsubmit="if (this.bakecookie[0].checked) rememberMe(this)">
+<input type="hidden" name="static" value="1" />
+<input type="hidden" name="entry_id" value="236" />
+
+<p><label for="url">URL:</label><br />
+<input tabindex="1" type="text" name="url" id="url" />
+Remember me?
+<input type="radio" id="remember" name="bakecookie" /><label for="remember">Yes</label><input type="radio" id="forget" name="bakecookie" onclick="forgetMe(this.form)" value="Forget Info" style="margin-left: 15px;" /><label for="forget">No</label><br style="clear: both;" />
+
+</p>
+
+<p><label for="text">Comments:</label><br />
+<textarea tabindex="2" id="text" name="text" rows="10" cols="50"></textarea></p>
+
+<div align="center">
+<input type="submit" tabindex="3" name="preview" value=" Preview " />
+<input style="font-weight: bold;" tabindex="4" type="submit" name="post" value=" Post " />
+</div>
+</form>
+
+</div>
+
+<script language="javascript" type="text/javascript">
+<!--
+if (commenter_name) {
+    document.getElementById('thanks').style.display = 'block';
+} else {
+    document.write('You are not signed in. You need to be registered to comment on this site. <a href="https://www.typekey.com/t/typekey/login?&t=h0bKzm04aok5Cy2hxBrX&v=1&_return=http://www.seebq.com/cgi-bin/spam-sucks-dont-do-it.cgi%3f__mode=handle_sign_in%26static=1%26entry_id=236"> Sign in</a>');
+    document.getElementById('thanks').style.display = 'none';
+}
+// -->
+</script>
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" language="javascript">
+<!--
+if (document.comments_form.email != undefined)
+    document.comments_form.email.value = getCookie("mtcmtmail");
+if (document.comments_form.author != undefined)
+    document.comments_form.author.value = getCookie("mtcmtauth");
+if (document.comments_form.url != undefined)
+    document.comments_form.url.value = getCookie("mtcmthome");
+if (getCookie("mtcmtauth") || getCookie("mtcmthome")) {
+    document.comments_form.bakecookie[0].checked = true;
+} else {
+    document.comments_form.bakecookie[1].checked = true;
+}
+//-->
+</script>
+
+
+
+
+</div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,18 @@
+# migration from seebq.com
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteBase /
+RewriteCond %{REQUEST_FILENAME} -f [OR]
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteRule ^.*$ - [S=80]
+#RewriteRule ^projects.html /projects/ [QSA,L]
+#RewriteRule ^portfolio.html /portfolio/ [QSA,L]
+#RewriteRule ^photos.html /photos/ [QSA,L]
+#RewriteRule ^server.html /server/ [QSA,L]
+#RewriteRule ^index.html index.php [QSA,L]
+#RewriteRule ^(archives)/(?)/(?)$ index.php?category_name=$1 [QSA,L]
+#RewriteRule ^category/(.+)/?$ /index.php?category_name=$1 [QSA,L]
+RewriteRule ^(.+)?/(.+)?$ index.php?category_name=$1 [QSA,L]
+</IfModule>
+
+

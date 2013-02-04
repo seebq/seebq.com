@@ -1,0 +1,154 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<meta name="generator" content="http://www.movabletype.org/" />
+
+<title>seebq.com - shameless self promotion: my mythtv setup</title>
+
+<link rel="stylesheet" href="http://www.seebq.com/styles-site.css" type="text/css" />
+<link rel="alternate" type="application/rss+xml" title="RSS" href="http://www.seebq.com/index.rdf" />
+<link rel="alternate" type="application/atom+xml" title="Atom" href="http://www.seebq.com/atom.xml" />
+
+<link rel="start" href="http://www.seebq.com/" title="Home" />
+<link rel="prev" href="http://www.seebq.com/archives/000237.html" title="bush won" />
+
+<link rel="next" href="http://www.seebq.com/archives/000239.html" title="awesome wireless spot" />
+
+
+
+
+
+
+
+</head>
+
+<body>
+
+<div id="banner">
+<img src="images/seebq_title.gif" width="456" height="79" border="0" />
+</div>
+
+<div id="container">
+
+<div class="blog">
+
+<div id="menu">
+<p align="right">
+<a href="http://www.seebq.com/archives/000237.html">« bush won</a> |
+
+<a href="http://www.seebq.com/">Main</a>
+| <a href="http://www.seebq.com/archives/000239.html">awesome wireless spot »</a>
+
+</p>
+</div>
+
+<h2>November 21, 2004</h2>
+
+<h3>my mythtv setup</h3>
+
+<p>My <a href="http://www.mythtv.org">MythTV</a> setup is nearing completion.  Aww, who am I kidding - I'm just getting started!  The low-down:  <br />
+<li>MythTV server - AMD 2.4 ghz Athlon 512MB RAM running Fedora Core 2 and MythTV 0.16.  This server is housed in a closet in the office, with several wires running through the wall to the living room (including IR remote receiver).  External firewall port map and dynamic DNS allows me to hit a web-site to schedule remote recordings (no, I'm not telling you what it is, in case you decide to start recording stuff and fill up my 200+ GB reiserfs shared video store, causing Jodi's recording rule of every Law and Order, CSI, and Without a Trace to fail).  <br />
+<li>MythTV bedroom - this little puppy is the show-stopper.  It's a MythTV remote-frontend, powered by a mini-itx form-factor VIA Epia M10000 Nehemiah with a sleek, small, silent case, slot-loading DVD/CD-RW, running a custom kernel (lots of epia patches), and a Wireless bridge, hooked up to a projector (just an inFocus travel model) -- the wall in the bedroom is now a Tivo on speed that allows playback of server-recorded material and the streaming of live TV.  Now, technically it has a PVR-350 in it, to run as a remote back-end server, but next weekend's project is to move it to the server (so it'll have dual tuners)!</p>
+
+<p>This setup is amazing.  Nothing beats the ability when I'm working in another state to fire up my web browser, view the program guide (beautiful program guide, btw), schedule a recording, then come home, fire it up on the living room TV, pause, skip commercials, hit stop, walk to the bedroom, jump into bed, fire up the projector, and continue watching my recordings, stream live-tv, or just stream music.  </p>
+
+<p>Next up, since the mythtv-server is in the office/spare-bedroom, I'm thinking of adding a monitor mount on the wall, so the bedroom can view the same as the living room.  And of course, another tv-tuner....  and maybe an hd-tuner, and then replace the TV with a nice hd-plasma display... mmmm....</p>
+
+<div class="comments-body"><center>
+<img src="http://www.seebq.com/albums/mythtv/MythTVSetup_011.thumb.jpg"> &nbsp; <img src="http://www.seebq.com/albums/mythtv/MythTVSetup_010.thumb.jpg">
+</center></div>
+
+<p>Want more pics?  Visit the <a href="http://www.seebq.com/gallery/mythtv">MythTV Setup Gallery</a>.</p>
+
+<div id="a000238more"><div id="more">
+
+</div></div>
+
+<p class="posted">Posted by seebq at November 21, 2004 10:24 PM</p>
+
+
+
+
+<h2 id="comments">Comments</h2>
+
+
+
+
+
+<h2>Post a comment</h2>
+
+
+<div id="thanks">
+<p>Thanks for signing in, 
+<script type="text/javascript" src="http://www.seebq.com/cgi-bin/spam-sucks-dont-do-it.cgi?__mode=cmtr_name_js"></script><script>document.write(commenter_name);</script>.
+Now you can comment. (<a href="http://www.seebq.com/cgi-bin/spam-sucks-dont-do-it.cgi?__mode=handle_sign_in&static=1&entry_id=238&logout=1">sign out</a>)</p>
+
+(If you haven't left a comment here before, you may need to be approved by the site owner before your comment will appear. Until then, it won't appear on the entry. Thanks for waiting.)
+
+<form method="post" action="http://www.seebq.com/cgi-bin/spam-sucks-dont-do-it.cgi" name="comments_form" onsubmit="if (this.bakecookie[0].checked) rememberMe(this)">
+<input type="hidden" name="static" value="1" />
+<input type="hidden" name="entry_id" value="238" />
+
+<p><label for="url">URL:</label><br />
+<input tabindex="1" type="text" name="url" id="url" />
+Remember me?
+<input type="radio" id="remember" name="bakecookie" /><label for="remember">Yes</label><input type="radio" id="forget" name="bakecookie" onclick="forgetMe(this.form)" value="Forget Info" style="margin-left: 15px;" /><label for="forget">No</label><br style="clear: both;" />
+
+</p>
+
+<p><label for="text">Comments:</label><br />
+<textarea tabindex="2" id="text" name="text" rows="10" cols="50"></textarea></p>
+
+<div align="center">
+<input type="submit" tabindex="3" name="preview" value=" Preview " />
+<input style="font-weight: bold;" tabindex="4" type="submit" name="post" value=" Post " />
+</div>
+</form>
+
+</div>
+
+<script language="javascript" type="text/javascript">
+<!--
+if (commenter_name) {
+    document.getElementById('thanks').style.display = 'block';
+} else {
+    document.write('You are not signed in. You need to be registered to comment on this site. <a href="https://www.typekey.com/t/typekey/login?&t=h0bKzm04aok5Cy2hxBrX&v=1&_return=http://www.seebq.com/cgi-bin/spam-sucks-dont-do-it.cgi%3f__mode=handle_sign_in%26static=1%26entry_id=238"> Sign in</a>');
+    document.getElementById('thanks').style.display = 'none';
+}
+// -->
+</script>
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" language="javascript">
+<!--
+if (document.comments_form.email != undefined)
+    document.comments_form.email.value = getCookie("mtcmtmail");
+if (document.comments_form.author != undefined)
+    document.comments_form.author.value = getCookie("mtcmtauth");
+if (document.comments_form.url != undefined)
+    document.comments_form.url.value = getCookie("mtcmthome");
+if (getCookie("mtcmtauth") || getCookie("mtcmthome")) {
+    document.comments_form.bakecookie[0].checked = true;
+} else {
+    document.comments_form.bakecookie[1].checked = true;
+}
+//-->
+</script>
+
+
+
+
+</div>
+</div>
+
+</body>
+</html>

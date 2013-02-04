@@ -1,0 +1,398 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<title>CS4451B - Project 4 - the TRING game</title>
+</head>
+
+<body text="#FFFFFF" bgcolor="#000000">
+
+<table cellSpacing="0" cellPadding="0" width="100%" bgColor="#0000ff" border="0" style="border-collapse: collapse">
+  <tr>
+    <td width="27%"><font color="#ffffff" size="5">CS4451B - Project 4 - The 
+    TRING Game</font></td>
+  </tr>
+</table>
+<p><font size="4">Ali Reza Faiz <a href="mailto:gte750r@mail.gatech.edu">
+gte750r@mail.gatech.edu</a><br>
+Charles Brian Quinn <a href="mailto:gte430p@mail.gatech.edu">
+gte430p@mail.gatech.edu</a></font></p>
+<table cellSpacing="0" cellPadding="0" width="100%" bgColor="#0000FF" border="0">
+  <tr>
+    <td width="27%"><b>What is TRING?</b></td>
+  </tr>
+</table>
+<p>TRING is a variation of the Carom Billiard game, invented by Professor Jarek 
+Rossignac. It is played on a circular pool table with three balls: one red, one 
+green, and one blue (as appropriate for a Graphics course). Players take turns 
+and use a billiard cue to strike one of the balls. On each shot, a different 
+ball is struck, cycling through the three colors. First red, then green, then 
+blue, red again and so on. Suppose that the red ball is struck with the cue, if 
+it touches the other two, the player scores one point and plays again, striking 
+the green ball this time. When the cue ball (the ball struck by the cue) stops 
+before touching the other two, the next player will play the ball with the next 
+color in the cycle. First to reach 21 wins.</p>
+
+<p>TRING is an OpenGL game programmed in C++ and with the GLUT utilities.&nbsp; 
+The goal of this version of TRING is to implement a realistic simulation using 
+physics models to represent motion, collisions, and interactions in 2D and 3D.</p>
+
+<table cellSpacing="0" cellPadding="0" width="100%" bgColor="#0000FF" border="0">
+  <tr>
+    <td width="27%"><b>How we will build TRING</b></td>
+  </tr>
+</table>
+<p>Detailed schedule of project.</p>
+
+<p>Milestone 1: due November 7 (by 3 pm) <br>
+Milestone 2: due November 14 (by 3 pm)<br>
+Milestone 3: due November 21 (by 3 pm)<br>
+Final Report: due December 1 (by midnight)</p>
+
+<table border="1" cellpadding="0" cellspacing="0" width="408">
+  <tr>
+    <td width="408" colspan="2" align="center">Schedule in Hours</td>
+  </tr>
+  <tr>
+    <td width="315">designing the theory</td>
+    <td width="93">3 hours</td>
+  </tr>
+  <tr>
+    <td width="315">planning the code</td>
+    <td width="93">1 hour</td>
+  </tr>
+  <tr>
+    <td width="315">developing the code<br>
+&nbsp; Milestone 1<br>
+&nbsp; Milestone 2<br>
+&nbsp; Milestone 3<br>
+&nbsp; Final</td>
+    <td width="93"><br>
+    0 hours<br>
+    15-20 hours<br>
+    10 hours<br>
+    10-15 hours</td>
+  </tr>
+  <tr>
+    <td width="315">testing</td>
+    <td width="93">2 hours (each)</td>
+  </tr>
+  <tr>
+    <td width="315">debugging </td>
+    <td width="93">2 hours (each)</td>
+  </tr>
+  <tr>
+    <td width="315">commenting the code</td>
+    <td width="93">2 hours</td>
+  </tr>
+  <tr>
+    <td width="315">testing on users</td>
+    <td width="93">1 hour</td>
+  </tr>
+  <tr>
+    <td width="315">creating a web page</td>
+    <td width="93">1 hour</td>
+  </tr>
+  <tr>
+    <td width="315">Total</td>
+    <td width="93">45-60 hours</td>
+  </tr>
+</table>
+<p>&nbsp;</p>
+
+<table cellSpacing="0" cellPadding="0" width="100%" bgColor="#0000FF" border="0">
+  <tr>
+    <td width="27%"><b>the TRING organizational scheme</b></td>
+  </tr>
+</table>
+<p>The high-level organization of code:</p>
+
+<p>The main driver file is divided into segments that handle various aspects of 
+the game.&nbsp; It includes the sections for initialization, drawing, handling 
+input, and physics.&nbsp; Through the use of the GLUT libraries, the main file 
+contains methods that divide the code into display, input-handling, and 
+initialization sections.&nbsp; The included files (tmatrix, tray, tvector, and 
+math functions) handle various matrix, ray, vector and math manipulations.&nbsp; 
+These libraries are publicly available at <a href="http://nehe.gamedev.net/">
+http://nehe.gamedev.net/</a>.&nbsp; <br>
+<br>
+For complete list of files and source code, see bottom of page.</p>
+
+<table cellSpacing="0" cellPadding="0" width="100%" bgColor="#0000FF" border="0">
+  <tr>
+    <td width="27%"><b>TRING simulation principles and physics equations</b></td>
+  </tr>
+</table>
+<p>In order to create a realistic simulation, we will attempt to use physics 
+principles to imitate certain aspects of the game.</p>
+<p>We will parameterize each ball in terms of its velocity.&nbsp; We will then 
+be able to describe each ball in terms of a velocity vector and an associated 
+time.&nbsp; Using this, we can calculate the position of a ball after a certain 
+time, t:</p>
+<pre>A(t) = A + tV</pre>
+<p>We can then use the fact that each ball has a similar equation for its 
+position at a certain time to find the collision by solving for t:</p>
+<pre>||AB||^2 = (2r)^2
+(B - A).(B - A) = 4r^2
+(B - A - tV).(B - A - tV) = 4r^2
+AB.AB + t^2*v^2 - 2(AB.V)t = 4r^2
+</pre>
+<p>We must also be able to calculate the positions of two balls moving, to 
+determine if they collide.&nbsp; We could do this by parameterizing both and 
+solving, like so:</p>
+<pre>A(t) = A + tV
+B(t) = B + tU
+||A(t)B(t)||^2 = 4r^2</pre>
+<p>But this could turn complex.&nbsp; We could use the fact that the vectors 
+combined will result in an appropriate vector for determining if they collide.&nbsp; 
+If we sum the vectors U and V, we can obtain the result.</p>
+<p>We now must find the contact position between the two objects (ball and ball, 
+or ball and wall).&nbsp; We can use a trick and reduce the radius of one ball to 
+a point, and add to the resulting ball the radius we subtracted.&nbsp; We know 
+they collide by using the equations above, so we can now determine the point at 
+which they make contact.</p>
+&nbsp;<table border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse" width="100%" id="AutoNumber1">
+  <tr>
+    <td width="50%">
+<img src="p4_contact.gif" width="335" height="173"></td>
+    <td width="50%"><img src="p4_contact2.gif" width="335" height="173"></td>
+  </tr>
+</table>
+<p>Now, we turn to obtaining the velocities and directions of the resulting 
+collisions.&nbsp; We must use the equations of momentum conservation and kinetic 
+energy conservation:</p>
+<p>To conserve momentum, we use:</p>
+<pre>AVn + BVn = AV'n + BV'n</pre>
+<p>We can calculate the respective momentum (and therefore velocity) of one ball 
+striking a static ball by setting one ball's initial velocity to 0.&nbsp; We 
+find that now, the resulting velocity is simply the sum of the initial velocity 
+of one.&nbsp; We know that the balls will have similar (if not identical) 
+masses, and therefore it reduces to each determining one-half of the result: </p>
+<pre>AVn + B(0) = AV'n + BV'n
+AVn = AV'n + BV'n</pre>
+<p>To conserve kinetic energy, we use:</p>
+<pre>(1/2)AVn^2 + (1/2)BUn^2 = (1/2)AV'n^2 + (1/2)BU'n^2</pre>
+<p>We can calculate the resulting velocity of two balls upon one striking a 
+static ball by setting one to 0 (as demonstrated above).&nbsp; We find that 
+since kinetic energy is conserved, the resulting balls will together (summed) 
+have no more velocity than the initial moving ball's velocity.</p>
+<p><img border="0" src="p4_physics_play.gif" width="736" height="187"></p>
+<p>We now know:</p>
+<p>-time (and location) of collision for 1 ball moving<br>
+-time (and location) of collision for 2 balls moving<br>
+-time (and location) of collision for 3 balls moving (we assume)<br>
+-contact position<br>
+-new velocities for 1 ball static<br>
+-new velocities for 2 balls moving<br>
+-friction (deceleration)</p>
+<p>We can now attempt to use some pseudo-physics to implement the principle of English, 
+or cue-placement.&nbsp; Depending on where one strikes the ball (only vertically 
+for now), it will determine the amount of &quot;spin-back&quot; of the ball.&nbsp; Rather 
+than implementing the physics equations the spin factor, we will instead change 
+the masses of the balls to compensate.&nbsp; </p>
+<p><img border="0" src="p4_physics_english.gif" width="506" height="106"></p>
+<p>If the ball is hit dead center, its mass will be simply m.&nbsp; If the ball 
+is hit on the bottom, it will be (m/2), at the top, it will be 2m.&nbsp; We will 
+range the mass along the center by fractions of m.</p>
+
+<p>To simplify the collision with the outer wall, we use a ray-hit-cylinder 
+method for fast detection.&nbsp; We could have simply simulated the outer edge 
+of the pool table as a sphere with an extremely large mass, but the cylinder 
+method provides a faster detection method for collisions.</p>
+
+<table cellSpacing="0" cellPadding="0" width="100%" bgColor="#0000FF" border="0">
+  <tr>
+    <td width="27%"><b>TRING 2D simulation</b></td>
+  </tr>
+</table>
+<p>To create a 2D simulation of the TRING game, we employed a goal-centered 
+approach.&nbsp; We implemented the 3D version, but translated the view, mouse, 
+and screen coordinates in the 2D simulation to a top view to simulate a 2D 
+representation.&nbsp; The game actually operates in 3D, but is a simulated 2D 
+version.<br>
+<img border="0" src="p4_2dview.gif" width="249" height="250"></p>
+<p>The view is:</p>
+<pre>/* eye point coordinates for view */
+GLfloat eye_x = 0.0001;
+GLfloat eye_y = 0;
+GLfloat eye_z = 20;
+....
+gluLookAt(set_eye_x,set_eye_y,set_eye_z, 0,0,0, 0,0,1);</pre>
+<p>In order to translate screen coordinates to the 3D coordinates of the board, 
+we make a fairly accurate conversion, based on the view point.&nbsp; We are 
+assured this will work as long as the view is not rotated (which can only be 
+done in the 3D view window).&nbsp; The screen conversion is as follows:</p>
+<pre>&nbsp;/* Scaling the screen map to the board */
+startX = (GLfloat) (WINY - y - 400) * -0.033333;
+startY = (GLfloat) (x - 400) * 0.033333;</pre>
+<p>Mouse movements are converted by these scaling factors that incorporate one 
+half the height and width of the screen.&nbsp; This allows the &quot;cue stick&quot; to be 
+drawn on the board in the appropriate place scaled and translated to appear 
+&quot;above&quot; the balls.</p>
+<pre>/* display cue stick arrow */
+void display_arrow()
+{
+  float scale_factor = 0;
+  
+  glPushMatrix();
+    glMaterialfv(GL_FRONT_AND_BACK, GL_AMBIENT_AND_DIFFUSE, mat_cue);
+    glTranslatef(startX,startY,ball_r+1);
+    glRotatef(angle+90, 0, 0, 1);
+    glRotatef(90, 1, 0, 0);
+    scale_factor = sqrt( (startX - endX) * (startX - endX) + 
+			 (startY - endY) * (startY - endY) );
+    glScalef(1,1,scale_factor/3); 
+    gluCylinder(quadObj, 0.1, 0.2, 3, 50, 50);
+  glPopMatrix();
+}</pre>
+<p>To simulate the physics properties, we employ methods based on physical 
+principles.&nbsp; The method find_collision() takes in the cue ball as the 
+first parameter, and simulates the collisions with other balls and the wall.</p>
+
+<pre>/* find if any of the current balls intersect with each other in the 
+ * current timestep.  returns the index of the 2 intersecting balls, 
+ * the point and time of intersection */
+int find_collision(TVector&amp; point, double&amp; timePoint, double time2, 
+	     int&amp; ball1, int&amp; ball2) {
+
+  TVector relativeV;
+  TRay rays;
+  double Mytime = 0.0, Add = time2/150.0, timedummy = 10000, timedummy2 = -1;
+  TVector posi;
+  
+  for (int i = 0; i &lt; ball_count - 1; i++){
+    for (int j = i+1; j &lt; ball_count; j++){
+
+      // Find Distance
+      relativeV = ball_vel[i]-ball_vel[j];
+      rays = TRay(old_pos[i],TVector::unit(relativeV));
+      Mytime = 0.0;
+      
+      // If distance detween centers greater than 2*radius an 
+      // intersection occurred loop to find the exact intersection point
+      if ( (rays.dist(old_pos[j])) &gt; ball_r * 2 ) 
+	continue;  
+      
+      while (Mytime &lt; time2) {
+	Mytime += Add;
+	posi = old_pos[i] + relativeV*Mytime;
+	if (posi.dist(old_pos[j]) &lt;= ball_r * 2 ) {
+	  point = posi;
+	  if (timedummy &gt; (Mytime - Add)) timedummy = Mytime-Add;
+	  ball1 = i;
+	  ball2 = j;
+	  break;
+	}
+      }
+    }
+  }
+  
+  if (timedummy!=10000) { 
+    timePoint=timedummy;
+    return 1;
+  }
+  
+  return 0;
+}
+
+</pre>
+<p>To compute the resulting velocities, we use the following code (taken from 
+compute_velocities()):</p>
+
+<pre>	.....
+	/* V1,V2 are the new velocities after the impact */
+	V1x=( (U1x*mass[ball1]+U2x*mass[ball2] - 
+	     (U1x-U2x))*mass[ball2] ) * 
+	  (1 / (mass[ball1] + mass[ball2]));
+	V2x=( (U1x*mass[ball1]+U2x*mass[ball2] - 
+	     (U2x-U1x))*mass[ball1] ) * 
+	  (1 / (mass[ball1] + mass[ball2]));
+	V1y=U1y;
+	V2y=U2y;
+	.....</pre>
+
+<p>Note the existence of the conservation of momentum equations to calculate the 
+resulting velocities.
+</p>
+
+<table cellSpacing="0" cellPadding="0" width="100%" bgColor="#0000FF" border="0">
+  <tr>
+    <td width="27%"><b>the TRING user interface</b></td>
+  </tr>
+</table>
+<p>The user interface is comprised of 3 windows.&nbsp; The main 2D view window 
+is located prominently in the center.&nbsp; The 3D view is located in the top 
+right, and the score window is located just below that.&nbsp; These windows 
+appear upon program execution.&nbsp; </p>
+<p>The main view relies on mouse input to determine cue stick placement.&nbsp; 
+The user may click on a ball (where the start point is snapped automatically to 
+the center of the ball) and then drag back to determine the power of the shot.&nbsp; 
+The user may then right click to cancel, or click once again to proceed with the 
+shot.&nbsp; The 2D view animates, and the 3D view animates at the same time.</p>
+<p>The 3D view operates using mouse commands.&nbsp; You can click and drag to 
+rotate the view.&nbsp; You can even do this while the game is moving the balls.&nbsp; 
+You can even flip the table over and play Tring upside down.&nbsp; Try it out!</p>
+<p>The score and current turn window is updated after each turn.</p>
+<p><img border="0" src="p4_user_interface.gif" width="640" height="512"></p>
+
+<table cellSpacing="0" cellPadding="0" width="100%" bgColor="#0000FF" border="0">
+  <tr>
+    <td width="27%"><b>TRING screen shots</b></td>
+  </tr>
+</table>
+<p>Click on any of the following screen shots to get a larger view.&nbsp; It was 
+hard to capture the movement of the balls, as the OpenGL window was subject to 
+updates outside of the screenshot program.&nbsp; It produced some weird effects, 
+but they are not included below.</p>
+<table border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse" width="100%" id="AutoNumber2">
+  <tr>
+    <td width="50%">
+<a href="p4_screen1.gif"><img src="p4_screen1_sm.gif" border="0" width="400" height="320"></a><br>
+&nbsp;</td>
+    <td width="50%">
+<a href="p4_screen2.gif">
+<img src="p4_screen2_sm.gif" border="0" width="400" height="320"></a><br>
+&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="50%">
+<a href="p4_screen3.gif">
+<img src="p4_screen3_sm.gif" border="0" width="400" height="320"></a><br>
+&nbsp;</td>
+    <td width="50%">
+<a href="p4_screen4.gif">
+<img src="p4_screen4_sm.gif" border="0" width="400" height="320"></a><br>
+&nbsp;</td>
+  </tr>
+  </table>
+<table border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse" width="100%" id="AutoNumber3">
+  <tr>
+    <td width="33%"><a href="p4_3dview1.gif">
+    <img src ="p4_3dview1_sm.gif" border="0" width="190" height="200" ></a></td>
+    <td width="33%"><a href="p4_3dview2.gif">
+    <img src ="p4_3dview2_sm.gif" border="0" width="190" height="200" ></a></td>
+    <td width="34%"><a href="p4_3dview3.gif">
+    <img src ="p4_3dview3_sm.gif" border="0" width="190" height="200" ></a></td>
+  </tr>
+</table>
+<br>
+<br>
+<table cellSpacing="0" cellPadding="0" width="100%" bgColor="#0000FF" border="0">
+  <tr>
+    <td width="27%"><b>TRING source code</b></td>
+  </tr>
+</table>
+<p>Complete source code is available below.</p>
+<p><a href="Makefile">Makefile</a><br>
+<a href="defs.h">defs.h</a><br>
+<a href="prj4.cpp">prj4.cpp</a><br>
+<a href="tmatrix.cpp">tmatrix.cpp</a><br>
+<a href="tmatrix.h">tmatrix.h</a><br>
+<a href="tray.cpp">tray.cpp</a><br>
+<a href="tray.h">tray.h</a><br>
+<a href="tvector.cpp">tvector.cpp</a><br>
+<a href="tvector.h">tvector.h</a><br>
+<a href="mathex.h">mathex.h</a><br>
+<p>Entire source: <a href="proj4.tar.gz">proj4.tar.gz</a></p>
+<hr>
+<i>Last Updated Tuesday December 3 2002 14:20 EST</i></body></html>

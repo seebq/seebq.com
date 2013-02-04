@@ -1,0 +1,170 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<meta name="generator" content="http://www.movabletype.org/" />
+
+<title>seebq.com - shameless self promotion: web wandering</title>
+
+<link rel="stylesheet" href="http://www.seebq.com/styles-site.css" type="text/css" />
+<link rel="alternate" type="application/rss+xml" title="RSS" href="http://www.seebq.com/index.rdf" />
+<link rel="alternate" type="application/atom+xml" title="Atom" href="http://www.seebq.com/atom.xml" />
+
+<link rel="start" href="http://www.seebq.com/" title="Home" />
+<link rel="prev" href="http://www.seebq.com/archives/000065.html" title="DVFX Final Screening" />
+
+<link rel="next" href="http://www.seebq.com/archives/000086.html" title="totally new server" />
+
+
+
+
+
+
+
+</head>
+
+<body>
+
+<div id="banner">
+<img src="images/seebq_title.gif" width="456" height="79" border="0" />
+</div>
+
+<div id="container">
+
+<div class="blog">
+
+<div id="menu">
+<p align="right">
+<a href="http://www.seebq.com/archives/000065.html">« DVFX Final Screening</a> |
+
+<a href="http://www.seebq.com/">Main</a>
+| <a href="http://www.seebq.com/archives/000086.html">totally new server »</a>
+
+</p>
+</div>
+
+<h2>August 16, 2003</h2>
+
+<h3>web wandering</h3>
+
+<p>I went wandering in search of nothing, and came up big....<br />
+</p>
+
+<div id="a000083more"><div id="more">
+<p>I started my web wandering just searching for backgrounds, wallpapers, etc. but ended up all over the place.  Don't ask me how, I'm a seasoned pro at wandering down the weirdest paths.</p>
+
+<p>The weirdest, you ask?</p>
+
+<p><a href="http://www.milkyelephant.com/mumbleboy/milkymumble.html">http://www.milkyelephant.com/mumbleboy/milkymumble.html</a></p>
+
+<p>One path came up when I looked up an artist's site:  <a href="http://shodown.net/">http://shodown.net/</a> he's even got a message board for all his friends with topics ranging from pokemon ruby to god knows what.</p>
+
+<p>A perfect blend of technology and art, and I just love that dirty, retro, cell shaded animation with lots of hard typography.</p>
+
+<p>Did you know there are people who make movies using 3D games using programs like Unreal Studio, the Quake3 engine, and such?  I remember watching quake movies a long time ago, just little demos - like quake done quicker.  The stuff they got now is mindblowing!</p>
+
+<p>Beast Magazine - looks like I caught this one a little too late:<br />
+<a href="http://www.ths.nu/beast/">http://www.ths.nu/beast/</a></p>
+
+<p>And last night I missed the frigging Flashbang expo, right here in ATL!</p>
+
+<p><a href="http://www.flashbangonline.com">http://www.flashbangonline.com</a></p>
+
+<p>Son of a biscuit.  And these are just the hightlight reels, kids.</p>
+
+<p>seebq is working on some k-rad stuff to make some money, so keep it tuned.</p>
+</div></div>
+
+<p class="posted">Posted by seebq at August 16, 2003 12:03 PM</p>
+
+
+
+
+<h2 id="comments">Comments</h2>
+
+<div id="c77">
+<p><a href="http://www.8bitpeoples.com/">http://www.8bitpeoples.com/</a></p>
+
+<p>if you feel like getting in touch with your nintendo self.</p>
+</div>
+<p class="posted">Posted by: <a target="_blank" title="http://www4.ncsu.edu/~mdmarti2" href="http://www.seebq.com/cgi-bin/spam-sucks-dont-do-it.cgi?__mode=red;id=77">Mike Martin</a>  at August 25, 2003 10:15 PM</p>
+
+
+
+
+<h2>Post a comment</h2>
+
+
+<div id="thanks">
+<p>Thanks for signing in, 
+<script type="text/javascript" src="http://www.seebq.com/cgi-bin/spam-sucks-dont-do-it.cgi?__mode=cmtr_name_js"></script><script>document.write(commenter_name);</script>.
+Now you can comment. (<a href="http://www.seebq.com/cgi-bin/spam-sucks-dont-do-it.cgi?__mode=handle_sign_in&static=1&entry_id=83&logout=1">sign out</a>)</p>
+
+(If you haven't left a comment here before, you may need to be approved by the site owner before your comment will appear. Until then, it won't appear on the entry. Thanks for waiting.)
+
+<form method="post" action="http://www.seebq.com/cgi-bin/spam-sucks-dont-do-it.cgi" name="comments_form" onsubmit="if (this.bakecookie[0].checked) rememberMe(this)">
+<input type="hidden" name="static" value="1" />
+<input type="hidden" name="entry_id" value="83" />
+
+<p><label for="url">URL:</label><br />
+<input tabindex="1" type="text" name="url" id="url" />
+Remember me?
+<input type="radio" id="remember" name="bakecookie" /><label for="remember">Yes</label><input type="radio" id="forget" name="bakecookie" onclick="forgetMe(this.form)" value="Forget Info" style="margin-left: 15px;" /><label for="forget">No</label><br style="clear: both;" />
+
+</p>
+
+<p><label for="text">Comments:</label><br />
+<textarea tabindex="2" id="text" name="text" rows="10" cols="50"></textarea></p>
+
+<div align="center">
+<input type="submit" tabindex="3" name="preview" value=" Preview " />
+<input style="font-weight: bold;" tabindex="4" type="submit" name="post" value=" Post " />
+</div>
+</form>
+
+</div>
+
+<script language="javascript" type="text/javascript">
+<!--
+if (commenter_name) {
+    document.getElementById('thanks').style.display = 'block';
+} else {
+    document.write('You are not signed in. You need to be registered to comment on this site. <a href="https://www.typekey.com/t/typekey/login?&t=h0bKzm04aok5Cy2hxBrX&v=1&_return=http://www.seebq.com/cgi-bin/spam-sucks-dont-do-it.cgi%3f__mode=handle_sign_in%26static=1%26entry_id=83"> Sign in</a>');
+    document.getElementById('thanks').style.display = 'none';
+}
+// -->
+</script>
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" language="javascript">
+<!--
+if (document.comments_form.email != undefined)
+    document.comments_form.email.value = getCookie("mtcmtmail");
+if (document.comments_form.author != undefined)
+    document.comments_form.author.value = getCookie("mtcmtauth");
+if (document.comments_form.url != undefined)
+    document.comments_form.url.value = getCookie("mtcmthome");
+if (getCookie("mtcmtauth") || getCookie("mtcmthome")) {
+    document.comments_form.bakecookie[0].checked = true;
+} else {
+    document.comments_form.bakecookie[1].checked = true;
+}
+//-->
+</script>
+
+
+
+
+</div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,392 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+
+<title>seebq.com - shameless self promotion: linux Archives</title>
+
+<link rel="stylesheet" href="http://www.seebq.com/styles-site.css" type="text/css" />
+<link rel="alternate" type="application/rss+xml" title="RSS" href="http://www.seebq.com/index.rdf" />
+
+<script language="javascript" type="text/javascript">
+function OpenComments (c) {
+    window.open(c,
+                    'comments',
+                    'width=480,height=480,scrollbars=yes,status=yes');
+}
+
+function OpenTrackback (c) {
+    window.open(c,
+                    'trackback',
+                    'width=480,height=480,scrollbars=yes,status=yes');
+}
+</script>
+
+</head>
+
+<body>	
+
+<div id="banner">
+<h1><a href="http://www.seebq.com/" accesskey="1">seebq.com - shameless self promotion</a></h1>
+<span class="description"></span>
+</div>
+
+<div id="container">
+
+<div class="blog">
+
+
+<h2 class="date">September 12, 2005</h2>
+
+
+<div class="blogbody">
+
+<a name="000311"></a>
+<h3 class="title">gentoo linux stage4 install</h3>
+
+<p>Oh my!</p>
+
+<p>After setting up a IBM Thinkpad T30 with gentoo linux and the works: we're talking software supsend to disk a la hibernation (works better than WinXP hibernation), wireless/wifi, suspend, power-saving features, and of course a full on mirror of our dev environment (apache2, postgresql, subversion, php4.4, PEAR, Smarty, etc., etc.), I realized that this install was better than the Fedora Core 4 install I had going on a similar (same laptop)!</p>
+
+<p>Of course, compiling KDE and some of the other components (X.org) took a very long time (several hours -- overnight even), but it is fully optimized for the Mobile Pentium-4 and fast as heck!</p>
+
+<p>So, rather than just follow the same steps to get my Fedora box up and functioning the same way, I simply <a href="http://gentoo-wiki.com/HOWTO_Custom_Stage4">made a Stage4 tarball</a> of the system, copied it over to a removable USB storage drive, backed up a few things (homes, etc, root, etc.), then repartitioned, extracted the tar, and boom - out of box, amazing, working laptop with everything fully functioning.</p>
+
+<p>I've never done a quicker install of Linux or any operating system.  Amazing.</p>
+
+<p>UPDATE: had to create one directory: /var/logs/apache2 -- there was a symlink to this direcory that didn't exist.  Makes sense, no need to back up logs.</p>
+
+
+
+<div class="posted">
+	Posted by seebq at <a href="http://www.seebq.com/archives/linux/gentoo_linux_stage4_install.html">11:51 AM</a>
+		| <a href="http://www.seebq.com/cgi-bin/spam-sucks-dont-do-it.cgi?entry_id=311" onclick="OpenComments(this.href); return false">Comments (0)</a>
+	
+	
+</div>
+
+</div>
+
+
+
+<h2 class="date">August 18, 2005</h2>
+
+
+<div class="blogbody">
+
+<a name="000302"></a>
+<h3 class="title">my new favorite distro</h3>
+
+<p><a href="http://www.gentoo.org/">gentoo</a> linux is my new favorite linux distro.  What a sweet little system.  I've used many distros, and often times wondered, just what is this install process doing, or what does this rpm do -- it's nice to finally see a linux distro that doesn't hide anything!</p>
+
+<p>I just recently setup from scratch a 1U Dell PowerEdge 1550 (see previous post) with Gentoo to serve up a source code repository using subversion (webdav over ssl), and the amazing <a href="http://trac.edgewall.com/">Edge Software's Trac</a> System -- a soure code manager and project management wiki-style site.</p>
+
+<p>Really makes me want to migrate my little laptop over to Gentoo -- but if it works, don't fix it, right?</p>
+
+
+
+<div class="posted">
+	Posted by seebq at <a href="http://www.seebq.com/archives/linux/my_new_favorite_distro.html">02:33 AM</a>
+		| <a href="http://www.seebq.com/cgi-bin/spam-sucks-dont-do-it.cgi?entry_id=302" onclick="OpenComments(this.href); return false">Comments (1)</a>
+	
+	
+</div>
+
+</div>
+
+
+
+<h2 class="date">August 17, 2005</h2>
+
+
+<div class="blogbody">
+
+<a name="000300"></a>
+<h3 class="title">gentoo linux server up and running</h3>
+
+<p>She's up -- on a Dell Poweredge 1550.  The only snafu I found was that booting the universal CD with the doscsi option loaded up a bunch of scsi drivers (necessary for accessing the SCSI drive), but when compiling the kernel (with default options), they were not built in, but rather loaded as modules.  So when I booted up the newly configured kernel, the modules to load the scsi drive were on the scsi drive!  A chicken-and-egg problem, indeed.</p>
+
+<p>So, compiling the Adaptec AIC7xxx drivers into the kernel as well as the MegaRAID (both old and new for safety), she booted up like a champ!</p>
+
+<p>If you've stumbled upon this, and having similar problems: <br />
+<code><br />
+# genkernel --menuconfig all<br />
+  or<br />
+# make menuconfig (in /usr/src/linux)<br />
+</code></p>
+
+<p>Now, select -> SCSI low-level drivers, and go to town, building them in (*) and not as (M) modules.</p>
+
+<p>use dmesg's output to help....</p>
+
+<p><br />
+I'm running kernel 2.6.12-gentoo-r6 kernel, now.  Hope this helps someone!</p>
+
+
+
+<div class="posted">
+	Posted by seebq at <a href="http://www.seebq.com/archives/linux/gentoo_linux_server_up_and_running.html">02:21 PM</a>
+		| <a href="http://www.seebq.com/cgi-bin/spam-sucks-dont-do-it.cgi?entry_id=300" onclick="OpenComments(this.href); return false">Comments (0)</a>
+	
+	
+</div>
+
+</div>
+
+
+
+<h2 class="date">July 14, 2005</h2>
+
+
+<div class="blogbody">
+
+<a name="000289"></a>
+<h3 class="title">linux wireless networking</h3>
+
+<p>Linux definitely has a little ways to go before it becomes main-stream Desktop ready: just search <a href="http://slashdot.org/">slashdot.org</a> to see tons of articles on this exact topic.</p>
+
+<p>One of my beefs, and it has everything to do with cooperation between hardware vendors and the linux community at large, is lack of support for basic wireless functions.  Maybe some of the bleeding edge versions of these drivers have more support, but the orinoco (orinoco_pci, hermes) drivers stock with any modern distro (correct me if I'm wrong) lack good software for control that isn't totally cryptic.</p>
+
+<p>OK, the moral of my post is that here's how I setup wireless networking on my laptop.</p>
+
+<p>At home, I have no wireless security (yeah, yeah, neither do the other 5 networks in my vicinity, including my condo's free service) that network the powerbook, my linux mythtv video/audio server, and my linux notebook, so I have configured the ifup script for eth1 (the wireless card) to bring up my home network.</p>
+
+<p>/etc/sysconfig/network-scripts/ifcfg-eth1 contains:<br />
+<code><br />
+DEVICE=eth1<br />
+BOOTPROTO=dhcp<br />
+ONBOOT=no<br />
+TYPE=Wireless<br />
+MODE=Managed<br />
+ESSID=Wireless<br />
+</code></p>
+
+<p>so a quick:</p>
+
+<p><code><br />
+$ sudo /sbin/ifup eth1<br />
+</code></p>
+
+<p>brings me up.  But if I'm at a coffee-shop with a wireless-key (mock-security), here is the shell script that brings me up:</p>
+
+<p><code><br />
+#! /bin/sh<br />
+iwconfig eth1 essid linksys<br />
+iwconfig eth1 key c91b27ed0c<br />
+iwconfig eth1 enc restricted<br />
+ifconfig eth1 up<br />
+dhclient eth1<br />
+</code></p>
+
+<p>I am pretty sure the newer versions of the orinico driver support scanning (read down a few entries to my post on the linux kernel fixes including patches to the orinoco drivers), but I can't seem to get it to work.  Even iwpriv shows my card  only supports a few commands like card_reset.  Anyone know of a good way to see wireless networks in the vicinity that doesn't involve me typing:</p>
+
+<p><code><br />
+$ iwconfig eth1 essid "any"<br />
+</code></p>
+
+<p>Comments, suggestions?</p>
+
+
+
+<div class="posted">
+	Posted by seebq at <a href="http://www.seebq.com/archives/linux/linux_wireless_networking.html">05:47 PM</a>
+		| <a href="http://www.seebq.com/cgi-bin/spam-sucks-dont-do-it.cgi?entry_id=289" onclick="OpenComments(this.href); return false">Comments (0)</a>
+	
+	
+</div>
+
+</div>
+
+
+
+<h2 class="date">July 05, 2005</h2>
+
+
+<div class="blogbody">
+
+<a name="000287"></a>
+<h3 class="title">firefox java plugin for linux</h3>
+
+<p>I'm guessing it's because firefox updates are installed in their own directories:<br />
+<pre>/usr/lib/firefox-1.0.4</pre> that my java plug-in didn't work.  Or maybe it never did work in the first place.</p>
+
+<p>After downloading the java installation, you must create a symbolic link to the plugin binary object it installs.  </p>
+
+<p>Now, if I could only remember which side the link goes in the 'ln' command:</p>
+
+<pre>
+$ sudo ln -s /usr/java/jre1.5.0_04/plugin/i386/ns7/libjavaplugin_oji.so /usr/lib/firefox-1.0.4/plugins/
+</pre>
+
+<p>linking to the /usr/java/jre1.4.0_04/plugin/i386/ns7-gcc29/ binary object (I'm guessing this one was compiled with the gcc 2.9 libraries?) caused firefox to not even start!</p>
+
+<p>Also found answered here on the <a href="http://www.mozilla.org/support/firefox/faq#q2.2">FireFox Help: Firefox FAQ</a></p>
+
+
+
+<div class="posted">
+	Posted by seebq at <a href="http://www.seebq.com/archives/linux/firefox_java_plugin_for_linux.html">10:31 PM</a>
+		| <a href="http://www.seebq.com/cgi-bin/spam-sucks-dont-do-it.cgi?entry_id=287" onclick="OpenComments(this.href); return false">Comments (0)</a>
+	
+	
+</div>
+
+</div>
+
+
+
+<h2 class="date">June 13, 2005</h2>
+
+
+<div class="blogbody">
+
+<a name="000281"></a>
+<h3 class="title">subversion webdav</h3>
+
+<p>In trying to setup SVN webDAV over https on a server, I kept getting permission denied:</p>
+
+<pre>
+[Mon Jun 13 17:49:27 2005] [error] [client 10.0.0.59] 
+   (20014)Error string not specified yet: Can't open file
+    '/home/svnroot/format': Permission denied
+[Mon Jun 13 17:49:27 2005] [error] [client 10.0.0.59] 
+    Could not fetch resource information.  [500, #0]
+[Mon Jun 13 17:49:27 2005] [error] [client 10.0.0.59] 
+    Could not open the requested SVN filesystem  [500, #13]
+[Mon Jun 13 17:49:27 2005] [error] [client 10.0.0.59] 
+    Could not open the requested SVN filesystem  [500, #13]
+</pre>
+
+<p>I thought I would be clever and:</p>
+
+<pre>
+[root@beta ~]# chmod ugo+rwx /home/svnroot
+</pre>
+
+<p>But still no.  OK, so it must be SELinux, right?  Let's enable SELinux access to home directories, and reboot.  What's with this SELinux changes requiring a reboot, it's like windows.  There goes my few weeks up-time....</p>
+
+<p>Instead, I FINALLY found this:</p>
+
+<p>http://subversion.tigris.org/faq.html#reposperms</p>
+
+<p>that says to issue:</p>
+
+<pre>
+$ chcon -R -h -t httpd_sys_content_t PATH_TO_REPOSITORY
+</pre>
+
+<p>Do I know what that does?  No.  Do I care, since my svn is now working after only a few hours?  No.</p>
+
+
+
+<div class="posted">
+	Posted by seebq at <a href="http://www.seebq.com/archives/linux/subversion_webdav.html">06:14 PM</a>
+		| <a href="http://www.seebq.com/cgi-bin/spam-sucks-dont-do-it.cgi?entry_id=281" onclick="OpenComments(this.href); return false">Comments (0)</a>
+	
+	
+</div>
+
+</div>
+
+
+
+<h2 class="date">May 25, 2005</h2>
+
+
+<div class="blogbody">
+
+<a name="000274"></a>
+<h3 class="title">my new mythtv remote</h3>
+
+<p>I haven't bought it yet, but isn't it pretty?</p>
+
+<p><a href="http://story.news.yahoo.com/news?tmpl=story&cid=581&e=1&u=/nm/20050525/tc_nm/tech_nokia_linux_dc">Nokia unveils Linux-based web device without phone</a></p>
+
+
+
+<div class="posted">
+	Posted by seebq at <a href="http://www.seebq.com/archives/linux/my_new_mythtv_remote.html">03:15 PM</a>
+		| <a href="http://www.seebq.com/cgi-bin/spam-sucks-dont-do-it.cgi?entry_id=274" onclick="OpenComments(this.href); return false">Comments (0)</a>
+	
+	
+</div>
+
+</div>
+
+
+
+<h2 class="date">May 18, 2005</h2>
+
+
+<div class="blogbody">
+
+<a name="000273"></a>
+<h3 class="title">mysql nastiness</h3>
+
+<p>The other day, I thoroughly cleansed my mt_comments table.  Let me thank the comment-spammers for the 50000+ posts....  Then, I noticed some funny error messages upon trying to post an entry the next day.  I would get this error at the top of any page using pear's DB.php class:</p>
+
+<pre>SQL/DB: Error ... something ... mt_comment.MYD (Errno: 145)</pre>
+
+<p>Some quick google searches revealed it could be a corrupt table.  I found something in the mysql reference manual, entitled: <a href="http://dev.mysql.com/doc/mysql/en/repair.html">How to Repair Tables</a>.  </p>
+
+<p>I performed a quick check on the file in question:</p>
+
+<pre>
+[root@ns root]# myisamchk /var/lib/mysql/mtseebq/mt_comment.MYI
+Checking MyISAM file: /var/lib/mysql/mtseebq/mt_comment.MYI
+Data records:    3015   Deleted blocks:   21793
+myisamchk: warning: Table is marked as crashed
+myisamchk: warning: 2 clients is using or hasn't closed the table properly
+- check file-size
+- check key delete-chain
+- check record delete-chain
+- check index reference
+- check data record references index: 1
+myisamchk: error: Found 3014 keys of 3015
+- check record links
+myisamchk: error: Keypointers and record positions doesn't match
+MyISAM-table '/var/lib/mysql/mtseebq/mt_comment.MYI' is corrupted
+Fix it using switch "-r" or "-o"
+</pre>
+
+<p>Bingo!  So, I decided to opt for a repair (could have used the -q option) and I skipped a step where I made a backup of the .MYD and .MYI files.</p>
+
+<pre>
+[root@ns root]# myisamchk -r /var/lib/mysql/mtseebq/mt_comment.MYI
+- recovering (with sort) MyISAM-table '/var/lib/mysql/mtseebq/mt_comment.MYI'
+Data records: 3015
+- Fixing index 1
+- Fixing index 2
+- Fixing index 3
+- Fixing index 4
+[root@ns root]#
+</pre> 
+
+<p>Done.  Then, I almost forgot to:</p>
+
+<pre>
+[root@ns root]# /etc/init.d/mysqld start
+Starting MySQL:                                            [  OK  ]
+</pre>
+
+<p>Working again for now.  But I need a new server!  Who wants in with me?</p>
+
+
+
+<div class="posted">
+	Posted by seebq at <a href="http://www.seebq.com/archives/linux/mysql_nastiness.html">01:51 PM</a>
+		| <a href="http://www.seebq.com/cgi-bin/spam-sucks-dont-do-it.cgi?entry_id=273" onclick="OpenComments(this.href); return false">Comments (0)</a>
+	
+	
+</div>
+
+</div>
+
+
+</div>
+
+</div>
+
+</body>
+</html>

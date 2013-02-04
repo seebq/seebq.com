@@ -287,6 +287,10 @@ ul.styled li {
 	background: url(../images/logo.scout.png) no-repeat center center;
 }
 
+.buttons a.bnr {
+	background: url(../images/logo.bnr.png) no-repeat center center;
+}
+
 .buttons a:hover:before {
   display: block;
   padding: 15px 10px;

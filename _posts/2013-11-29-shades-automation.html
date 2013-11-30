@@ -1,0 +1,136 @@
+---
+layout: main
+title: "Shades Automation"
+---
+<section>
+  <div class="container clearfix">
+    <div class="col100">
+      <h1>Shades Automation</h1>
+      <h2>howto</h2>
+      <p>
+        This project began when I realized that the large roller shade I installed did not have an automated network interface for control.  I have two other shades that can be automated via an iOS app.
+      </p>
+      <br>
+      <p>I found an excellent guide / howto writeup on the OpenRemote website: <a href="http://www.openremote.org/display/docs/OpenRemote+2.0+How+To+-+Control+Sunshades+-+Somfy+with+Raspberry+Pi">How To - Control Sunshades - Somfy-Telis with Raspberry Pi</a> that provided a majority of the hard work including the wiring diagrams and GPIO pin outs for the Raspberry Pi.  This solution is closely modeled after the work there, but I'm not using the OpenRemote project (yet). 
+      </p>
+      <br>
+      <p>Here is the shade I wanted to automate:</p>
+      <br>
+      <p>
+        <a href="http://www.flickr.com/photos/seebq/11118765025/" title="Untitled by seebq, on Flickr"><img src="http://farm4.staticflickr.com/3675/11118765025_870af9f7bd_n.jpg" width="240" height="320" alt="Untitled"></a>
+        <a href="http://www.flickr.com/photos/seebq/11118801216/" title="Untitled by seebq, on Flickr"><img src="http://farm6.staticflickr.com/5512/11118801216_429b0e7f80_n.jpg" width="320" height="240" alt="Untitled"></a>
+      </p>
+      <br>
+      <p>
+        It's a Motorized Flexshade by Draper (with E-Screen, 3% OF, Koolblack fabric, quiet motor) and an aluminum fascia. It included a single wireless RF receiver.  I ordered an extra remote so that I could automate it.  This remote is called a Somfy/Telis and can be configured to control a single device:
+      </p>
+      <p>
+        <a href="http://www.flickr.com/photos/seebq/11118940583/" title="Untitled by seebq, on Flickr"><img src="http://farm8.staticflickr.com/7429/11118940583_bb8597c361_n.jpg" width="320" height="240" alt="Untitled"></a>
+      </p>
+      <br>
+      <p>
+        After removing the cover from the remote we can see the buttons:
+      </p>
+      <p>
+        <a href="http://www.flickr.com/photos/seebq/11118780965" title="Untitled by Charles Quinn, on Flickr"><img src="http://farm3.staticflickr.com/2878/11118780965_902759da0e_n.jpg" width="320" height="240" alt="Untitled"></a>
+        <a href="http://www.flickr.com/photos/seebq/11118819946" title="Untitled by Charles Quinn, on Flickr"><img src="http://farm4.staticflickr.com/3783/11118819946_d813a5273a_n.jpg" width="320" height="240" alt="Untitled"></a>
+      </p>
+      <br>
+      <p>
+        The way those buttons work is that when pressed, they make a connection between the two pins. So to automate, all we have to do is connect those via a switch.  To test this, you can simply "jump" or complete the connection between the two pins with a piece of wire to trigger the button press.
+      </p>
+      <br>
+      <p>
+        To truly automate the solution, we'll need to use something called an octocoupler or photocoupler (see: <a href="http://www.youtube.com/watch?v=-gkrzPGqjOg">Understanding Octocouplers</a>).  It looks like an integrated circuit, but acts like a switch or relay.  When you send a "high" or "on" signal to one of the pins, it will "complete" the circuit on the opposite pins.  It's designed to isolate circuits from one voltage to another to another different (usually high to low).  The Raspberry Pi operates on 5V and can send out 5V (or 3.3V) high signals, while the Somfy/Trellis remote uses a very small battery (I didn't even measure the voltage).
+      </p>
+      <br>
+      <p>
+        I used the wiring diagrams from the OpenRemote site to create a breadboard version of the circuit.  Here's my diagram (very similar):
+      </p>
+      <p>
+        <img src="http://f.cl.ly/items/1T1c2s2N3g2z2I3o1t3Q/automated-shade-circuit.jpg">
+      </p>
+      <br>
+      <p>
+        Here's the completed circuit using the Pi Cobbler breakout board and cable:
+      </p>
+      <p>
+        <a href="http://www.flickr.com/photos/seebq/11118945874" title="Untitled by Charles Quinn, on Flickr"><img src="http://farm4.staticflickr.com/3740/11118945874_c7491718eb_n.jpg" width="240" height="320" alt="Untitled"></a>
+      </p>
+      <br>
+      <p>
+        I then cut out a small square to let the wires come through so now we have our own breakout wires (and the remote still works, too):
+      </p>
+      <p>
+        <a href="http://www.flickr.com/photos/seebq/11118880215" title="Untitled by Charles Quinn, on Flickr"><img src="http://farm8.staticflickr.com/7320/11118880215_16c506b5dc_n.jpg" width="320" height="240" alt="Untitled"></a>
+        <a href="http://www.flickr.com/photos/seebq/11119061353" title="Untitled by Charles Quinn, on Flickr"><img src="http://farm3.staticflickr.com/2806/11119061353_01bdd7d76e_n.jpg" width="320" height="240" alt="Untitled"></a>
+      </p>
+      <br>
+      <p>
+        The finished product:
+      </p>
+      <p>
+        <a href="http://www.flickr.com/photos/seebq/11118898285" title="Untitled by Charles Quinn, on Flickr"><img src="http://farm4.staticflickr.com/3715/11118898285_2d1f2bf6ee_n.jpg" width="320" height="240" alt="Untitled"></a>
+        <a href="http://www.flickr.com/photos/seebq/11118896825/" title="Untitled by seebq, on Flickr"><img src="http://farm8.staticflickr.com/7449/11118896825_dd69fff6a9_n.jpg" width="320" height="240" alt="Untitled"></a>
+      </p>
+      <h2>software</h2>
+      <p>
+        To allow remote control and automate the raising and lowering of the shade, I wanted a simple web application so I could use any device (iPhone, iPad, or just a computer).  I'm a big fan of lightweight REST(-like) webservices, so I decided to use Sinatra, a very lightweight ruby framework for building web applications.
+      </p>
+      <br>
+      <p>
+        The web app works on the concept that if you hit the URL "/up" it will send the command to raise the shades, similiary "/down" and "/stop" will send the commands.  I put some buttons that trigger those commands, and it's quite zippy to press the button -- since it simply presses the button on the actual remote.
+      </p>
+      <br>
+      <p>
+        The code is on github here at <a href="https://github.com/seebq/remote_shade_control_app">Remote Shade Control App</a>. The meat of the code involves shelling out to run the GPIO.sh shell command:
+      </p>
+      <br>
+      <p>
+        <script src="https://gist.github.com/seebq/7403906.js"></script>
+      </p>
+      <br>
+      <p>
+        The web app also is fully automated and allows for automatic operation (closing and lowering based on sunrise and sunset) thanks to some clever ruby libraries.
+      </p>
+      <p>
+        <img src="http://f.cl.ly/items/1l3X241a3n002k3i1m03/remote_shade_control.png" width="390" height="750">
+      </p>
+      <br>
+      <p>
+        Check out the README for more information, and the full test suite.
+      </p>
+      <br>
+      <h2>parts</h2>
+      <p>
+        Here are some of the parts and estimated prices.
+      </p>
+      <br>
+      <ul class="styled">
+        <li>Raspberry Pi, Model B: $35.</li>
+        <li>MicroUSB 5V power cable, at least 700mA: $5. (<a href="http://www.amazon.com/gp/product/B004EYSKM8/ref=as_li_ss_tl?ie=UTF8&camp=1789&creative=390957&creativeASIN=B004EYSKM8&linkCode=as2&tag=charlbrianqui-20">Motorola Micro-USB Home and Travel Charger</a><img src="http://ir-na.amazon-adsystem.com/e/ir?t=charlbrianqui-20&l=as2&o=1&a=B004EYSKM8" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" /> on Amazon.com)</li>
+        <li>Keyboard and Mouse (not necessary once you install a network and SSHd): $17. (<a href="http://www.amazon.com/gp/product/B003NREDC8/ref=as_li_ss_tl?ie=UTF8&camp=1789&creative=390957&creativeASIN=B003NREDC8&linkCode=as2&tag=charlbrianqui-20">Logitech Desktop MK120 Mouse and keyboard Combo</a><img src="http://ir-na.amazon-adsystem.com/e/ir?t=charlbrianqui-20&l=as2&o=1&a=B003NREDC8" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" /> on Amazon.com)</li>
+        <li>Wireless Network Adapter: $9. You can also use the ethernet if you are installing near a wired connection. (<a href="http://www.amazon.com/gp/product/B003MTTJOY/ref=as_li_ss_tl?ie=UTF8&camp=1789&creative=390957&creativeASIN=B003MTTJOY&linkCode=as2&tag=charlbrianqui-20">Edimax EW-7811Un 150 Mbps Wireless 11n Nano Size USB Adapter with EZmax Setup Wizard</a><img src="http://ir-na.amazon-adsystem.com/e/ir?t=charlbrianqui-20&l=as2&o=1&a=B003MTTJOY" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" /> on Amazon.com)</li>
+        <li>8GB SD card: $9. (<a href="http://www.amazon.com/gp/product/B003VNKNEG/ref=as_li_ss_tl?ie=UTF8&camp=1789&creative=390957&creativeASIN=B003VNKNEG&linkCode=as2&tag=charlbrianqui-20">Transcend 8 GB Class 10 SDHC Flash Memory Card on Amazon.com</a><img src="http://ir-na.amazon-adsystem.com/e/ir?t=charlbrianqui-20&l=as2&o=1&a=B003VNKNEG" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" />)</li>
+        <li>Raspberry Pi Case: $13. Not entirely necessary, but looks good. (<a href="http://www.amazon.com/gp/product/B00ASJRMT0/ref=as_li_ss_tl?ie=UTF8&camp=1789&creative=390957&creativeASIN=B00ASJRMT0&linkCode=as2&tag=charlbrianqui-20">CY Raspberry Pi Case (Blackberry)</a><img src="http://ir-na.amazon-adsystem.com/e/ir?t=charlbrianqui-20&l=as2&o=1&a=B00ASJRMT0" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" /> on Amazon.com)</li>
+        <li>Breadboard and wires: $9. (<a href="http://www.amazon.com/gp/product/B004RXKWDQ/ref=as_li_ss_tl?ie=UTF8&camp=1789&creative=390957&creativeASIN=B004RXKWDQ&linkCode=as2&tag=charlbrianqui-20">microtivity IB401 400-point Experiment Breadboard w/ Jumper Wires</a><img src="http://ir-na.amazon-adsystem.com/e/ir?t=charlbrianqui-20&l=as2&o=1&a=B004RXKWDQ" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" /> on Amazon.com)</li>
+        <li>Raspberry Pi GPIO Breakout board and cable: $8. (<a href="http://www.adafruit.com/products/914">Adafruit Assembled Pi Cobbler Breakout + Cable for Raspberry Pi</a> from Adafruit)
+      </ul>
+      <h2>references</h2>
+      <p>
+        Here's the full album of the build on flickr: <a href="http://www.flickr.com/photos/seebq/sets/72157638180587385/">Shades Automation on Flickr</a>.
+      </p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <div class="block clearfix">
+      <h2>seebq.com</h2>
+      <div class="col100">
+        <p>Back to <a href="/">seebq.com</a>.</p>
+      </div>
+    </div>
+  </div>
+</section>

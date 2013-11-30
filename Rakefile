@@ -1,6 +1,6 @@
 desc "Generate the site"
 task :generate do
-  `jekyll`
+  `jekyll build`
 end
 
 desc "Deploy the site"
@@ -12,5 +12,5 @@ end
 
 desc "Run the server"
 task :server do
-  `jekyll --server --auto`
+  `jekyll serve --watch`
 end

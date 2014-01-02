@@ -49,7 +49,7 @@ title: "seebq.com - The Shameless Self-Promotion of Charles Brian Quinn"
         <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
       </div>
       <div class="buttons clearfix">
-        <a href="http://bignerdranch.com" class="ir bnr col50" title="End-to-End Mobile Development, Consulting, and Training from the Experts.">Big Nerd Ranch</a>
+        <a href="http://bignerdranch.com" class="ir bnr col50" title="We teach immersive app development bootcamps on mobile platforms. We develop apps for corporate clients. We write best-selling Big Nerd Ranch Guides.">Big Nerd Ranch</a>
         <a href="http://scoutapp.com" class="ir scout col50" title="The easier way to monitor servers and web applications. Monitor server load, watch for slow web requests, graph internal application data and much more.">Scout</a>
       </div>
     </div>
@@ -124,15 +124,13 @@ title: "seebq.com - The Shameless Self-Promotion of Charles Brian Quinn"
 <section>
   <div class="container">
     <div class="block clearfix">
-      <h2>Archive</h2>
-      <div class="col50">
-        <h1>Where's the Old Site?</h1>
-        <p>If you're wondering where the old site went, you're in luck. I've simply moved the content.  Visit the old <a href="http://www.seebq.com/index.php">SeeBQ.com</a> site.</p>
+      <h2>HowTos</h2>
+      {% for post in site.posts %}
+      <div class="col100">
+        <h1><a href="{{post.url}}">{{post.title}}</a></h1>
+        <p>{{post.description}} <a href="{{post.url}}">Read More...</a></p>
       </div>
-      <div class="col50">
-        <h1>&nbsp;</h1>
-        <p>The old site just wasn't being updated as regularly, and was an old blog that I stopped using. All the link love should be there.  Let me know if you're looking for something specific, and can't find it.</p>
-      </div>
+      {% endfor %}
     </div>
   </div>
 </section>

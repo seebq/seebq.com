@@ -16,14 +16,6 @@ h2 {
   text-transform: lowercase;
 }
 
-h3 {
-  
-}
-
-h4 {
-  
-}
-
 body {
   color: #555;
   font: 14px/1.4 Helvetica, Arial, san-serif;
@@ -154,10 +146,6 @@ section {
   margin-bottom: 50px;
 }
 
-section .pad {
-  padding: 20px 30px;
-}
-
 section .col50 {
   width: 50%;
   float: left;
@@ -193,76 +181,6 @@ div#social {
   padding-bottom: 10px;
 }
 
-div#social ul,
-div#social li {
-  list-style: none;
-  margin: 0px;
-}
-
-div#social li {
-  margin-bottom: 20px;
-  color: #000;
-  font-size: 12px;
-}
-
-div#social li:first-child {
-  font-size: 16px;
-  font-weight: bold;
-}
-
-div#social li span {
-  display: block;
-  font-size: 12px;
-}
-
-div#social li span a {
-  color: #555;
-  text-decoration: none;
-}
-
-p.twitter {
-  text-align: center;
-}
-
-p.twitter a {
-  background: #E7E9E9; /* old browsers */
-  background: -moz-linear-gradient(top, #E7E9E9 64%, #D7D9D8 100%); /* firefox */
-  background: -webkit-gradient(linear, left top, left bottom, color-stop(64%,#E7E9E9), color-stop(100%,#D7D9D8)); /* webkit */
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#E7E9E9', endColorstr='#D7D9D8',GradientType=0 ); /* ie */
-  
-  border: 1px solid rgba(0,0,0,.1);
-  color: #000;
-  display: inline-block;
-  padding: 0px 10px;
-  text-decoration: none;
-  
-  -webkit-border-radius: 5px;
-  -moz-border-radius: 5px;
-  border-radius: 5px;
-  
-  -webkit-box-shadow: 0px 2px 2px rgba(35,31,32,.1);
-  -moz-box-shadow: 0px 2px 2px rgba(35,31,32,.1);
-  box-shadow: 0px 2px 2px rgba(35,31,32,.1);
-}
-
-p.twitter a span {
-  padding-left: 30px;
-  display: inline-block;
-  height: 34px;
-  line-height: 34px;
-  background: url(../images/icon.twitter.png) no-repeat left center;
-}
-
-p.twitter a:active {
-  -webkit-transform: translateY(1px);
-  -moz-transform: translateY(1px);
-  transform: translateY(1px);
-
-  -webkit-box-shadow:none;
-  -moz-box-shadow:none;
-  box-shadow:none;
-}
-
 ul.styled {
   list-style-image: url(../images/icon.arrow.png);
   margin-left: 30px;
@@ -289,12 +207,6 @@ img.alignright {
   margin: 0 0 2px 10px;
   display: inline;
   border: 3px solid #000;
-}
-
-img.alignleft {
-  margin: 0 10px 2px 0;
-  display: inline;
-  border: 3px solid #376092;
 }
 
 /* @end */
@@ -432,11 +344,6 @@ section .block.col50 {
   width: 90%;
 }
 
-section .pad {
-  padding: 10px 0px 10px;
-  display: block;
-}
-
 section h1 {
   color: #333;
   font-size: 25px;
@@ -483,14 +390,6 @@ img.alignright {
   margin: 10px;
   display: block;
   border: 3px solid #000;
-  max-width: 90%;
-  float: left;
-}
-
-img.alignleft {
-  margin: 10px;
-  display: block;
-  border: 3px solid #376092;
   max-width: 90%;
   float: left;
 }

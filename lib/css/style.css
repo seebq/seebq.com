@@ -84,7 +84,7 @@ header .main p.title span.tagline {
 	font-size: 18px;
 	font-weight: 700;
 	font-family: "museo-slab-1","museo-slab-2",serif;
-	letter-spacing: -.1em;
+	letter-spacing: -.05em;
 	line-height: 48px;
 	text-transform: uppercase;
 	background: url(../images/bg.tagline.png) no-repeat center top;
@@ -189,29 +189,33 @@ section .block > * {
 	z-index: 2;
 }
 
-div#twitter ul,
-div#twitter li {
+div#social {
+  padding-bottom: 10px;
+}
+
+div#social ul,
+div#social li {
 	list-style: none;
 	margin: 0px;
 }
 
-div#twitter li {
+div#social li {
 	margin-bottom: 20px;
 	color: #000;
 	font-size: 12px;
 }
 
-div#twitter li:first-child {
+div#social li:first-child {
 	font-size: 16px;
 	font-weight: bold;
 }
 
-div#twitter li span {
+div#social li span {
 	display: block;
 	font-size: 12px;
 }
 
-div#twitter li span a {
+div#social li span a {
 	color: #555;
 	text-decoration: none;
 }
@@ -262,66 +266,22 @@ p.twitter a:active {
 ul.styled {
 	list-style-image: url(../images/icon.arrow.png);
 	margin-left: 30px;
+  padding-top: 10px;
 }
 
 ul.styled li {
 	margin-bottom: 25px;
 }
 
-.buttons {
-	margin: 50px 0px 30px;
+ul.links {
+	list-style-image: url(../images/icon.link.png);
+	margin-left: 30px;
+  padding-top: 10px;
 }
 
-.buttons a {
-	height: 48px;
-	position: relative;
-	text-decoration: none;
-	overflow: visible;
+ul.links li {
+	margin-bottom: 25px;
 }
-
-.buttons a.hg {
-	background: url(../images/logo.highgroove.png) no-repeat center center;
-}
-
-.buttons a.scout {
-	background: url(../images/logo.scout.png) no-repeat center center;
-}
-
-.buttons a.bnr {
-	background: url(../images/logo.bnr.png) no-repeat center center;
-}
-
-.buttons a:hover:before {
-  display: block;
-  padding: 15px 10px;
-  content: attr(sbtooltip);
-  text-align: center;
-  width: 180px;
-  height: auto;
-  background: #f1f1f1;
-  color: #555;
-  font-size: 12px;
-  text-indent: 0px;
-  
-  position: absolute; 
-  top: 63px;
-  left: 50%;
-  margin-left: -100px;
-}
-.buttons a:hover:after {
-  display: block;
-  content: "";  
-  border-color: transparent transparent #f1f1f1 transparent;
-  border-style: solid;
-  border-width: 15px;
-  height:0px;
-  width:0;
-  position:absolute;
-  bottom: -15px;
-  left: 50%;
-  margin-left: -7px;
-}
-
 
 /* @group Classes */
 
@@ -408,7 +368,14 @@ ul.styled {
 	display: block;
 }
 
-div#twitter {
+ul.links {
+	list-style-image: url("../images/icon.arrow.png");
+	margin-left: 30px;
+	margin-bottom: 60px;
+	display: block;
+}
+
+div#social {
 	max-width: 90%;
 	padding-left: 10px;
 	padding-right: 10px;

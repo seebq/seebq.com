@@ -22,10 +22,6 @@
 
   <script src="/lib/js/libs/modernizr-1.6.min.js"></script>
 
-  <!-- the Internet turns ugly when TypeKit goes down -->
-  <script type="text/javascript" src="http://use.typekit.com/dqg8anj.js"></script>
-  <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
-
 </head>
 
 <body>
